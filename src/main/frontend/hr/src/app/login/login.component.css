@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@100&display=swap');
+
+:root {
+    --main-color: rgb(0, 0, 0);
+    --forgot-pass-secondary: rgb(134, 116, 109);
+    --wrap-bg-color: rgb(82, 71, 69);
+    --auth-bg-color: rgba(255, 255, 255, 0.815);
+    --input-bg: rgba(255, 255, 255, 0.267);
+    --input-shadow: rgba(134, 134, 134, 0.233);
+    --icon-hover: rgb(161, 161, 161);
+    --black-shadow: rgba(0, 0, 0, 0.349);
+    --submit-primary: rgb(214, 214, 214);
+    --submit-hover: rgba(255, 255, 255, 0.61);
+    --submit-focus: rgb(44, 44, 44, 0.61);
+    --submit-focus-text: rgb(207, 207, 207);
+}
+
+
+*, *::before, ::after {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--wrap-bg-color);
+}
+
+.wrapper {
+    position: relative;
+    height: min-content;
+    min-height: calc(100vh - 2em);
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80%;
+    top: -19vh;
+    left: -22vw;
+    transform: rotate(-45deg);
+    width: 45vw;
+    height: 45vh;
+    background: rgb(131, 114, 114);
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+}
+
+.header::after {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    text-align: center;
+    content: 'HR PROGRAM';
+    margin-top: 23%;
+    margin-left: 5%;
+    width: 40%;
+    height: 50%;
+    font-size: clamp(.8rem, 3vw, 4rem);
+}
+
+.auth_box {
+    position: relative;
+    padding: 1.5em;
+    border-radius: 1vh;
+    width: 35vw;
+    height: min-content;
+    background: var(--auth-bg-color);
+    color: var(--main-color);
+    box-shadow: 5px 10px 5px var(--black-shadow);
+    word-wrap: break-word;
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+
+#Logo {
+    z-index: 0;
+    position: absolute;
+    width: clamp(3rem, 6vw, 8rem);
+    height: clamp(3rem, 6vw, 8rem);
+    top: 0;
+    right: 0;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    user-select: none
+}
+
+#login_form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    text-align: center;
+    font-size: clamp(3rem, 4.5vw, 4.5rem);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    user-select: none;
+}
+
+.input_field {
+    height: 2.5rem;
+    font-size: clamp(.7rem, 1.5vw, 1.5rem);
+    border: none;
+    background: var(--input-bg);
+    box-shadow: 0px 0px 10px var(--input-shadow);
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+    border-radius: .4rem;
+}
+
+.input_field:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px var(--black-shadow);
+}
+
+.pass_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#upass {
+    width: 100%;
+    padding-right: clamp(1.4rem, 2rem, 3rem);
+}
+
+#visibility_icon {
+    position: absolute;
+    right: 0;
+    font-size: clamp(.7rem, 1.5vw, 1.5rem);
+    padding-bottom: .5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+#visibility_icon:hover {
+    color: var(--icon-hover);
+    cursor: pointer;
+}
+
+#forgot_pass {
+    color: rgb(var(--main-color));
+    text-align: right;
+    text-decoration: none;
+    font-size: clamp(.7rem, 1.5vw, 1.5rem);
+    margin-bottom: 2rem;
+}
+
+#forgot_pass:hover {
+    color: var(--forgot-pass-secondary);
+    font-weight: 700;
+}
+#forgot_pass:focus {
+    outline: none;
+    color: var(--forgot-pass-secondary);
+    font-weight: 900;
+}
+
+#submit_button {
+    border-radius: .4rem;
+    height: 4rem;
+    font-size: clamp(1rem, 2vw, 2rem);
+    border: none;
+    background: var(--submit-primary);
+    cursor: pointer;
+    margin-top: 3em;
+}
+
+#submit_button:hover {
+    background: var(--submit-hover);
+}
+#submit_button:focus {
+    background: var(--submit-focus);
+    color: var(--submit-focus-text);
+    outline: none;
+}
