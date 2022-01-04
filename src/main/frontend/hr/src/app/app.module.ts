@@ -14,7 +14,6 @@ import { LoginComponent } from './hr/login/login.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
