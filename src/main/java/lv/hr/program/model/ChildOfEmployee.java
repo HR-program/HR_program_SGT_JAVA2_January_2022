@@ -1,7 +1,7 @@
 package lv.hr.program.model;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 @Entity
 @Table (name = "child")
@@ -19,6 +19,6 @@ public class ChildOfEmployee {
     private String surname;
 
     @Column(name = "child_date_of_birth")
-    private Calendar dateOfBirth;
+    private LocalDate dateOfBirth;
 
 }

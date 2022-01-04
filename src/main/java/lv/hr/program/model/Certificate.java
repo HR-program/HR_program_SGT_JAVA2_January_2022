@@ -1,7 +1,7 @@
 package lv.hr.program.model;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "certificate")
@@ -19,8 +19,8 @@ public class Certificate {
     private String name;
 
     @Column(name = "date_of_issue")
-    private Calendar dateOfIssue;
+    private LocalDate dateOfIssue;
 
     @Column(name = "date_of_expiry")
-    private Calendar dateOfExpiry;
+    private LocalDate dateOfExpiry;
 }

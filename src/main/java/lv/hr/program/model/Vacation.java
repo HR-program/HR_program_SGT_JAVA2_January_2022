@@ -1,7 +1,7 @@
 package lv.hr.program.model;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "vacation")
@@ -13,17 +13,19 @@ public class Vacation {
     private long id;
 
     @Column(name = "year")
-    private Calendar year;
+    private int year;
+    // int year = Year.now().getValue();
+    // int year = ZonedDateTime.now(ZoneId.of("Africa/Casablanca")).getYear();
 
     @Column(name = "vacation_start_date")
-    private Calendar vacationStartDate;
+    private LocalDate vacationStartDate;
 
     @Column(name = "vacation_end_date")
-    private Calendar vacationEndDate;
+    private LocalDate vacationEndDate;
 
-    @Column (name = "vacation_days_for_child")
+    @Column(name = "vacation_days_for_child")
     private int vacationDaysForChild;
 
-    @Column (name = "vacation_days_for_work_experience")
+    @Column(name = "vacation_days_for_work_experience")
     private int vacationDaysForWorkExperience;
 }

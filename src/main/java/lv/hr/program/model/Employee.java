@@ -1,7 +1,7 @@
 package lv.hr.program.model;
 
 import javax.persistence.*;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,17 +19,20 @@ public class Employee {
     @Column(name = "employee_surname")
     private String surname;
 
-    @Column(name = "employee_date_of_birth")
-    private Calendar dateOfBirth;
+    @Column(name = "gender")
+    private Gender gender;
 
-    @Column(name = "employee_id_number")
-    private String idNumber;
+    @Column(name = "employee_date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "employee_personal_code")
+    private String personalCode;
 
     @Column(name = "employee_id_document_number")
     private String idDocumentNumber;
 
     @Column(name = "employee_id_document_expiry_date")
-    private Calendar idDocumentExpiryDate;
+    private LocalDate idDocumentExpiryDate;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -62,7 +65,7 @@ public class Employee {
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
-    @Column(name = "employee_date_of_birth")
+    @Column(name = "how_many_children")
     private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")
