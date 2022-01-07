@@ -9,7 +9,7 @@
   <script src="scripts.js"></script>
 </head>
 <body>
-
+  <div *ngIf="employee">
 <div class="wrapper">
   <div class="header">
     <div class="logo">
@@ -24,27 +24,43 @@
         <table class="employee_table">
           <tr>
             <td class="employee_left_row_name">Nr</td>
-            <td class="employee_left_info"><span id="employee_nr">x</span></td>
+            <td class="employee_left_info"><span id="employee_nr">{{employee.id}}</span></td>
           </tr>
           <tr>
             <td class="employee_left_row_name">Name</td>
-            <td class="employee_left_info"><span id="employee_name">Example Example</span></td>
+            <td class="employee_left_info"><span id="employee_name">{{employee.name}} {{employee.surname}}</span></td>
+          </tr>
+          <tr>
+            <td class="employee_left_row_name">Gender</td>
+            <td class="employee_left_info"><span id="employee_name">{{employee.gender}}</span></td>
+          </tr>
+          <tr>
+            <td class="employee_left_row_name">Date of Birth</td>
+            <td class="employee_left_info"><span id="employee_name">{{employee.dateOfBirth}}</span></td>
           </tr>
           <tr>
             <td class="employee_left_row_name">Personal code</td>
-            <td class="employee_left_info"><span id="employee_pers_code">xxxxxx-xxxxx</span></td>
+            <td class="employee_left_info"><span id="employee_pers_code">{{employee.personalCode}}</span></td>
           </tr>
           <tr>
-            <td class="employee_left_row_name">Date of birth</td>
-            <td class="employee_left_info"><span id="employee_bday">xx.xx.xxxx</span></td>
+            <td class="employee_left_row_name">Document number</td>
+            <td class="employee_left_info"><span id="employee_bday">{{employee.idDocumentNumber}}</span></td>
           </tr>
           <tr>
-            <td class="employee_left_row_name">Address</td>
-            <td class="employee_left_info"><span id="employee_address">city, street, xx-xx</span></td>
+            <td class="employee_left_row_name">Document expiry date</td>
+            <td class="employee_left_info"><span id="document_exiry_date)">{{employee.idDocumentExpiryDate}}</span></td>
+          </tr>
+          <tr>
+            <td class="employee_left_row_name">Phone number</td>
+            <td class="employee_left_info"><span id="employee_phonenumber">{{employee.phoneNumber}}</span></td>
           </tr>
           <tr>
             <td class="employee_left_row_name">Email address</td>
-            <td class="employee_left_info"><span id="employee_email">email@mail.com</span></td>
+            <td class="employee_left_info"><span id="employee_email">{{employee.email}}</span></td>
+          </tr>
+          <tr>
+            <td class="employee_left_row_name">Address</td>
+            <td class="employee_left_info"><span id="employee_address">{{employee.address}}</span></td>
           </tr>
           <tr>
             <td class="employee_left_row_name">Department</td>
@@ -78,7 +94,7 @@
             Copy of id
           </button>
 
-          <button id="certificates" class="employee_buttons">
+          <button [routerLink]="'/certificates'" id="certificates" class="employee_buttons">
             Certificates
           </button>
 
@@ -89,10 +105,34 @@
           <button id="vacation" class="employee_buttons">
             Vacation
           </button>
+          <button  mwlConfirmationPopover
+          [popoverTitle]="popoverTitle" 
+          [popoverMessage]="popoverMessage"
+          placement="right"
+          (confirm)="confirmClicked = true;  deleteEmployee()"
+          (cancel)="cancelClicked = true"
+          confirmButtonType="danger"
+          cancelButtonType="outline-secondary"
+          id="deleteEmployee" class="employee_buttons">
+            Delete Employee
+          </button>
+          <button (click)= "openUpdateEmplyeeScreen(employee.id)"
+           id="updateEmployee" class="employee_buttons">
+            Update Employee
+          </button>
         </div>
       </div>
     </div>
   </div>
+  <div class="alert alert-info" [hidden]="!confirmClicked">
+    You clicked confirm!
+  </div>
+  <div class="alert alert-info" [hidden]="!cancelClicked">You cancelled!</div>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  
+  </button>
+</div>
+
   <div class="footer">
     <div class="footer_left">
       SHEGOESJAVA2
@@ -102,5 +142,7 @@
     </div>
   </div>
 </div>
-</body>
-</html>
+<div>
+
+
+

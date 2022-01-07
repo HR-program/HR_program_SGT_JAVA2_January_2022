@@ -10,8 +10,13 @@ public interface EmployeeService {
     public  void update(Long Id ,Employee employee);
     public  void deleteEmployeeByID(Long Id);
 
-    Employee fetchEmployeeByIdNumber(String idNumber);
+//    Employee fetchEmployeeByIdNumber(String idNumber);
 
-    Iterable<Employee> fetchEmployeeBySurname(String surname);
+//    Iterable<Employee> fetchEmployeeBySurname(String surname);
 
+    Employee fetchEmployeeByID(Long Id);
+    @NotNull Iterable<Employee> sortAllEmployeesByName();
+    @NotNull Iterable<Employee> sortAllEmployeesBySurname();
+
+    Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
 }

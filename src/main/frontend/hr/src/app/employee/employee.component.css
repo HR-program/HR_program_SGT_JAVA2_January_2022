@@ -132,6 +132,12 @@ body {
     font-size: clamp(.7rem, 2vh, 2rem);
 }
 
+#deleteEmployee, #updateEmployee{background: rgb(29, 153, 161);}
+
+#deleteEmployee:hover, #updateEmployee:hover{
+    cursor: pointer;
+    background: rgb(96, 181, 187);}
+
 .employee_buttons:hover {
     cursor: pointer;
     background: rgb(119, 119, 119);
