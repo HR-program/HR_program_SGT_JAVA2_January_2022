@@ -1,0 +1,63 @@
+<div class = "container">
+
+<span>
+  <button routerLink="/employees">Active Employees</button>
+</span>
+<span>
+  <button >All Employees</button>
+</span>
+<span>
+  <button routerLink="/add-employee">Add employee</button>
+</span>
+  
+</div>
+ <!-- <nav>
+      <a routerLink="/employees">Employee list</a>
+    
+ </nav>  
+        <nav>
+      <a routerLink="/add-employee">Add Employee</a>
+    </nav> -->
+    
+    
+    <div class = "col-md-6 offset-md-3"> 
+<div>
+<h4>Search Employee by:</h4>
+</div>
+<!-- <form (ngSubmit)= "onSubmit()"> -->
+<!-- <div class = "form-group">
+  <label>First Name: </label>
+  <input type = "text" class = "form-control" id ="name"
+  [(ngModel)] ="employee.name" name = "name">
+</div> -->
+
+<!-- <label for="hero-name">Hero name: </label>
+<input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name"> -->
+
+<form (ngSubmit)= "onSubmit()">
+<div class = "form-group">
+  <label>Last Name: </label>
+  <input class = "form-control" type = "text" [(ngModel)] ="employee.surname" name ="first" placeholder = "surname" >
+</div>
+
+<button class = "btn btn-success" type = "submit" >Submit</button>
+</form>
+
+
+
+
+<!-- <div class = "form-group">
+  <label>Personal Code: </label>
+  <input type = "text" class = "form-control" id ="name"
+  [(ngModel)] ="employee.name" name = "name">
+</div>
+<div class = "form-group">
+  <label>Departement: </label>
+  <input type = "text" class = "form-control" id ="name"
+  [(ngModel)] ="employee.name" name = "name">
+</div>
+<div class = "form-group">
+  <label>Manager: </label>
+  <input type = "text" class = "form-control" id ="name"
+  [(ngModel)] ="employee.name" name = "name">
+</div> -->
