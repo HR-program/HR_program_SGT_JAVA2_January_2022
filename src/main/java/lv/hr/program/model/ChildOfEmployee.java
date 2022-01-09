@@ -2,6 +2,7 @@ package lv.hr.program.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "child")
@@ -21,4 +22,17 @@ public class ChildOfEmployee {
     @Column(name = "child_date_of_birth")
     private LocalDate dateOfBirth;
 
+    @ManyToMany(mappedBy = "childrenOfEmployee",
+            fetch = FetchType.LAZY)
+    private List<Employee> employee;
+
+    public ChildOfEmployee() {
+    }
+
+//    public ChildOfEmployee(String name, String surname, LocalDate dateOfBirth, List<Employee> employee) {
+//        this.name = name;
+//        this.surname = surname;
+//        this.dateOfBirth = dateOfBirth;
+//        this.employee = employee;
+//    }
 }

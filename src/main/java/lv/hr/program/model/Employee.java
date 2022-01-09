@@ -47,30 +47,58 @@ public class Employee {
     @Column(name = "employee_education")
     private String education;
 
-    @Column(name = "employee_department_name")
-    private Department department;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "employee_department_name")
+    private List<Department> department;
 
-    @Column(name = "employee_position")
-    private PositionHistory currentPosition;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "current_position")
+    private List<PositionHistory> currentPosition;
 
-    @Column(name = "employee_certificate")
-    private String certificate;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "certificates")
+    private List<Certificate> certificate;
 
-    @Column(name = "evaluation")
-    private Evaluation evaluation;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "evaluation")
+    private List<Evaluation> evaluation;
 
-    @Column(name = "vacation")
-    private Vacation vacation;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "vacation")
+    private List<Vacation> vacation;
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
-    @Column(name = "how_many_children")
-    private List<ChildOfEmployee> childOfEmployee;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "employee_children",
+            joinColumns = {
+                    @JoinColumn(name = "employee_id",
+//                            referencedColumnName = "child_id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "child_id",
+//                            referencedColumnName = "employee_id",
+                            nullable = false, updatable = false)})
+    private List<ChildOfEmployee> childrenOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean isEmployeeActive;
 
     // all arguments' constructor
     // standard getters and setters
+
+    public Employee() {
+    }
+
 }

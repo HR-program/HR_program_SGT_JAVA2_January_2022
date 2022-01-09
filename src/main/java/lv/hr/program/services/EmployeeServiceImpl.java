@@ -33,11 +33,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         employeeRepository.deleteById(Id);
 
     }
-
-    @Override
-    public Employee fetchEmployeeByIdNumber(String idNumber) {
-        return employeeRepository.findByIdNumber(idNumber);
-    }
+//
+//    @Override
+//    public Employee fetchEmployeeByIdNumber(String idNumber) {
+//        return employeeRepository.findByIdNumber(idNumber);
+//    }
 
     @Override
     public Iterable<Employee> fetchEmployeeBySurname(String surname) {

@@ -37,10 +37,11 @@ public class EmployeeController {
         employeeService.deleteEmployeeByID(Id);
     }
 
-    @GetMapping("/employees/id-number/{id-number}")
-    public Employee fetchEmployeeByIdNumber(@PathVariable("id-number") String idNumber) {
-        return employeeService.fetchEmployeeByIdNumber(idNumber);
-    }
+//    @GetMapping("/employees/id-number/{id-number}")
+//    public Employee fetchEmployeeByIdNumber(@PathVariable("id-number") String idNumber) {
+//        return employeeService.fetchEmployeeByIdNumber(idNumber);
+//    }
+
     @GetMapping("/employees/surname/{surname}")
     public Iterable<Employee> fetchEmployeeBySurname(@PathVariable String surname){
         return employeeService.fetchEmployeeBySurname(surname);
