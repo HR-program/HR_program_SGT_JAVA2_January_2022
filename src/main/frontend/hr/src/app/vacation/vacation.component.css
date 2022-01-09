@@ -125,7 +125,7 @@ input {
 }
 
 button{
-  font-size: clamp(1rem, 1.5vh, 1.5rem);
+  font-size: 1.5rem;
   color: black;
   font-weight: 600;
 }

@@ -15,6 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http'
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SearchListComponent } from './search-list/search-list.component';
+import { VacationComponent } from './vacation/vacation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { SearchListComponent } from './search-list/search-list.component';
     CertificatesComponent,
     SearchEmloyeeComponent,
     SearchListComponent,
+    VacationComponent,
     
   ],
   imports: [
