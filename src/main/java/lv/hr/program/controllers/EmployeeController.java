@@ -3,6 +3,7 @@ package lv.hr.program.controllers;
 import lv.hr.program.model.Employee;
 import lv.hr.program.services.EmployeeService;
 import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/api/v1/")//standard(api/v1) url endpoint used for apis
 public class EmployeeController {
@@ -41,10 +42,26 @@ public class EmployeeController {
 //    public Employee fetchEmployeeByIdNumber(@PathVariable("id-number") String idNumber) {
 //        return employeeService.fetchEmployeeByIdNumber(idNumber);
 //    }
-
+//    @GetMapping("/employees/surname/{surname}")
+//    public Iterable<Employee> fetchEmployeeBySurname(@PathVariable String surname){
+//        return employeeService.fetchEmployeeBySurname(surname);
+//    }
     @GetMapping("/employees/surname/{surname}")
-    public Iterable<Employee> fetchEmployeeBySurname(@PathVariable String surname){
-        return employeeService.fetchEmployeeBySurname(surname);
+    public Iterable<Employee> fetchEmployeeBySurnameLike(@PathVariable String surname){
+        return employeeService.fetchEmployeeBySurnameLike("%"+surname+"%");
     }
+    @GetMapping("/employees/{id}")
+    public Employee fetchEmployeeById(@PathVariable("id") Long Id){
+        return employeeService.fetchEmployeeByID(Id);
+    }
+    @GetMapping("/employees/sort-by-name")
+    public Iterable<Employee> sortAllEmployeesByName() {
+        return employeeService.sortAllEmployeesByName();
+    }
+    @GetMapping("/employees/sort-by-surname")
+    public Iterable<Employee> sortAllEmployeesBySurname() {
+        return employeeService.sortAllEmployeesBySurname();
+    }
+
 }
 

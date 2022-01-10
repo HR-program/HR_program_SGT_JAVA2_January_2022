@@ -2,6 +2,7 @@ package lv.hr.program.services;
 
 import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.EmployeeRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void deleteEmployeeByID(Long Id) {
         employeeRepository.deleteById(Id);
+
     }
 
 //    @Override
@@ -38,8 +40,31 @@ public class EmployeeServiceImpl implements EmployeeService{
 //        return employeeRepository.findByIdNumber(idNumber);
 //    }
 
+//    @Override
+//    public Iterable<Employee> fetchEmployeeBySurname(String surname) {
+//        return employeeRepository.findBySurname(surname);
+//    }
+
+
+
     @Override
-    public Iterable<Employee> fetchEmployeeBySurname(String surname) {
-        return employeeRepository.findBySurname(surname);
+    public Employee fetchEmployeeByID(Long Id) {
+        return employeeRepository.findById(Id).get();
+
+    }
+
+    @Override
+    public Iterable<Employee> sortAllEmployeesByName() {
+        return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+    }
+
+    @Override
+    public Iterable<Employee> sortAllEmployeesBySurname() {
+        return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
+    }
+
+    @Override
+    public Iterable<Employee> fetchEmployeeBySurnameLike(String surname) {
+        return employeeRepository.findBySurnameLike("%"+surname+"%");
     }
 }

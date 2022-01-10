@@ -9,5 +9,6 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
 //    Employee findByIdNumber(String idNumber);
 
-    Iterable<Employee> findBySurname(String surname);
+//    Iterable<Employee> findBySurname(String surname);
+    Iterable<Employee> findBySurnameLike(String surname);
 }
