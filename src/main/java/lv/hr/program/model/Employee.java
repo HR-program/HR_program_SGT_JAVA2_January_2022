@@ -47,26 +47,50 @@ public class Employee {
     @Column(name = "employee_education")
     private String education;
 
-    @Column(name = "employee_department_name")
-    private Department department;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "employee_department_name")
+    private List<Department> department;
 
-    @Column(name = "employee_position")
-    private PositionHistory currentPosition;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "current_position")
+    private List<PositionHistory> currentPosition;
 
-    @Column(name = "employee_certificate")
-    private String certificate;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "certificates")
+    private List<Certificate> certificate;
 
-    @Column(name = "evaluation")
-    private Evaluation evaluation;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "evaluation")
+    private List<Evaluation> evaluation;
 
-    @Column(name = "vacation")
-    private Vacation vacation;
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "employee_id")
+//            referencedColumnName = "vacation")
+    private List<Vacation> vacation;
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
-    @Column(name = "how_many_children")
-    private List<ChildOfEmployee> childOfEmployee;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "employee_children",
+            joinColumns = {
+                    @JoinColumn(name = "employee_id",
+//                            referencedColumnName = "child_id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "child_id",
+//                            referencedColumnName = "employee_id",
+                            nullable = false, updatable = false)})
+    private List<ChildOfEmployee> childrenOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
@@ -214,4 +238,189 @@ public class Employee {
 
     // all arguments' constructor
     // standard getters and setters
+
+    public Employee() {
+    }
+
+    public Employee(String name, String surname, Gender gender, LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate, String phoneNumber, String email, String address, String education, List<Department> department, List<PositionHistory> currentPosition, List<Certificate> certificate, List<Evaluation> evaluation, List<Vacation> vacation, boolean doesEmployeeHaveChild, List<ChildOfEmployee> childrenOfEmployee, boolean isEmployeeActive) {
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.personalCode = personalCode;
+        this.idDocumentNumber = idDocumentNumber;
+        this.idDocumentExpiryDate = idDocumentExpiryDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.education = education;
+        this.department = department;
+        this.currentPosition = currentPosition;
+        this.certificate = certificate;
+        this.evaluation = evaluation;
+        this.vacation = vacation;
+        this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+        this.childrenOfEmployee = childrenOfEmployee;
+        this.isEmployeeActive = isEmployeeActive;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getPersonalCode() {
+        return personalCode;
+    }
+
+    public void setPersonalCode(String personalCode) {
+        this.personalCode = personalCode;
+    }
+
+    public String getIdDocumentNumber() {
+        return idDocumentNumber;
+    }
+
+    public void setIdDocumentNumber(String idDocumentNumber) {
+        this.idDocumentNumber = idDocumentNumber;
+    }
+
+    public LocalDate getIdDocumentExpiryDate() {
+        return idDocumentExpiryDate;
+    }
+
+    public void setIdDocumentExpiryDate(LocalDate idDocumentExpiryDate) {
+        this.idDocumentExpiryDate = idDocumentExpiryDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public List<Department> getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(List<Department> department) {
+        this.department = department;
+    }
+
+    public List<PositionHistory> getCurrentPosition() {
+        return currentPosition;
+    }
+
+    public void setCurrentPosition(List<PositionHistory> currentPosition) {
+        this.currentPosition = currentPosition;
+    }
+
+    public List<Certificate> getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(List<Certificate> certificate) {
+        this.certificate = certificate;
+    }
+
+    public List<Evaluation> getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(List<Evaluation> evaluation) {
+        this.evaluation = evaluation;
+    }
+
+    public List<Vacation> getVacation() {
+        return vacation;
+    }
+
+    public void setVacation(List<Vacation> vacation) {
+        this.vacation = vacation;
+    }
+
+    public boolean isDoesEmployeeHaveChild() {
+        return doesEmployeeHaveChild;
+    }
+
+    public void setDoesEmployeeHaveChild(boolean doesEmployeeHaveChild) {
+        this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+    }
+
+    public List<ChildOfEmployee> getChildrenOfEmployee() {
+        return childrenOfEmployee;
+    }
+
+    public void setChildrenOfEmployee(List<ChildOfEmployee> childrenOfEmployee) {
+        this.childrenOfEmployee = childrenOfEmployee;
+    }
+
+    public boolean isEmployeeActive() {
+        return isEmployeeActive;
+    }
+
+    public void setEmployeeActive(boolean employeeActive) {
+        isEmployeeActive = employeeActive;
+    }
 }

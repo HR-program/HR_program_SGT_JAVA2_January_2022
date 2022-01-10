@@ -12,7 +12,6 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 public class SwaggerConfig {
 
-
     @Bean
     public Docket getBean(){
         return new Docket(DocumentationType.SWAGGER_2).select().paths(regex("/api.*")).build().apiInfo(getInfo());
@@ -20,6 +19,5 @@ public class SwaggerConfig {
 
     private ApiInfo getInfo(){
         return new ApiInfoBuilder().title("HR management system API documentation").build();
-
     }
 }
