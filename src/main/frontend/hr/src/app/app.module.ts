@@ -28,7 +28,7 @@ import { VacationComponent } from './vacation/vacation.component';
     SearchEmloyeeComponent,
     SearchListComponent,
     VacationComponent,
-    
+
   ],
   imports: [
     FormsModule,
@@ -37,11 +37,17 @@ import { VacationComponent } from './vacation/vacation.component';
     FormsModule,
     NgxPaginationModule,
     HttpClientModule,
+    routing,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
   ],
   providers: [],
+  declarations: [
+          AppComponent,
+          HomeComponent,
+          LoginComponent
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

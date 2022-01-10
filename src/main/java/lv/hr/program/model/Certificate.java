@@ -1,9 +1,16 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "certificate")
 public class Certificate {
 
@@ -33,62 +40,5 @@ public class Certificate {
             nullable = false)
     private Employee employee;
 
-    public Certificate() {
-    }
 
-    public Certificate(String number, String name, LocalDate dateOfIssue, LocalDate dateOfExpiry, Employee employee) {
-        this.number = number;
-        this.name = name;
-        this.dateOfIssue = dateOfIssue;
-        this.dateOfExpiry = dateOfExpiry;
-        this.employee = employee;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getDateOfIssue() {
-        return dateOfIssue;
-    }
-
-    public void setDateOfIssue(LocalDate dateOfIssue) {
-        this.dateOfIssue = dateOfIssue;
-    }
-
-    public LocalDate getDateOfExpiry() {
-        return dateOfExpiry;
-    }
-
-    public void setDateOfExpiry(LocalDate dateOfExpiry) {
-        this.dateOfExpiry = dateOfExpiry;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

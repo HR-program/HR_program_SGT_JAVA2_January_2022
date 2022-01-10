@@ -1,9 +1,16 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "evaluation")
 public class Evaluation {
 
@@ -26,45 +33,4 @@ public class Evaluation {
             updatable = false,
             nullable = false)
     private Employee employee;
-
-    public Evaluation() {
-    }
-
-    public Evaluation(LocalDate dateOfEvaluation, String summary, Employee employee) {
-        this.dateOfEvaluation = dateOfEvaluation;
-        this.summary = summary;
-        this.employee = employee;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public LocalDate getDateOfEvaluation() {
-        return dateOfEvaluation;
-    }
-
-    public void setDateOfEvaluation(LocalDate dateOfEvaluation) {
-        this.dateOfEvaluation = dateOfEvaluation;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

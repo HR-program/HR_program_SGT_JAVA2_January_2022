@@ -1,9 +1,16 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "vacation")
 public class Vacation {
 
@@ -37,72 +44,4 @@ public class Vacation {
             updatable = false,
             nullable = false)
     private Employee employee;
-
-    public Vacation() {
-    }
-
-    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild, int vacationDaysForWorkExperience, Employee employee) {
-        this.year = year;
-        this.vacationStartDate = vacationStartDate;
-        this.vacationEndDate = vacationEndDate;
-        this.vacationDaysForChild = vacationDaysForChild;
-        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
-        this.employee = employee;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public LocalDate getVacationStartDate() {
-        return vacationStartDate;
-    }
-
-    public void setVacationStartDate(LocalDate vacationStartDate) {
-        this.vacationStartDate = vacationStartDate;
-    }
-
-    public LocalDate getVacationEndDate() {
-        return vacationEndDate;
-    }
-
-    public void setVacationEndDate(LocalDate vacationEndDate) {
-        this.vacationEndDate = vacationEndDate;
-    }
-
-    public int getVacationDaysForChild() {
-        return vacationDaysForChild;
-    }
-
-    public void setVacationDaysForChild(int vacationDaysForChild) {
-        this.vacationDaysForChild = vacationDaysForChild;
-    }
-
-    public int getVacationDaysForWorkExperience() {
-        return vacationDaysForWorkExperience;
-    }
-
-    public void setVacationDaysForWorkExperience(int vacationDaysForWorkExperience) {
-        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

@@ -1,10 +1,17 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
 @Table(name = "positions")
+@NoArgsConstructor
+@AllArgsConstructor
 public class PositionHistory {
 
     @Id
@@ -26,45 +33,4 @@ public class PositionHistory {
             updatable = false,
             nullable = false)
     private Employee employee;
-
-    public PositionHistory() {
-    }
-
-    public PositionHistory(LocalDate workStartDate, LocalDate workEndDate, Employee employee) {
-        this.workStartDate = workStartDate;
-        this.workEndDate = workEndDate;
-        this.employee = employee;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public LocalDate getWorkStartDate() {
-        return workStartDate;
-    }
-
-    public void setWorkStartDate(LocalDate workStartDate) {
-        this.workStartDate = workStartDate;
-    }
-
-    public LocalDate getWorkEndDate() {
-        return workEndDate;
-    }
-
-    public void setWorkEndDate(LocalDate workEndDate) {
-        this.workEndDate = workEndDate;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

@@ -1,6 +1,6 @@
 package lv.hr.program.controllers;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +15,9 @@ import java.util.Base64;
 public class UserController {
 
     @RequestMapping("/login")
-    public boolean login(@RequestBody SecurityProperties.User user) {
+    public boolean login(@RequestBody User user) {
         return
-                user.getName().equals("user") && user.getPassword().equals("password");
+                user.getUsername().equals("user") && user.getPassword().equals("password");
     }
 
     @RequestMapping("/user")
