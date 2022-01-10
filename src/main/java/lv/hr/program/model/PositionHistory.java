@@ -35,4 +35,36 @@ public class PositionHistory {
         this.workEndDate = workEndDate;
         this.employee = employee;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getWorkStartDate() {
+        return workStartDate;
+    }
+
+    public void setWorkStartDate(LocalDate workStartDate) {
+        this.workStartDate = workStartDate;
+    }
+
+    public LocalDate getWorkEndDate() {
+        return workEndDate;
+    }
+
+    public void setWorkEndDate(LocalDate workEndDate) {
+        this.workEndDate = workEndDate;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }

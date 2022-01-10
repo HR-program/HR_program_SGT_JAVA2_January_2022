@@ -35,4 +35,36 @@ public class Evaluation {
         this.summary = summary;
         this.employee = employee;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDateOfEvaluation() {
+        return dateOfEvaluation;
+    }
+
+    public void setDateOfEvaluation(LocalDate dateOfEvaluation) {
+        this.dateOfEvaluation = dateOfEvaluation;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }

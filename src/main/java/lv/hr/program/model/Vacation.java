@@ -49,4 +49,60 @@ public class Vacation {
         this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
         this.employee = employee;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public LocalDate getVacationStartDate() {
+        return vacationStartDate;
+    }
+
+    public void setVacationStartDate(LocalDate vacationStartDate) {
+        this.vacationStartDate = vacationStartDate;
+    }
+
+    public LocalDate getVacationEndDate() {
+        return vacationEndDate;
+    }
+
+    public void setVacationEndDate(LocalDate vacationEndDate) {
+        this.vacationEndDate = vacationEndDate;
+    }
+
+    public int getVacationDaysForChild() {
+        return vacationDaysForChild;
+    }
+
+    public void setVacationDaysForChild(int vacationDaysForChild) {
+        this.vacationDaysForChild = vacationDaysForChild;
+    }
+
+    public int getVacationDaysForWorkExperience() {
+        return vacationDaysForWorkExperience;
+    }
+
+    public void setVacationDaysForWorkExperience(int vacationDaysForWorkExperience) {
+        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }
