@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { SearchEmloyeeComponent } from '../search-emloyee/search-emloyee.component';
+import { SearchEmployeeComponent } from '../search-employee/search-employee.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,13 +17,13 @@ export class EmployeeListComponent implements OnInit {
   totalElements =0;
   pageSize:number=3;
   noOfRows =3;
-  
+
   constructor(private employeeService: EmployeeService,
- 
+
    ) { }
 
   ngOnInit(): void {
-  
+
     this.getEmployees();
     document.getElementById('goToLastPage').hidden = true;
   }
@@ -35,19 +35,19 @@ export class EmployeeListComponent implements OnInit {
              })
   }
   sortByName():void{
-    this.employeeService.sortByname().subscribe
+    this.employeeService.sortByName().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
     })}
-    
+
   sortBySurName():void{
     this.employeeService.sortBySurname().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
     })}
-   
+
  selectedOption(){
 
     switch(this.selected) {

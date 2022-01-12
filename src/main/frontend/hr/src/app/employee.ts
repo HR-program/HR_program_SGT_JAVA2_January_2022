@@ -11,7 +11,7 @@ export class Employee {
     email: string|undefined;
     address: string|undefined;
     education: string|undefined;
-    // department:Departement;
+    // department:Department;
     // currentPosition:PositionHistory;
     certificate: string|undefined ;
     // evaluation:Evaluation;

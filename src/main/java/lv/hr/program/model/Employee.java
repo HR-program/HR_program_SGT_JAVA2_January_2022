@@ -54,46 +54,52 @@ public class Employee {
     @Column(name = "employee_education")
     private String education;
 
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private List<Department> department;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<Department> department;
 
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private List<PositionHistory> currentPosition;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<PositionHistory> currentPosition;
+//
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<Certificate> certificate;
+//
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<Evaluation> evaluation;
+//
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<Vacation> vacation;
+//
+//    @Column(name = "employee_has_a_child")
+//    private boolean doesEmployeeHaveChild;
+//
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+//    private List<ChildOfEmployee> childrenOfEmployee;
 
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private List<Certificate> certificate;
-
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private List<Evaluation> evaluation;
-
-    @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_id")
-    private List<Vacation> vacation;
-
-    @Column(name = "employee_has_a_child")
-    private boolean doesEmployeeHaveChild;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "employee_children",
-            joinColumns = {
-                    @JoinColumn(name = "employee_id",
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    @JoinTable(name = "employee_children",
+//            joinColumns = {
+//                    @JoinColumn(name = "employee_id",
 //                            referencedColumnName = "child_id",
-                            nullable = false, updatable = false)},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "child_id",
+//                            nullable = false, updatable = false)},
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "child_id",
 //                            referencedColumnName = "employee_id",
-                            nullable = false, updatable = false)})
-    private List<ChildOfEmployee> childrenOfEmployee;
+//                            nullable = false, updatable = false)})
+//    private List<ChildOfEmployee> childrenOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
+
 }

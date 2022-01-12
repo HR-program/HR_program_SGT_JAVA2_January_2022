@@ -9,32 +9,32 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { CertificatesComponent } from './certificates/certificates.component';
-import { SearchEmloyeeComponent } from './search-emloyee/search-emloyee.component';
+import { SearchEmployeeComponent} from './search-employee/search-employee.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http'
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SearchListComponent } from './search-list/search-list.component';
 import { VacationComponent } from './vacation/vacation.component';
+import { HomeComponent } from './home/containers/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     LoginComponent,
     EmployeeComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     CertificatesComponent,
-    SearchEmloyeeComponent,
+    SearchEmployeeComponent,
     SearchListComponent,
-    VacationComponent,
-
+    VacationComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     NgxPaginationModule,
     HttpClientModule,
     routing,
@@ -43,11 +43,6 @@ import { VacationComponent } from './vacation/vacation.component';
     }),
   ],
   providers: [],
-  declarations: [
-          AppComponent,
-          HomeComponent,
-          LoginComponent
-      ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

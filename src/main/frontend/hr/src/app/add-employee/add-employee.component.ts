@@ -22,32 +22,24 @@ export class AddEmployeeComponent implements OnInit {
     this.employeeService.addEmployee( this.employee).subscribe(data=>{
       console.log(data);
       this.goToEmployeesList();
-      
     },
    error=> console.log(error));
   }
-  
+
   goToEmployeesList(){
-  
+
   this.router.navigate(['employees']);
   setTimeout(() => document.getElementById('goToLastPage').click(), 350)
-
-
-  
   }
-  
+
 
   goToEmployeesScreen(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.router.navigate(['employees', id]);
-    
-    
     }
-   
+
     onSubmit(){
       console.log(this.employee);
       this.addEmployee();
-      
-      
     }
 }

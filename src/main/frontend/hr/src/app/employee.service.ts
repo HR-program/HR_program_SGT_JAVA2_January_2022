@@ -10,10 +10,10 @@ import {HttpClient}from '@angular/common/http'
 
 export class EmployeeService {
   private sortEmployeeByNameURL = '/api/v1/employees/sort-by-name';
-  private sortEmloyeeBySurnameURL ='/api/v1/employees/sort-by-surname';
+  private sortEmployeeBySurnameURL ='/api/v1/employees/sort-by-surname';
 private findBySurnameURL ='/api/v1/employees/surname';
 
- 
+
   private baseURL= '/api/v1/employees';
   constructor(private httpClient: HttpClient) { }
 
@@ -24,11 +24,11 @@ private findBySurnameURL ='/api/v1/employees/surname';
   getEmployeesList():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.baseURL);
   }
-  sortByname():Observable<Employee[]>{
+  sortByName():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.sortEmployeeByNameURL);
 }
 sortBySurname():Observable<Employee[]>{
-  return this.httpClient.get<Employee[]>(this.sortEmloyeeBySurnameURL);
+  return this.httpClient.get<Employee[]>(this.sortEmployeeBySurnameURL);
 }
 addEmployee(employee: Employee): Observable<any> {
   return this.httpClient.post(this.baseURL, employee);

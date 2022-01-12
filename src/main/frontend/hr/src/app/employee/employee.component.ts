@@ -39,8 +39,8 @@ export class EmployeeComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response);
-  
-        
+
+
         setTimeout(() =>this.router.navigate(['employees']),350);
       },
       error => {
@@ -48,14 +48,14 @@ export class EmployeeComponent implements OnInit {
       });
   }
   // getDeleteMessage(){
-  
+
   //   return this.employeeName = this.employee?.name, this.employee?.surname
   // }
-  
-  openUpdateEmplyeeScreen(id: any){
-    
+
+  openUpdateEmployeeScreen(id: any){
+
     this.router.navigate(['update-employee', id]) ;
-  
+
   }
   }
 

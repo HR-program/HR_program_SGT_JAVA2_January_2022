@@ -5,11 +5,11 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-search-emloyee',
-  templateUrl: './search-emloyee.component.html',
-  styleUrls: ['./search-emloyee.component.css']
+  selector: 'app-search-employee',
+  templateUrl: './search-employee.component.html',
+  styleUrls: ['./search-employee.component.css']
 })
-export class SearchEmloyeeComponent implements OnInit {
+export class SearchEmployeeComponent implements OnInit {
 employee:Employee = new Employee();
 searchName:string;
 surname:string;
@@ -23,30 +23,25 @@ totalLength: any;
   }
 onSubmit(){
   // console.log(this.employee.surname);
-
   this.findEmployeesBySurname();
-  
 }
-
-
 
    findEmployeesBySurname(){
     //  console.log(this.employee.surname)
     // console.log(this.employee.surname);
-   
+
     this.employeeService.findEmployeesBySurnameLike(this.employee.surname).subscribe(data =>{
       this.employees = data;
       console.log(this.employees);
       this.dataSharingService.currentSearchedEmployees;
       console.log(this.dataSharingService.currentSearchedEmployees);
       this.totalLength=data.length;
- 
+
       this.goToSearchedList();
              })
 }
 
 goToSearchedList(){
-  
   this.router.navigate(['searched-employees']);
 }
 }

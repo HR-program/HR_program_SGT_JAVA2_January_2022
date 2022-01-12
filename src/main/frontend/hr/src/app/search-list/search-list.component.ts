@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from '../data-sharing.service';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { SearchEmloyeeComponent } from '../search-emloyee/search-emloyee.component';
+import { SearchEmployeeComponent } from '../search-employee/search-employee.component';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class SearchListComponent implements OnInit {
   totalElements =0;
   pageSize:number=3;
   noOfRows =3;
-  
+
   constructor(private employeeService: EmployeeService,
     private dataSharingService: DataSharingService
    ) { }
@@ -29,7 +29,7 @@ export class SearchListComponent implements OnInit {
    this.dataSharingService.currentSearchedEmployees;
    (console.log (this.dataSharingService.currentSearchedEmployees));
     document.getElementById('goToLastPage').hidden = true;}
-    
+
     private getEmployees(){
       this.employeeService.getEmployeesList().subscribe(data =>{
         this.employees = data;
@@ -38,33 +38,31 @@ export class SearchListComponent implements OnInit {
                })
     }
     sortByName():void{
-      this.employeeService.sortByname().subscribe
+      this.employeeService.sortByName().subscribe
       (data =>{
         this.employees = data;
         console.log (data);
       })}
-      
+
     sortBySurName():void{
       this.employeeService.sortBySurname().subscribe
       (data =>{
         this.employees = data;
         console.log (data);
       })}
-     
+
    selectedOption(){
-  
+
       switch(this.selected) {
         case "1":
            // if modo 1 is selected do something.
            break;
         case "4":
-           this.sortBySurName();
+           this.sortBySurname();
            break;
         case "5":
            this.sortByName();
            break;
-  
       }
   }
-
 }

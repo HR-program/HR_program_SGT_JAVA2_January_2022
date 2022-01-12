@@ -25,12 +25,12 @@ public class Evaluation {
     @Column(name = "summary")
     private String summary;
 
-    @ManyToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            optional = false)
-    @JoinColumn(name = "employee_id",
-            insertable = false,
-            updatable = false,
-            nullable = false)
-    private Employee employee;
+//    @ManyToOne(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL,
+//            optional = false)
+//    @JoinColumn(name = "employee_id",
+//            insertable = false,
+//            updatable = false,
+//            nullable = false)
+//    private Employee employee;
 }

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -29,7 +28,16 @@ public class ChildOfEmployee {
     @Column(name = "child_date_of_birth")
     private LocalDate dateOfBirth;
 
-    @ManyToMany(mappedBy = "childrenOfEmployee",
-            fetch = FetchType.LAZY)
-    private List<Employee> employee;
+//    @ManyToOne(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL,
+//            optional = false)
+//    @JoinColumn(name = "employee_id",
+//            insertable = false,
+//            updatable = false,
+//            nullable = false)
+//    private Employee employee;
+
+//    @ManyToMany(mappedBy = "childrenOfEmployee",
+//            fetch = FetchType.LAZY)
+//    private List<Employee> employee;
 }
