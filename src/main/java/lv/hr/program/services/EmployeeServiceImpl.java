@@ -2,12 +2,15 @@ package lv.hr.program.services;
 
 import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
-
+@Autowired
     private EmployeeRepository employeeRepository;
 
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
@@ -20,8 +23,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee create(Employee employee) {
-        return employeeRepository.save(employee);
+    public void create(Employee employee) {
+         employeeRepository.save(employee);
     }
 
     @Override
@@ -35,10 +38,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     }
 
-//    @Override
-//    public Employee fetchEmployeeByIdNumber(String idNumber) {
-//        return employeeRepository.findByIdNumber(idNumber);
-//    }
+    @Override
+    public Iterable<Employee> fetchEmployeeByPersonalCodeLike(String personalCode) {
+        return employeeRepository.findByPersonalCodeLike("%"+personalCode+"%");
+    }
 
 //    @Override
 //    public Iterable<Employee> fetchEmployeeBySurname(String surname) {
@@ -66,5 +69,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public Iterable<Employee> fetchEmployeeBySurnameLike(String surname) {
         return employeeRepository.findBySurnameLike("%"+surname+"%");
+    }
+
+    @Override
+    public Iterable<Employee> fetchEmployeeByNameLike(String name) {
+        return employeeRepository.findByNameLike("%"+name+"%");
     }
 }

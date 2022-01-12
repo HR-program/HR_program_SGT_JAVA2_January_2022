@@ -1,14 +1,21 @@
 package lv.hr.program.controllers;
 
+import lv.hr.program.model.Department;
 import lv.hr.program.model.Employee;
 import lv.hr.program.services.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/")//standard(api/v1) url endpoint used for apis
-public class EmployeeController {
 
+public class EmployeeController {
+@Autowired
     private EmployeeService employeeService;
+
+//    Department department = new Department();
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -25,11 +32,14 @@ public class EmployeeController {
     @PostMapping("/employees")
 //    @ApiOperation("adding new employee to database")
     public void addNewEmployee(@RequestBody Employee employee) {
+
+//department.addEmployee(employee);
         employeeService.create(employee);
     }
 
     @PutMapping("/employees/{id}")
     public void updateEmployee(@PathVariable("id") Long Id, @RequestBody Employee employee) {
+
         employeeService.update(Id, employee);
     }
 
@@ -38,18 +48,24 @@ public class EmployeeController {
         employeeService.deleteEmployeeByID(Id);
     }
 
-//    @GetMapping("/employees/id-number/{id-number}")
-//    public Employee fetchEmployeeByIdNumber(@PathVariable("id-number") String idNumber) {
-//        return employeeService.fetchEmployeeByIdNumber(idNumber);
-//    }
+    @GetMapping("/employees/personal-code/{personal-code}")
+    public Iterable<Employee> fetchEmployeeByPersonalCodeLike(@PathVariable("personal-code") String personalCode) {
+        return employeeService.fetchEmployeeByPersonalCodeLike(personalCode);
+    }
 //    @GetMapping("/employees/surname/{surname}")
 //    public Iterable<Employee> fetchEmployeeBySurname(@PathVariable String surname){
 //        return employeeService.fetchEmployeeBySurname(surname);
 //    }
     @GetMapping("/employees/surname/{surname}")
-    public Iterable<Employee> fetchEmployeeBySurnameLike(@PathVariable String surname){
-        return employeeService.fetchEmployeeBySurnameLike("%"+surname+"%");
+    public Iterable<Employee> fetchEmployeeBySurnameLike(@PathVariable String surname) {
+        return employeeService.fetchEmployeeBySurnameLike(surname);
     }
+
+    @GetMapping("/employees/name/{name}")
+    public Iterable<Employee> fetchEmployeeByNameLike(@PathVariable String name) {
+        return employeeService.fetchEmployeeByNameLike(name);
+    }
+
     @GetMapping("/employees/{id}")
     public Employee fetchEmployeeById(@PathVariable("id") Long Id){
         return employeeService.fetchEmployeeByID(Id);

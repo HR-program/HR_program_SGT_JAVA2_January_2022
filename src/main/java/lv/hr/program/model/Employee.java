@@ -47,26 +47,45 @@ public class Employee {
     @Column(name = "employee_education")
     private String education;
 
-    @Column(name = "employee_department_name")
+    @ManyToOne
+
     private Department department;
 
-    @Column(name = "employee_position")
-    private PositionHistory currentPosition;
 
-    @Column(name = "employee_certificate")
-    private String certificate;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//
+////            referencedColumnName = "current_position")
+//    private List<PositionHistory> currentPosition;
 
-    @Column(name = "evaluation")
-    private Evaluation evaluation;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+////            referencedColumnName = "certificates")
+//    private List<Certificate> certificate;
 
-    @Column(name = "vacation")
-    private Vacation vacation;
+//    @OneToMany(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+////            referencedColumnName = "evaluation")
+//    private List<Evaluation> evaluation;
+
+    @OneToMany
+//            (fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    @JoinColumn(name = "employee_id")
+////            referencedColumnName = "vacation")
+    (mappedBy = "employee")
+    private List<Vacation> vacation;
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
-    @Column(name = "how_many_children")
-    private List<ChildOfEmployee> childOfEmployee;
+//@OneToMany
+////        (fetch = FetchType.EAGER)
+////        (mappedBy = "employee")
+////(fetch = FetchType.EAGER, orphanRemoval = true)
+//    private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
@@ -74,7 +93,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(long id, String name, String surname, Gender gender, LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate, String phoneNumber, String email, String address, String education, String certificate, boolean doesEmployeeHaveChild, boolean employeeActive) {
+    public Employee(long id, String name, String surname, Gender gender, LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate, String phoneNumber, String email, String address, String education, Department department, boolean doesEmployeeHaveChild, List<ChildOfEmployee> childOfEmployee, boolean employeeActive) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -87,8 +106,9 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.education = education;
-        this.certificate = certificate;
+        this.department = department;
         this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+//        this.childOfEmployee = childOfEmployee;
         this.employeeActive = employeeActive;
     }
 
@@ -188,30 +208,71 @@ public class Employee {
         this.education = education;
     }
 
-    public String getCertificate() {
-        return certificate;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setCertificate(String certificate) {
-        this.certificate = certificate;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    public boolean isDoesEmployeeHaveChild() {
-        return doesEmployeeHaveChild;
+//    public List<PositionHistory> getCurrentPosition() {
+//        return currentPosition;
+//    }
+//
+//    public void setCurrentPosition(List<PositionHistory> currentPosition) {
+//        this.currentPosition = currentPosition;
+//    }
+//
+//    public List<Certificate> getCertificate() {
+//        return certificate;
+//    }
+//
+//    public void setCertificate(List<Certificate> certificate) {
+//        this.certificate = certificate;
+//    }
+//
+//    public List<Evaluation> getEvaluation() {
+//        return evaluation;
+//    }
+//
+//    public void setEvaluation(List<Evaluation> evaluation) {
+//        this.evaluation = evaluation;
+//    }
+
+    public List<Vacation> getVacation() {
+        return vacation;
     }
 
-    public void setDoesEmployeeHaveChild(boolean doesEmployeeHaveChild) {
-        this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+    public void setVacation(List<Vacation> vacation) {
+        this.vacation = vacation;
     }
 
-    public boolean isEmployeeActive() {
-        return employeeActive;
+        public boolean isDoesEmployeeHaveChild () {
+            return doesEmployeeHaveChild;
+        }
+
+        public void setDoesEmployeeHaveChild ( boolean doesEmployeeHaveChild){
+            this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+        }
+
+//    public List<ChildOfEmployee> getChildOfEmployee() {
+//        return childOfEmployee;
+//    }
+//
+//    public void setChildOfEmployee(List<ChildOfEmployee> childOfEmployee) {
+//        this.childOfEmployee = childOfEmployee;
+//    }
+
+        public boolean isEmployeeActive () {
+            return employeeActive;
+        }
+
+        public void setEmployeeActive ( boolean employeeActive){
+            this.employeeActive = employeeActive;
+        }
+
+        // all arguments' constructor
+        // standard getters and setters
     }
 
-    public void setEmployeeActive(boolean employeeActive) {
-        this.employeeActive = employeeActive;
-    }
-
-    // all arguments' constructor
-    // standard getters and setters
-}

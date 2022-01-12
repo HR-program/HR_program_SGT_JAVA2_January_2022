@@ -41,7 +41,7 @@ export class EmployeeComponent implements OnInit {
         console.log(response);
   
         
-        setTimeout(() =>this.router.navigate(['employees']),350);
+        setTimeout(() =>this.router.navigate(['search-employees']),500);
       },
       error => {
         console.log(error);
@@ -56,6 +56,10 @@ export class EmployeeComponent implements OnInit {
     
     this.router.navigate(['update-employee', id]) ;
   
+  }
+
+  goToEmployeesChildren(id:any){
+    this.router.navigate(['employees-children',id]);
   }
   }
 

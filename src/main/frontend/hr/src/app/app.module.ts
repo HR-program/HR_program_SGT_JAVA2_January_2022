@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +14,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http'
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SearchListComponent } from './search-list/search-list.component';
+import { AddChildComponent } from './add-child/add-child.component';
+import { DepartmentComponent } from './department/department.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { UpdateDepartmentComponent } from './update-department/update-department.component';
+import { ChildrenListComponent } from './children-list/children-list.component';
+import { EmployessChildernComponent } from './employess-childern/employess-childern.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +34,13 @@ import { SearchListComponent } from './search-list/search-list.component';
     CertificatesComponent,
     SearchEmloyeeComponent,
     SearchListComponent,
+    AddChildComponent,
+    DepartmentComponent,
+    DepartmentListComponent,
+    AddDepartmentComponent,
+    UpdateDepartmentComponent,
+    ChildrenListComponent,
+    EmployessChildernComponent,
     
   ],
   imports: [

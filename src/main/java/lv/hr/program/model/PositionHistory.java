@@ -17,4 +17,22 @@ public class PositionHistory {
 
     @Column(name = "employee_work_end_date")
     private LocalDate workEndDate;
+
+//    @ManyToOne(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL,
+//            optional = false)
+//    @JoinColumn(name = "employee_id",
+//            insertable = false,
+//            updatable = false,
+//            nullable = false)
+//    private Employee employee;
+//
+//    public PositionHistory() {
+//    }
+
+//    public PositionHistory(LocalDate workStartDate, LocalDate workEndDate, Employee employee) {
+//        this.workStartDate = workStartDate;
+//        this.workEndDate = workEndDate;
+//        this.employee = employee;
+//    }
 }

@@ -1,9 +1,16 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "certificate")
 public class Certificate {
 
@@ -23,4 +30,15 @@ public class Certificate {
 
     @Column(name = "date_of_expiry")
     private LocalDate dateOfExpiry;
+
+//    @ManyToOne(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL,
+//            optional = false)
+//    @JoinColumn(name = "employee_id",
+//            insertable = false,
+//            updatable = false,
+//            nullable = false)
+//    private Employee employee;
+
+
 }

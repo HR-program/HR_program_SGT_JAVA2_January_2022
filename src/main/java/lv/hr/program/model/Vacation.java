@@ -28,4 +28,25 @@ public class Vacation {
 
     @Column(name = "vacation_days_for_work_experience")
     private int vacationDaysForWorkExperience;
+
+    @ManyToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            optional = false)
+    @JoinColumn(name = "employee_id",
+            insertable = false,
+            updatable = false,
+            nullable = false)
+    private Employee employee;
+
+    public Vacation() {
+    }
+
+    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild, int vacationDaysForWorkExperience, Employee employee) {
+        this.year = year;
+        this.vacationStartDate = vacationStartDate;
+        this.vacationEndDate = vacationEndDate;
+        this.vacationDaysForChild = vacationDaysForChild;
+        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
+//        this.employee = employee;
+    }
 }

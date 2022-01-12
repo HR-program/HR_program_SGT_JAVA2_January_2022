@@ -21,11 +21,20 @@ totalLength: any;
 
   ngOnInit(): void {
   }
-onSubmit(){
+onSubmitName(){
   // console.log(this.employee.surname);
 
-  this.findEmployeesBySurname();
+  this.findEmployeesByName();
+
   
+}
+onSubmitSurName(){
+  
+  this.findEmployeesBySurname();
+}
+onSubmitPersonalCode(){
+  
+  this.findEmployeesByPersonalCode();
 }
 
 
@@ -36,14 +45,43 @@ onSubmit(){
    
     this.employeeService.findEmployeesBySurnameLike(this.employee.surname).subscribe(data =>{
       this.employees = data;
-      console.log(this.employees);
-      this.dataSharingService.currentSearchedEmployees;
-      console.log(this.dataSharingService.currentSearchedEmployees);
+      // console.log(this.employees);
+      this.dataSharingService.sendMessage(this.employees);
+      
       this.totalLength=data.length;
  
       this.goToSearchedList();
              })
 }
+
+findEmployeesByName(){
+  //  console.log(this.employee.surname)
+  // console.log(this.employee.surname);
+ 
+  this.employeeService.findEmployeesByNameLike(this.employee.name).subscribe(data =>{
+    this.employees = data;
+    // console.log(this.employees);
+    this.dataSharingService.sendMessage(this.employees);
+    
+    this.totalLength=data.length;
+
+    this.goToSearchedList();
+           })
+}
+
+findEmployeesByPersonalCode(){
+
+  this.employeeService.findEmployeesByPersonalCodeLike(this.employee.personalCode).subscribe(data =>{
+    this.employees = data;
+
+    this.dataSharingService.sendMessage(this.employees);
+    
+    this.totalLength=data.length;
+
+    this.goToSearchedList();
+           })
+}
+
 
 goToSearchedList(){
   

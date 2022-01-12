@@ -6,11 +6,11 @@ import javax.validation.constraints.NotNull;
 
 public interface EmployeeService {
     @NotNull Iterable<Employee> getAllEmployees();
-    public Employee create(Employee employee);
+    public void create(Employee employee);
     public  void update(Long Id ,Employee employee);
     public  void deleteEmployeeByID(Long Id);
 
-//    Employee fetchEmployeeByIdNumber(String idNumber);
+   Iterable <Employee> fetchEmployeeByPersonalCodeLike(String personalCode);
 
 //    Iterable<Employee> fetchEmployeeBySurname(String surname);
 
@@ -19,4 +19,6 @@ public interface EmployeeService {
     @NotNull Iterable<Employee> sortAllEmployeesBySurname();
 
     Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
+
+    Iterable<Employee> fetchEmployeeByNameLike(String name);
 }

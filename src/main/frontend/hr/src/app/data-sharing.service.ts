@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Employee } from './employee';
 
 @Injectable({
@@ -7,16 +8,18 @@ import { Employee } from './employee';
 })
 export class DataSharingService {
 
-  private employees = new BehaviorSubject<any>([]);
-  currentSearchedEmployees = this.employees.asObservable();
-  
+ private passingArraySource = new BehaviorSubject<any>(Employee);
+ passingArray$ = this.passingArraySource.asObservable();
 
-  constructor() {
+  constructor() {}
+
+    sendMessage(message:any){
+this.passingArraySource.next(message);
+    }
 
 }
 
-// searchedEmployees2(eml: Object){
-//   this.searchedEmployees.next(eml);
-}
+
+
 
   

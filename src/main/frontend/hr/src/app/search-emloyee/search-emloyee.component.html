@@ -9,6 +9,18 @@
 <span>
   <button routerLink="/add-employee">Add employee</button>
 </span>
+<span>
+  <button routerLink="/add-department">Add Department</button>
+</span>
+<span>
+  <button routerLink="/departments">Departments</button>
+</span>
+<span>
+  <button routerLink="/add-child">Add Child</button>
+</span>
+<span>
+  <button routerLink="/children-list">Children-List</button>
+</span>
   
 </div>
  <!-- <nav>
@@ -34,14 +46,32 @@
 <!-- <label for="hero-name">Hero name: </label>
 <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name"> -->
 
-<form (ngSubmit)= "onSubmit()">
+<form (ngSubmit)= "onSubmitName()">
+  <div class = "form-group">
+    <label>Name: </label>
+    <input class = "form-control" type = "text" [(ngModel)] ="employee.name" name ="name" placeholder = "name" >
+  </div>
+    <!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
+    <button >Submit</button>
+  </form>
+
+<form (ngSubmit)= "onSubmitSurName()">
 <div class = "form-group">
   <label>Last Name: </label>
   <input class = "form-control" type = "text" [(ngModel)] ="employee.surname" name ="first" placeholder = "surname" >
 </div>
-
-<button class = "btn btn-success" type = "submit" >Submit</button>
+<!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
+<button  >Submit</button>
 </form>
+
+<form (ngSubmit)= "onSubmitPersonalCode()">
+  <div class = "form-group">
+    <label>Personal code: </label>
+    <input class = "form-control" type = "text" [(ngModel)] ="employee.personalCode" name ="first" placeholder = "personal code" >
+  </div>
+    <!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
+    <button  >Submit</button>
+  </form>
 
 
 
