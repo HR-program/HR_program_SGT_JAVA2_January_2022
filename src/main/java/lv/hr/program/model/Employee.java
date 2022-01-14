@@ -56,8 +56,26 @@ public class Employee {
 
     public Employee(String name, String surname, Gender gender, LocalDate dateOfBirth,
                     String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
-                    String phoneNumber, String email, String address, String education, List<Department> department,
+                    String phoneNumber, String email, String address, String education,
                     boolean employeeActive) {
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.personalCode = personalCode;
+        this.idDocumentNumber = idDocumentNumber;
+        this.idDocumentExpiryDate = idDocumentExpiryDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.education = education;
+        this.employeeActive = employeeActive;
+    }
+
+    public Employee(String name, String surname, Gender gender, LocalDate dateOfBirth,
+                    String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
+                    String phoneNumber, String email, String address, String education,
+                    List<Department> department, boolean employeeActive) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;

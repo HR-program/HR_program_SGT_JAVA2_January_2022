@@ -5,18 +5,25 @@ import lv.hr.program.model.Employee;
 import javax.validation.constraints.NotNull;
 
 public interface EmployeeService {
-    @NotNull Iterable<Employee> getAllEmployees();
+
+    @NotNull
+    Iterable<Employee> getAllEmployees();
+
     Employee create(Employee employee);
-    void update(Long Id ,Employee employee);
+
+    @NotNull
+    void update(Long Id, Employee employee);
+
+    @NotNull
     void deleteEmployeeByID(Long Id);
 
-//    Employee fetchEmployeeByIdNumber(String idNumber);
+    @NotNull
+    Iterable<Employee> sortAllEmployeesByName();
 
-//    Iterable<Employee> fetchEmployeeBySurname(String surname);
+    @NotNull
+    Iterable<Employee> sortAllEmployeesBySurname();
 
-    Employee fetchEmployeeByID(Long Id);
-    @NotNull Iterable<Employee> sortAllEmployeesByName();
-    @NotNull Iterable<Employee> sortAllEmployeesBySurname();
+    Iterable<Employee> findByNameLike(String name);
 
-    Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
+    Iterable<Employee> findBySurnameLike(String surname);
 }

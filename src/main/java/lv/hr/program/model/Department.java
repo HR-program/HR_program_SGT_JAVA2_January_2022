@@ -24,6 +24,11 @@ public class Department {
     @Column(name = "department_address")
     private String address;
 
+    public Department(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY,
             optional = false)
     @JoinColumn(name = "employee_id",

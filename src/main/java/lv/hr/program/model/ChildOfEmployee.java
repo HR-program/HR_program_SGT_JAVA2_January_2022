@@ -29,6 +29,12 @@ public class ChildOfEmployee {
     @Column(name = "child_date_of_birth")
     private LocalDate dateOfBirth;
 
+    public ChildOfEmployee(String name, String surname, LocalDate dateOfBirth) {
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     @ManyToMany(mappedBy = "childrenOfEmployee",
             fetch = FetchType.LAZY)
     private List<Employee> employee;
