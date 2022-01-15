@@ -53,7 +53,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    
     NgxPaginationModule,
     HttpClientModule,
     ConfirmationPopoverModule.forRoot({

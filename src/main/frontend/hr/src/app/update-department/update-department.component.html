@@ -1,0 +1,21 @@
+<div class = "col-md-6 offset-md-3">
+    <h3>Update Department</h3>
+    <form (ngSubmit)= "onSubmit()">
+    <div class = "form-group">
+        <label>Departement Name</label>
+        <input type = "text" class = "form-control" id ="name"
+        [(ngModel)] ="department.name" name = "name">
+    </div>
+    <div class = "form-group">
+        <label>Departement Address</label>
+        <input type = "text" class = "form-control" id ="address"
+        [(ngModel)] ="department.address" name = "address">
+    </div>
+    
+ 
+     <button  class = "btn btn-success" type = "submit" >Submit</button>
+
+    <button (click)="goBack()">Go back</button>
+    </form>
+    </div>
+  
