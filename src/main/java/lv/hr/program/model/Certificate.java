@@ -39,6 +39,4 @@ public class Certificate {
 //            updatable = false,
 //            nullable = false)
 //    private Employee employee;
-
-
 }

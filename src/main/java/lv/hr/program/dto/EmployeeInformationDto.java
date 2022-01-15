@@ -6,5 +6,4 @@ Data Transfer Object class used as a container to encapsulate data
  */
 public class EmployeeInformationDto {
 
-
 }

@@ -1,9 +1,16 @@
 package lv.hr.program.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "positions")
 public class PositionHistory {
 
@@ -19,20 +26,10 @@ public class PositionHistory {
     private LocalDate workEndDate;
 
 //    @ManyToOne(fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL,
 //            optional = false)
 //    @JoinColumn(name = "employee_id",
 //            insertable = false,
 //            updatable = false,
 //            nullable = false)
 //    private Employee employee;
-//
-//    public PositionHistory() {
-//    }
-
-//    public PositionHistory(LocalDate workStartDate, LocalDate workEndDate, Employee employee) {
-//        this.workStartDate = workStartDate;
-//        this.workEndDate = workEndDate;
-//        this.employee = employee;
-//    }
 }

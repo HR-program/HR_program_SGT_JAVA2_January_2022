@@ -2,10 +2,11 @@ package lv.hr.program.services;
 
 import lv.hr.program.model.ChildOfEmployee;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
 
 public interface ChildService {
+
     List<ChildOfEmployee> getAllChildren();
 
     ChildOfEmployee addNewChild(ChildOfEmployee childOfEmployee);
@@ -16,5 +17,10 @@ public interface ChildService {
 
     Iterable<ChildOfEmployee> findByEmployeeId(Long id);
 
+    @NotNull
+    Iterable<ChildOfEmployee> sortAllChildrenByName();
+
+    @NotNull
+    Iterable<ChildOfEmployee> sortAllChildrenBySurname();
 
 }

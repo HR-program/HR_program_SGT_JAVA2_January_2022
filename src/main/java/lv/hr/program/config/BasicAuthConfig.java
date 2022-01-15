@@ -1,6 +1,4 @@
-
-
-    package lv.hr.program.config;
+package lv.hr.program.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,4 +39,3 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                     .httpBasic();
         }
     }
-
