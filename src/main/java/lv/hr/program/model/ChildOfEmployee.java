@@ -29,10 +29,14 @@ public class ChildOfEmployee {
     @Column(name = "child_date_of_birth")
     private LocalDate dateOfBirth;
 
-    public ChildOfEmployee(String name, String surname, LocalDate dateOfBirth) {
+    @Column(name = "child_personal_code")
+    private String personalCode;
+
+    public ChildOfEmployee(String name, String surname, LocalDate dateOfBirth, String personalCode) {
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
+        this.personalCode = personalCode;
     }
 
     @ManyToMany(mappedBy = "childrenOfEmployee",

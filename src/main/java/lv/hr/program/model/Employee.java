@@ -20,6 +20,12 @@ public class Employee {
     @Column(name = "employee_id")
     private long id;
 
+    @Column(name = "work_start_date")
+    private LocalDate workStartDate;
+
+    @Column(name = "work_end_date")
+    private LocalDate workEndDate;
+
     @Column(name = "employee_name")
     private String name;
 
@@ -54,10 +60,11 @@ public class Employee {
     @Column(name = "employee_education")
     private String education;
 
-    public Employee(String name, String surname, Gender gender, LocalDate dateOfBirth,
-                    String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
-                    String phoneNumber, String email, String address, String education,
-                    boolean employeeActive) {
+    public Employee(LocalDate workStartDate, LocalDate workEndDate, String name, String surname, Gender gender,
+                    LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
+                    String phoneNumber, String email, String address, String education, boolean employeeActive) {
+        this.workStartDate = workStartDate;
+        this.workEndDate = workEndDate;
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -72,10 +79,12 @@ public class Employee {
         this.employeeActive = employeeActive;
     }
 
-    public Employee(String name, String surname, Gender gender, LocalDate dateOfBirth,
-                    String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
+    public Employee(LocalDate workStartDate, LocalDate workEndDate, String name, String surname, Gender gender,
+                    LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
                     String phoneNumber, String email, String address, String education,
                     List<Department> department, boolean employeeActive) {
+        this.workStartDate = workStartDate;
+        this.workEndDate = workEndDate;
         this.name = name;
         this.surname = surname;
         this.gender = gender;

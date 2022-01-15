@@ -2,6 +2,7 @@ package lv.hr.program.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lv.hr.program.model.Vacation;
 import lv.hr.program.repositories.VacationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,8 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -22,25 +25,42 @@ public class VacationServiceImpl implements VacationService {
 
     private final VacationRepository vacationRepository;
 
-    private static List<LocalDate> countBusinessDaysBetweenEmployeeStartWorkDateAndCurrentDate(final LocalDate startDate,
-                                                                                               final LocalDate endDate,
-                                                                                               final Optional<List<LocalDate>> holidays) {
-        if (startDate == null || endDate == null) {
-            throw new IllegalArgumentException("Invalid method argument(s) to countBusinessDaysBetween" +
-                    " (" + startDate + "," + endDate + "," + holidays + ")");
-        }
-
-        Predicate<LocalDate> isHoliday = date -> holidays.isPresent() && holidays.get().contains(date);
-
-        Predicate<LocalDate> isWeekend = date -> date.getDayOfWeek() == DayOfWeek.SATURDAY
-                || date.getDayOfWeek() == DayOfWeek.SUNDAY;
-
-        List<LocalDate> businessDays = startDate.datesUntil(endDate)
-                .filter(isWeekend.or(isHoliday).negate())
-                .collect(Collectors.toList());
-
-        return businessDays;
+    @Override
+    public int countVacationDaysBetweenEmployeeStartWorkDateAndCurrentDate(LocalDate dateBefore, LocalDate dateAfter) {
+        int daysBetween = (int) DAYS.between(dateBefore, dateAfter);
+        int vacationDays = (int) (daysBetween / 30 * 1.67);
+        return vacationDays;
     }
+
+    // In the loop for starting from Empl. start date till  the end of every year call the method @countVacationDaysBetweenEmployeeStartWorkDateAndCurrentDate@
+    // Put the result inside HashMap where key equals to year and value equals to vacation days
+    // Return the HashMap.
+    // Employer start date and retrieve the year from start date.
+    // Retrieve full year of the current date.
+    // Calculate from employee start date till the end of that year, then from the beginning of the current year till the end of the current year.
+
+
+
+//    @Override
+//    public List<LocalDate> countBusinessDaysBetweenEmployeeStartWorkDateAndCurrentDate(final LocalDate startDate,
+//                                                                                       final LocalDate endDate,
+//                                                                                       final Optional<List<LocalDate>> holidays) {
+//        if (startDate == null || endDate == null) {
+//            throw new IllegalArgumentException("Invalid method argument(s) to countBusinessDaysBetween" +
+//                    " (" + startDate + "," + endDate + "," + holidays + ")");
+//        }
+//
+//        Predicate<LocalDate> isHoliday = date -> holidays.isPresent() && holidays.get().contains(date);
+//
+//        Predicate<LocalDate> isWeekend = date -> date.getDayOfWeek() == DayOfWeek.SATURDAY
+//                || date.getDayOfWeek() == DayOfWeek.SUNDAY;
+//
+//        List<LocalDate> businessDays = startDate.datesUntil(endDate)
+//                .filter(isWeekend.or(isHoliday).negate())
+//                .collect(Collectors.toList());
+//
+//        return businessDays;
+//    }
 
     public static Calendar vacationChristmasDay(int nYear) {
         int nMonth = 11; //December
@@ -195,5 +215,10 @@ public class VacationServiceImpl implements VacationService {
                 cal.set(--nYear, nMonthDecember, 31);
                 return cal;
         }
+    }
+
+    @Override
+    public Vacation create(Vacation vacation) {
+        return null;
     }
 }

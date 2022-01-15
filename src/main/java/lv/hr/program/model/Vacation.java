@@ -36,6 +36,15 @@ public class Vacation {
     @Column(name = "vacation_days_for_work_experience")
     private int vacationDaysForWorkExperience;
 
+    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild,
+                    int vacationDaysForWorkExperience) {
+        this.year = year;
+        this.vacationStartDate = vacationStartDate;
+        this.vacationEndDate = vacationEndDate;
+        this.vacationDaysForChild = vacationDaysForChild;
+        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY,
             optional = false)
     @JoinColumn(name = "employee_id",

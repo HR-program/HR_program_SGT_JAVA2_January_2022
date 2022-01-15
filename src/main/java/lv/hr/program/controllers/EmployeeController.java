@@ -46,7 +46,7 @@ public class EmployeeController {
     public ResponseEntity<Employee> addNewEmployee(@RequestBody Employee employee) {
         try {
             Employee _employee = employeeRepository
-                    .save(new Employee(employee.getName(), employee.getSurname(), employee.getGender(),
+                    .save(new Employee(employee.getWorkStartDate(), employee.getWorkEndDate(), employee.getName(), employee.getSurname(), employee.getGender(),
                             employee.getDateOfBirth(), employee.getPersonalCode(), employee.getIdDocumentNumber(),
                             employee.getIdDocumentExpiryDate(), employee.getPhoneNumber(), employee.getEmail(),
                             employee.getAddress(), employee.getEducation(), employee.isEmployeeActive()));
@@ -62,6 +62,8 @@ public class EmployeeController {
 
         if (employeeData.isPresent()) {
             Employee _employee = employeeData.get();
+            _employee.setWorkStartDate(employee.getWorkStartDate());
+            _employee.setWorkEndDate(employee.getWorkEndDate());
             _employee.setName(employee.getName());
             _employee.setSurname(employee.getSurname());
             _employee.setGender(employee.getGender());

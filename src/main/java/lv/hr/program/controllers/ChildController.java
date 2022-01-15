@@ -2,7 +2,6 @@ package lv.hr.program.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lv.hr.program.model.ChildOfEmployee;
-import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.ChildOfEmployeeRepository;
 import lv.hr.program.services.ChildOfEmployeeService;
 import org.springframework.http.HttpStatus;
@@ -48,7 +47,7 @@ public class ChildController {
         try {
             ChildOfEmployee _childOfEmployee = childOfEmployeeRepository
                     .save(new ChildOfEmployee(childOfEmployee.getName(), childOfEmployee.getSurname(),
-                            childOfEmployee.getDateOfBirth()));
+                            childOfEmployee.getDateOfBirth(), childOfEmployee.getPersonalCode()));
             return new ResponseEntity<>(_childOfEmployee, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
