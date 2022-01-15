@@ -28,51 +28,48 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public void update(Long Id, Employee employee) {
-        employeeRepository.save(employee);
+    public Employee update(Long id, Employee employee) {
+        return employeeRepository.save(employee);
     }
 
     @Override
     public void deleteEmployeeByID(Long Id) {
         employeeRepository.deleteById(Id);
-
     }
-
     @Override
     public Iterable<Employee> fetchEmployeeByPersonalCodeLike(String personalCode) {
         return employeeRepository.findByPersonalCodeLike("%"+personalCode+"%");
     }
-
-//    @Override
-//    public Iterable<Employee> fetchEmployeeBySurname(String surname) {
-//        return employeeRepository.findBySurname(surname);
-//    }
-
-
-
     @Override
     public Employee fetchEmployeeByID(Long Id) {
         return employeeRepository.findById(Id).get();
-
     }
-
     @Override
     public Iterable<Employee> sortAllEmployeesByName() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
-
     @Override
     public Iterable<Employee> sortAllEmployeesBySurname() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
     }
 
     @Override
-    public Iterable<Employee> fetchEmployeeBySurnameLike(String surname) {
-        return employeeRepository.findBySurnameLike("%"+surname+"%");
+    public Iterable<Employee> fetchEmployeeBySurnameLikeIgnoreCase(String surname) {
+        return employeeRepository.findBySurnameLikeIgnoreCase("%"+surname+"%");
     }
 
     @Override
-    public Iterable<Employee> fetchEmployeeByNameLike(String name) {
-        return employeeRepository.findByNameLike("%"+name+"%");
+    public Iterable<Employee> getAllActiveEmployees() {
+        return employeeRepository.findAllActiveEmployees();
+    }
+
+    @Override
+    public Iterable<Employee> getEmployeesByDepartmentId(Long id) {
+        return employeeRepository.findByDepartmentId(id);
+    }
+
+    @Override
+    public Iterable<Employee> fetchEmployeeByNameLikeIgnoreCase(String name) {
+        return employeeRepository.findByNameLikeIgnoreCase("%"+name+"%");
     }
 }

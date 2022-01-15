@@ -1,10 +1,7 @@
 package lv.hr.program.controllers;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import lv.hr.program.exception.ResourceNotFoundException;
-import lv.hr.program.model.ChildOfEmployee;
+
 import lv.hr.program.model.Department;
-import lv.hr.program.model.Employee;
 import lv.hr.program.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,10 +29,9 @@ public class DepartmentController {
 
     @PostMapping("/departments/add")
     public Department addNewDepartment(@RequestBody Department department) {
+
         return departmentService.addNewDepartment(department);
     }
-
-
     @PutMapping("/departments/{id}")
     public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
         return departmentService.updateDepartment(id, department);

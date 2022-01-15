@@ -15,20 +15,28 @@ public class EmployeeController {
 @Autowired
     private EmployeeService employeeService;
 
-//    Department department = new Department();
+
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 //get all Employees
-
     @GetMapping("/employees")
     public Iterable<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-//  add new employee
+    @GetMapping("/employees/active")
+    public Iterable<Employee> getAllActiveEmployees() {
+        return employeeService.getAllActiveEmployees();
+    }
 
+    @GetMapping("/employees/department/{id}")
+    public Iterable<Employee> getEmployeesByDepartmentID(@PathVariable("id") Long id){
+        return employeeService.getEmployeesByDepartmentId(id);
+    }
+
+//  add new employee
     @PostMapping("/employees")
 //    @ApiOperation("adding new employee to database")
     public void addNewEmployee(@RequestBody Employee employee) {
@@ -38,9 +46,9 @@ public class EmployeeController {
     }
 
     @PutMapping("/employees/{id}")
-    public void updateEmployee(@PathVariable("id") Long Id, @RequestBody Employee employee) {
+    public Employee updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
 
-        employeeService.update(Id, employee);
+        return employeeService.update(id, employee);
     }
 
     @DeleteMapping("/employees/{id}")
@@ -52,18 +60,14 @@ public class EmployeeController {
     public Iterable<Employee> fetchEmployeeByPersonalCodeLike(@PathVariable("personal-code") String personalCode) {
         return employeeService.fetchEmployeeByPersonalCodeLike(personalCode);
     }
-//    @GetMapping("/employees/surname/{surname}")
-//    public Iterable<Employee> fetchEmployeeBySurname(@PathVariable String surname){
-//        return employeeService.fetchEmployeeBySurname(surname);
-//    }
     @GetMapping("/employees/surname/{surname}")
     public Iterable<Employee> fetchEmployeeBySurnameLike(@PathVariable String surname) {
-        return employeeService.fetchEmployeeBySurnameLike(surname);
+        return employeeService.fetchEmployeeBySurnameLikeIgnoreCase(surname);
     }
 
     @GetMapping("/employees/name/{name}")
     public Iterable<Employee> fetchEmployeeByNameLike(@PathVariable String name) {
-        return employeeService.fetchEmployeeByNameLike(name);
+        return employeeService.fetchEmployeeByNameLikeIgnoreCase(name);
     }
 
     @GetMapping("/employees/{id}")

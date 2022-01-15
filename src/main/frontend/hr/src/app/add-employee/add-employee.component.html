@@ -1,6 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="add-employee.component.css">
+  <title>Add employee</title>
+  <!-- <script src="scripts.js"></script> -->
+</head>
+<body>
+<div *ngIf="employee">
+  <div class="wrapper">
+    <div class="header">
+      <div class="logo">
+        <svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 189.6 189.7" style="enable-background:new 0 0 189.6 189.7" xml:space="preserve"><style>.st0{fill:none;stroke:#ffffff;stroke-miterlimit:10}.st1{fill:#ffffff}</style><switch><g><g id="SQUARE"><path class="st0" d="M.5 4.2h185v185H.5zM4.2 7.6v44.5M181.7 140.4v44.4M48.6 184.8H4.2M4.2 7.6h44.4M141.1.5h48M189.1.5v48.1"/></g><path class="st1" d="M135.8 118.1c-2.7-3-5.2-6.1-7.4-9.4-2.8-4.1-6.8-10.2-8.5-13.1 6.9-2.9 12.1-7.9 12.1-15.7 0-5.6-2.5-9.7-6.4-12.1-3.4-2.2-7.7-3-14-3.1H86.7v2.5c7.4.8 8.4 1.1 8.4 8.9v14.5H63.4V76.2c0-7.6.9-8.2 8.4-8.9v-2.6H46.9v2.5c7.5.7 8.4 1.2 8.4 8.9v36.6c0 7.7-.8 7.9-8.4 8.8v2.6h24.8v-2.6c-7.6-.9-8.4-1.2-8.4-8.8V94.6h31.8v18.1c0 4.1-.2 6.2-1.5 7.3s-3.3 1.3-6.9 1.7v2.6h25v-2.6l-1.8-.2c-.7-.1-1.3-.2-1.8-.3-4.2-.7-4.9-2.2-4.9-8.5V98.3h3.3c4.8 0 6 .6 7.9 3.5 3 4.7 6.4 10.4 9.8 15.1 4.1 5.7 7.8 7.4 14.6 7.9 1.2.1 2.2.2 3.5.2l.4-2.6c-2.8-.8-5.1-2.2-6.9-4.3zM118 92.5c-2.3 1.9-5.4 2.7-10.3 2.7h-4.5V72.8c0-2.1.2-3 .8-3.6.1-.1.2-.2.3-.2.3-.2.6-.3.9-.4h.1l.3-.1c1.2-.3 2.4-.4 3.6-.3 7.2 0 13.9 3.6 13.9 13.3 0 4.7-1.5 8.4-5.1 11z" id="HR"/><text transform="matrix(1.0029 0 0 1 41.787 143.043)" class="st1" style="font-size:21.0845px;font-family:'BaskOldFace'">PROGRAM</text></g></switch></svg>
+      </div>
+      <h1>HR PROGRAM</h1>
+    </div>
+    <div class="main">
+      <div class="employee_card">
 <div class = "col-md-6 offset-md-3">
     <h3>Add Employee</h3>
-    <form (ngSubmit)= "onSubmit()">
+    
     <div class = "form-group">
         <label>FirstName</label>
         <input type = "text" class = "form-control" id ="name"
@@ -11,11 +33,15 @@
         <input type = "text" class = "form-control" id ="surname"
         [(ngModel)] ="employee.surname" name = "lastname">
     </div>
-    <div class = "form-group">
-        <label>Gender</label>
-        <input type = "text" class = "form-control" id ="gender"
-        [(ngModel)] ="employee.gender" name = "gender">
-    </div>
+
+    <div class = "form group row">
+        <label for = "gender" class = "col-form-label col sm-2">Gender</label>
+           <select [(ngModel)]="employee.gender" class = "form-control" name = "gender">
+                <option [ngValue]="undefined">-------Choose gender-----</option>
+                <option [value]= >FEMALE</option>
+                <option [value]= >MALE</option>
+                </select>
+    </div>      
     <div class = "form-group">
         <label>Date Of Birth</label>
         <input type = "text" class = "form-control" id ="dateOfBirth"
@@ -56,11 +82,6 @@
         <input type = "text" class = "form-control" id ="education"
         [(ngModel)] ="employee.education" name = "education">
     </div>
-    <!-- <div class = "form-group">
-        <label>Department</label>
-        <input type = "text" class = "form-control" id ="department"
-        [(ngModel)] ="employee.department" name = "department">
-    </div> -->
     <div class = "form group row">
         <label for = "department" class = "col-form-label col sm-2">Department</label>
            <select [(ngModel)]="employee.department" class = "form-control" name = "department">
@@ -74,51 +95,52 @@
         <input type = "text" class = "form-control" id ="certificate"
         [(ngModel)] ="employee.certificate" name = "certificate">
     </div>
-    <div class = "form-group">
-        <label>Does Employee Have Children </label>
-        <input type = "text" class = "form-control" id ="doesEmployeeHaveChild"
-        [(ngModel)] ="employee.doesEmployeeHaveChild" name = "doesEmployeeHaveChild">
-    </div>
-    <h3>Add Child</h3>
-    <form (ngSubmit)= "onSubmitChild()">
+    <div class = "form group row">
+        <label for = "employeeActive" class = "col-form-label col sm-2">Is Employee Active</label>
+           <select [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
+                <option [ngValue]="undefined">-------Choose option-----</option>
+                <option [ngValue]= "true" >Yes</option>
+                <option [ngValue]= "false">No</option>
+              
+           </select>
+    <div class = "form group row">
+        <label for = "doesEmployeeHaveChild" class = "col-form-label col sm-2">Does Employee Have Children</label>
+           <select [(ngModel)]="employee.doesEmployeeHaveChild"  class = "form-control" name = "doesEmployeeHaveChild">
+                <option [ngValue]="undefined">-------Choose option-----</option>
+                <option [value]= "true">Yes</option>
+                <option [value]= "false">No</option>
+            
+           </select>
 
-        <div class = "form-group">
-            <label>Personal Code</label>
-            <input type = "text" class = "form-control" id ="personalCode"
-            [(ngModel)] ="child.childPersonalCode" name = "childPersonalCode">
+    </div> 
+     <div>
+            <button (click)="onSubmit()" class = "btn btn-success" type = "submit" >Submit</button>
         </div>
-        <div class = "form-group">
-            <label>Date Of Birth</label>
-            <input type = "text" class = "form-control" id ="dateOfBirth"
-            [(ngModel)] ="child.childDateOfBirth" name = "childDateOfBirth">
-        </div>     
-    <div class = "form-group">
-        <label>FirstName</label>
-        <input type = "text" class = "form-control" id ="name"
-        [(ngModel)] ="child.childName" name = "childName">
-    </div>
-    <div class = "form-group">
-        <label>Last Name</label>
-        <input type = "text" class = "form-control" id ="surname"
-        [(ngModel)] ="child.childSurname" name = "childSurname">
-    </div>
-   
-     <button class = "btn btn-success" type = "submit" >Submit</button>
-    </form>
-    <div>
-        <label>Is Employee Active</label>
-        <input type = "text" class = "form-control" id ="employeeActive"
-        [(ngModel)] ="employee.employeeActive" name = "employeeActive">
-    </div>
- 
-     <button class = "btn btn-success" type = "submit" >Submit</button>
-    </form>
+
+    
+            <button class="btn btn-info"(click)="goBack()">Go back</button>
+        </div>
 
   
-    <button (click)= "goToAddChildPage()">Add informaton about Children</button>
-    <button >Add Certificates</button>
-    <button >Add Identification Document Copies</button>
-    <button >Add Education Document Copies</button>
+  </div>
+
+</div>
+</div>
+
+            <div class="footer">
+                <div class="footer_left">
+                  SHEGOESJAVA2
+                </div>
+                <div class="footer_right">
+                  <a href="https://github.com/HR-program" target="blank_">github.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+  
+
+  
     
    
    

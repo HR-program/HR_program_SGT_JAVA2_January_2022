@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 public interface EmployeeService {
     @NotNull Iterable<Employee> getAllEmployees();
     public void create(Employee employee);
-    public  void update(Long Id ,Employee employee);
+    public  Employee update(Long id ,Employee employee);
     public  void deleteEmployeeByID(Long Id);
 
    Iterable <Employee> fetchEmployeeByPersonalCodeLike(String personalCode);
@@ -18,7 +18,14 @@ public interface EmployeeService {
     @NotNull Iterable<Employee> sortAllEmployeesByName();
     @NotNull Iterable<Employee> sortAllEmployeesBySurname();
 
-    Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
+//    Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
 
-    Iterable<Employee> fetchEmployeeByNameLike(String name);
+    Iterable<Employee> fetchEmployeeByNameLikeIgnoreCase(String name);
+
+    Iterable<Employee> fetchEmployeeBySurnameLikeIgnoreCase(String surname);
+
+
+    Iterable<Employee> getAllActiveEmployees();
+
+    Iterable<Employee> getEmployeesByDepartmentId(Long id);
 }

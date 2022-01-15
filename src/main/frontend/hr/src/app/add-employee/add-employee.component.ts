@@ -1,3 +1,5 @@
+import { Location } from '@angular/common';
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Child } from '../child';
@@ -13,18 +15,24 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-  child: Child = new Child();
 
   employee: Employee = new Employee();
   departments: Department[]=[];
   id!: number;
   page: any=1;
+
+  
   
   constructor(private employeeService: EmployeeService,
     private router:Router,
     private route: ActivatedRoute,
     private departmentService:DepartmentService,
-    private childService: ChildService,) { }
+    private childService: ChildService,
+    private location: Location,
+    ) { }
+
+
+
 
   ngOnInit(): void {
     this.getDepatments();
@@ -54,7 +62,6 @@ console.log(data);
   
   }
   
-
   goToEmployeesScreen(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.router.navigate(['employees', id]);
@@ -63,30 +70,18 @@ console.log(data);
     }
    
     onSubmit(){
-      console.log(this.employee);
+      
       this.addEmployee();
-           
-    }
-
-    goToAddChildPage(){
-      this.router.navigate(["add-child"]);
-    }
-
-    onSubmitChild(){
-      console.log(this.child);
-      this.addChild();
       
-         
-      }
-  
-  
-  addChild(){
-    this.childService.addChild( this.child).subscribe(data=>{
-      console.log(data)
-     
-      
-    },
-   error=> console.log(error));
-  }
-  
+    }
+    goBack(): void {
+      this.location.back();
+    }
+    
+
+
+
 }
+
+  
+

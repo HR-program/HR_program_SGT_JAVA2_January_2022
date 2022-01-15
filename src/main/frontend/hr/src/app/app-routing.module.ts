@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ActiveEmployeesListComponent } from './active-employees-list/active-employees-list.component';
 import { AddChildComponent } from './add-child/add-child.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
@@ -14,6 +15,7 @@ import { SearchEmloyeeComponent } from './search-emloyee/search-emloyee.componen
 import { SearchListComponent } from './search-list/search-list.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { VacationComponent } from './vacation/vacation.component';
 
 const routes: Routes = [
   {path:'employees',component: EmployeeListComponent},
@@ -25,12 +27,14 @@ const routes: Routes = [
   {path:'', redirectTo: 'search-employees', pathMatch:'full'},
   {path:'login', component: LoginComponent},
   {path:'searched-employees', component:SearchListComponent},
-  {path:'add-child',component:AddChildComponent},
+  {path:'add-child/:id',component:AddChildComponent},
   {path:'departments',component:DepartmentListComponent},
   {path:'add-department',component:AddDepartmentComponent},
   {path:'update-department/:id',component:UpdateDepartmentComponent},
   {path:'children-list', component: ChildrenListComponent},
-  {path:'employees-children/:id',component: EmployessChildernComponent}
+  {path:'employees-children/:id',component: EmployessChildernComponent},
+  {path:'employees-active',component:ActiveEmployeesListComponent},
+  {path:'vacations',component:VacationComponent}
 ];
 
 @NgModule({

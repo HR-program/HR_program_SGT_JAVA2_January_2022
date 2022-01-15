@@ -31,26 +31,6 @@ public class ChildServiceImpl implements ChildService {
         return childOfEmployee;
     }
 
-//    @Override
-//    public ResponseEntity<ChildOfEmployee> addNewChildByParent (@PathVariable(value = "employeeId") Long id,
-//                                                                @RequestBody ChildOfEmployee childOfEmployeeRequest) {
-//    public void addChildByParent(ChildOfEmployee childOfEmployee, Long id) {
-//        ChildOfEmployee child = employeeRepository.findById(id).map(tutorial -> {
-//                    childOfEmployeeRequest.setEmployee(employee);
-//                    return childRepository.save(childOfEmployeeRequest);
-//        }).orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + id));
-//
-//            return new ResponseEntity<>(chid, HttpStatus.CREATED);
-//    }
-
-//    @Override
-//    public void addChildByParent(ChildOfEmployee childOfEmployee, Long id) {
-//        ChildOfEmployee child = employeeRepository.findById(id).map(employee -> {
-//            childOfEmployee.setEmployee(employee);
-//            return childRepository.save(childOfEmployee);
-//        }}
-
-
     @Override
     public ChildOfEmployee updateChild(Long id, ChildOfEmployee childOfEmployee) {
         return childRepository.save(childOfEmployee);
@@ -63,20 +43,10 @@ public class ChildServiceImpl implements ChildService {
 
     @Override
     public Iterable<ChildOfEmployee> findByEmployeeId(Long id) {
-        return null;
+
+        return childRepository.findByEmployeeId(id);
     }
-
-
-//    @Override
-//    public Iterable<ChildOfEmployee> findByEmployeeId(Long id) {
-//        return childRepository.findByEmployeeId(id);
-//    }
 }
-
-//    @Override
-//    public ResponseEntity<ChildOfEmployee> findByEmployeeId(Long id) {
-//        return (ResponseEntity<ChildOfEmployee>) childRepository.findByEmployeeId(id);
-//    }
 
 
 

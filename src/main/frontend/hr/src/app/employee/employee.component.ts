@@ -47,10 +47,7 @@ export class EmployeeComponent implements OnInit {
         console.log(error);
       });
   }
-  // getDeleteMessage(){
-  
-  //   return this.employeeName = this.employee?.name, this.employee?.surname
-  // }
+
   
   openUpdateEmplyeeScreen(id: any){
     
@@ -60,6 +57,11 @@ export class EmployeeComponent implements OnInit {
 
   goToEmployeesChildren(id:any){
     this.router.navigate(['employees-children',id]);
+  }
+
+  goToVacationPage(id:any){
+    this.router.navigate(['vacations',id]);
+
   }
   }
 

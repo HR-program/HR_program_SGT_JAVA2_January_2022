@@ -11,8 +11,8 @@ import java.util.Optional;
 @Repository
 public interface ChildRepository extends JpaRepository<ChildOfEmployee,Long> {
 
-//    Iterable<ChildOfEmployee> findByEmployeeId(long employeeId);
-//
+    Iterable<ChildOfEmployee> findByEmployeeId(long employeeId);
+
 //    @Transactional
 //    void deleteByEmployeeId(long employeeId);
 

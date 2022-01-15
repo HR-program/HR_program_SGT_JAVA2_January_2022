@@ -1,3 +1,4 @@
+  
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@100&display=swap');
 /* add font */
 
@@ -59,7 +60,7 @@ body {
     background: var(--auth-bg-color);
     color: var(--main-color);
     word-wrap: break-word;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(.8rem, 1.5vw, 2rem);
     border-radius: 1vh;
     box-shadow: 5px 10px 5px var(--black-shadow);
 }
@@ -84,8 +85,6 @@ body {
     border-bottom: 1px solid black; /* not necessary */
 }
 .employee_left_info {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
     text-align: center;
 }
 

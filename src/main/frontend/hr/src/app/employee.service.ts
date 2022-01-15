@@ -16,6 +16,7 @@ export class EmployeeService {
 private findBySurnameURL ='/api/v1/employees/surname';
 private findByNameURL='/api/v1/employees/name';
 private findByPersonalCodeURL='api/v1/employees/personal-code';
+private findAllActiveURL ='/api/v1/employees/active'
  
   private baseURL= '/api/v1/employees';
   constructor(private httpClient: HttpClient) { }
@@ -26,6 +27,11 @@ private findByPersonalCodeURL='api/v1/employees/personal-code';
   }
   getEmployeesList():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.baseURL);
+  }
+
+  getActiveEmployeesList():Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(this.findAllActiveURL);
+
   }
   sortByname():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.sortEmployeeByNameURL);
