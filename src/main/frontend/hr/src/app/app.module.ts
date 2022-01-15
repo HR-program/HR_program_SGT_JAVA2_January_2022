@@ -47,13 +47,12 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     ActiveEmployeesListComponent,
     VacationComponent,
     NavigationBarComponent,
-    
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     NgxPaginationModule,
     HttpClientModule,
     ConfirmationPopoverModule.forRoot({
