@@ -70,25 +70,42 @@ public class Employee {
 ////            referencedColumnName = "evaluation")
 //    private List<Evaluation> evaluation;
 
-    @OneToMany
+//    @OneToMany
 //            (fetch = FetchType.LAZY,
 //            cascade = CascadeType.ALL)
 //    @JoinColumn(name = "employee_id")
 ////            referencedColumnName = "vacation")
-    (mappedBy = "employee")
-    private List<Vacation> vacation;
+//    (mappedBy = "employee")
+//    private List<Vacation> vacation;
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
-//@OneToMany
-////        (fetch = FetchType.EAGER)
-////        (mappedBy = "employee")
-////(fetch = FetchType.EAGER, orphanRemoval = true)
-//    private List<ChildOfEmployee> childOfEmployee;
+//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+//    @JoinTable(name = "employee_children",
+//            joinColumns = {
+//                    @JoinColumn(name = "employee_id",
+//                            nullable = false, updatable = false)},
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "child_id",
+//                            nullable = false, updatable = false)})
+//    private List<ChildOfEmployee> childrenOfEmployee;
+
+@OneToMany
+//        (fetch = FetchType.EAGER)
+//        ()
+//(fetch = FetchType.EAGER, orphanRemoval = true)
+//        ( orphanRemoval = true)
+    private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
+
+//    public List<Vacation> getVacation() {
+//        return vacation;
+//    }
+
+//
 
     public Employee() {
     }
@@ -108,7 +125,7 @@ public class Employee {
         this.education = education;
         this.department = department;
         this.doesEmployeeHaveChild = doesEmployeeHaveChild;
-//        this.childOfEmployee = childOfEmployee;
+        this.childOfEmployee = childOfEmployee;
         this.employeeActive = employeeActive;
     }
 
@@ -216,6 +233,8 @@ public class Employee {
         this.department = department;
     }
 
+
+
 //    public List<PositionHistory> getCurrentPosition() {
 //        return currentPosition;
 //    }
@@ -240,14 +259,14 @@ public class Employee {
 //        this.evaluation = evaluation;
 //    }
 
-    public List<Vacation> getVacation() {
-        return vacation;
-    }
-
-    public void setVacation(List<Vacation> vacation) {
-        this.vacation = vacation;
-    }
-
+//    public List<Vacation> getVacation() {
+//        return vacation;
+//    }
+//
+//    public void setVacation(List<Vacation> vacation) {
+//        this.vacation = vacation;
+//    }
+//
         public boolean isDoesEmployeeHaveChild () {
             return doesEmployeeHaveChild;
         }

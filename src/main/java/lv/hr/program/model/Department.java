@@ -1,7 +1,5 @@
 package lv.hr.program.model;
 
-import ch.qos.logback.core.BasicStatusManager;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,23 +64,11 @@ public class Department<cascade> {
     }
 }
 
-//    method to add employee to employeeArray
-
-//    public void addEmployee(Employee employee) {
-//        employeeArrayList.add(employee);
-//    }
 
 
 
 
 
 
-//    public List<Employee> getEmployeeArrayList() {
-//        return employeeArrayList;
-//    }
-//
-//    public void setEmployeeArrayList(List<Employee> employeeArrayList) {
-//        this.employeeArrayList = employeeArrayList;
-//    }
 
 

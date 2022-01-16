@@ -47,10 +47,7 @@ export class EmployeeComponent implements OnInit {
         console.log(error);
       });
   }
-  // getDeleteMessage(){
-  
-  //   return this.employeeName = this.employee?.name, this.employee?.surname
-  // }
+
   
   openUpdateEmplyeeScreen(id: any){
     

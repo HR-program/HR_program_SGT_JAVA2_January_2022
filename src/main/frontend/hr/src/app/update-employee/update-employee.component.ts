@@ -36,8 +36,8 @@ export class UpdateEmployeeComponent implements OnInit {
       }
     
       updateEmployee():void{
-        // this.id = this.route.snapshot.params['id'];
-        
+        this.id = this.route.snapshot.params['id'];
+        console.log(this.id)
         this.employeeService.updateEmployee(this.id,this.employee).subscribe(data=>  {
           this.goToEmployeesDetails();
         },

@@ -21,6 +21,8 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { ChildrenListComponent } from './children-list/children-list.component';
 import { EmployessChildernComponent } from './employess-childern/employess-childern.component';
+import { ActiveEmployeesListComponent } from './active-employees-list/active-employees-list.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { EmployessChildernComponent } from './employess-childern/employess-child
     UpdateDepartmentComponent,
     ChildrenListComponent,
     EmployessChildernComponent,
+    ActiveEmployeesListComponent,
+    NavigationBarComponent,
     
   ],
   imports: [

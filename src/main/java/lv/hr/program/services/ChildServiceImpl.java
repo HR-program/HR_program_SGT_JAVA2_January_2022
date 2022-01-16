@@ -4,6 +4,7 @@ import lv.hr.program.model.ChildOfEmployee;
 import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.ChildRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,26 +32,6 @@ public class ChildServiceImpl implements ChildService {
         return childOfEmployee;
     }
 
-//    @Override
-//    public ResponseEntity<ChildOfEmployee> addNewChildByParent (@PathVariable(value = "employeeId") Long id,
-//                                                                @RequestBody ChildOfEmployee childOfEmployeeRequest) {
-//    public void addChildByParent(ChildOfEmployee childOfEmployee, Long id) {
-//        ChildOfEmployee child = employeeRepository.findById(id).map(tutorial -> {
-//                    childOfEmployeeRequest.setEmployee(employee);
-//                    return childRepository.save(childOfEmployeeRequest);
-//        }).orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + id));
-//
-//            return new ResponseEntity<>(chid, HttpStatus.CREATED);
-//    }
-
-//    @Override
-//    public void addChildByParent(ChildOfEmployee childOfEmployee, Long id) {
-//        ChildOfEmployee child = employeeRepository.findById(id).map(employee -> {
-//            childOfEmployee.setEmployee(employee);
-//            return childRepository.save(childOfEmployee);
-//        }}
-
-
     @Override
     public ChildOfEmployee updateChild(Long id, ChildOfEmployee childOfEmployee) {
         return childRepository.save(childOfEmployee);
@@ -63,20 +44,30 @@ public class ChildServiceImpl implements ChildService {
 
     @Override
     public Iterable<ChildOfEmployee> findByEmployeeId(Long id) {
-        return null;
+
+        return childRepository.findByEmployeeId(id);
+    }
+
+    @Override
+    public void deleteChildOfEmployeeByID(Long Id) {
+//        log.info("The child of employee will be deleted by ID in database:");
+        childRepository.deleteById(Id);
+    }
+
+    @Override
+    public Iterable<ChildOfEmployee> sortAllChildOfEmployeeByName() {
+//        log.info("The children of employees are sorted by name in ascending order:");
+        return childRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 
 
-//    @Override
-//    public Iterable<ChildOfEmployee> findByEmployeeId(Long id) {
-//        return childRepository.findByEmployeeId(id);
-//    }
+    @Override
+    public Iterable<ChildOfEmployee> sortAllChildOfEmployeeBySurname() {
+//        log.info("The children of employees are sorted by surname in ascending order:");
+        return childRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
+    }
 }
 
-//    @Override
-//    public ResponseEntity<ChildOfEmployee> findByEmployeeId(Long id) {
-//        return (ResponseEntity<ChildOfEmployee>) childRepository.findByEmployeeId(id);
-//    }
 
 
 

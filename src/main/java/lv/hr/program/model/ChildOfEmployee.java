@@ -18,19 +18,23 @@ public class ChildOfEmployee {
     private String childPersonalCode;
 
     @Column(name = "child_date_of_birth")
-    private Date childDateOfBirth;
+    private LocalDate childDateOfBirth;
 
     @Column(name = "child_name")
     private String childName;
 
     @Column(name = "child_surname")
     private String childSurname;
-//    @ManyToOne
+    @ManyToOne
 //            (fetch = FetchType.LAZY)
 ////            (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 ////    @JoinColumn(name = "employee_id")
 //
-//    private Employee employee;
+    private Employee employee;
+
+//    @ManyToMany(mappedBy = "childrenOfEmployee",
+//            fetch = FetchType.LAZY)
+//    private List<Employee> employees;
 
     public long getChildId() {
         return childId;
@@ -48,11 +52,11 @@ public class ChildOfEmployee {
         this.childPersonalCode = childPersonalCode;
     }
 
-    public Date getChildDateOfBirth() {
+    public LocalDate getChildDateOfBirth() {
         return childDateOfBirth;
     }
 
-    public void setChildDateOfBirth(Date childDateOfBirth) {
+    public void setChildDateOfBirth(LocalDate childDateOfBirth) {
         this.childDateOfBirth = childDateOfBirth;
     }
 
@@ -72,16 +76,24 @@ public class ChildOfEmployee {
         this.childSurname = childSurname;
     }
 
-//    public Employee getEmployee() {
-//        return employee;
-//    }
-//
-//    public void setEmployee(Employee employee) {
-//        this.employee = employee;
-//    }
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public ChildOfEmployee() {
 
     }
 
+    public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee) {
+        this.childId = childId;
+        this.childPersonalCode = childPersonalCode;
+        this.childDateOfBirth = childDateOfBirth;
+        this.childName = childName;
+        this.childSurname = childSurname;
+        this.employee = employee;
     }
+}

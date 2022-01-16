@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -19,6 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Iterable<Employee> getAllEmployees() {
+        
         return employeeRepository.findAll();
     }
 
@@ -28,51 +30,102 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public void update(Long Id, Employee employee) {
-        employeeRepository.save(employee);
+    public Employee update(Long id, Employee employee) {
+        return employeeRepository.save(employee);
     }
 
     @Override
     public void deleteEmployeeByID(Long Id) {
         employeeRepository.deleteById(Id);
-
     }
+
+
+
 
     @Override
     public Iterable<Employee> fetchEmployeeByPersonalCodeLike(String personalCode) {
         return employeeRepository.findByPersonalCodeLike("%"+personalCode+"%");
     }
-
-//    @Override
-//    public Iterable<Employee> fetchEmployeeBySurname(String surname) {
-//        return employeeRepository.findBySurname(surname);
-//    }
-
-
-
     @Override
     public Employee fetchEmployeeByID(Long Id) {
         return employeeRepository.findById(Id).get();
-
     }
-
     @Override
     public Iterable<Employee> sortAllEmployeesByName() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
-
     @Override
     public Iterable<Employee> sortAllEmployeesBySurname() {
         return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
     }
 
     @Override
-    public Iterable<Employee> fetchEmployeeBySurnameLike(String surname) {
-        return employeeRepository.findBySurnameLike("%"+surname+"%");
+    public Iterable<Employee> fetchEmployeeBySurnameLikeIgnoreCase(String surname) {
+        return employeeRepository.findBySurnameLikeIgnoreCase("%"+surname+"%");
     }
 
     @Override
-    public Iterable<Employee> fetchEmployeeByNameLike(String name) {
-        return employeeRepository.findByNameLike("%"+name+"%");
+    public Iterable<Employee> getAllActiveEmployees() {
+        return employeeRepository.findAllActiveEmployees();
+    }
+
+    @Override
+    public Iterable<Employee> getEmployeesByDepartmentId(Long id) {
+        return employeeRepository.findByDepartmentId(id);
+    }
+
+    @Override
+    public Iterable<Employee> fetchEmployeeByNameLikeIgnoreCase(String name) {
+        return employeeRepository.findByNameLikeIgnoreCase("%"+name+"%");
+
+
+
+//        @Override
+//        public Iterable<Employee> getAllEmployees() {
+//            log.info("Full list of employees is:");
+//            return employeeRepository.findAll();
+//        }
+//
+//        @Override
+//        public Employee create(Employee employee) {
+//            log.info("Adding new employee {} to the database:", employee.getName());
+//            return employeeRepository.save(employee);
+//        }
+//
+//        @Override
+//        public void update(Long Id, Employee employee) {
+//            log.info("Information of employee {} {} was changed:", employee.getName(), employee.getSurname());
+//            employeeRepository.save(employee);
+//        }
+//
+//        @Override
+//        public void deleteEmployeeByID(Long Id) {
+//            log.info("The employee will be deleted by ID in database:");
+//            employeeRepository.deleteById(Id);
+//        }
+//
+//        @Override
+//        public Iterable<Employee> sortAllEmployeesByName() {
+//            log.info("The employees are sorted by name in ascending order:");
+//            return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+//        }
+//
+//        @Override
+//        public Iterable<Employee> sortAllEmployeesBySurname() {
+//            log.info("The employees are sorted by surname in ascending order:");
+//            return employeeRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
+//        }
+//
+//        @Override
+//        public Iterable<Employee> findByNameLike(String name) {
+//            log.info("The employee will be found by name:");
+//            return employeeRepository.findByName("%" + name + "%");
+//        }
+//
+//        @Override
+//        public Iterable<Employee> findBySurnameLike(String surname) {
+//            log.info("The employee will be found by surname:");
+//            return employeeRepository.findBySurname("%" + surname + "%");
+//        }
     }
 }
