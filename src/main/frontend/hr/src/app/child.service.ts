@@ -13,7 +13,12 @@ export class ChildService {
  private baseURL= '/api/v1/children';
  private addChildURL='/api/v1/employees/children';
 private addChildURL2 = '/api/v1/children/employee';
-//  /api/v1/children/employee/{id}
+private sortByAgeURL = '/api/v1/children/sort-by-age';
+private sortByAgeDescURL = 'api/v1/children/sort-by-age-desc';
+private ageLessThan13URL = 'api/v1/children/age';
+private orderByParent ='api/v1/children/group-by-parent'
+
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,7 +26,26 @@ private addChildURL2 = '/api/v1/children/employee';
     return this.httpClient.get<Child[]>(this.baseURL);
   }
 
- 
+ getChildById(id:number):Observable<Child>{
+   return this.httpClient.get<Child>(`${this.baseURL}/${id}`)
+ }
+
+sortChildrenByAge():Observable<Child[]>{
+  return this.httpClient.get<Child[]>(this.sortByAgeURL)
+}
+
+sortChildrenByAgeDesc():Observable<Child[]>{
+  return this.httpClient.get<Child[]>(this.sortByAgeDescURL)
+}
+
+getChildrenByAgeLesThan13(age:number):Observable<Child[]>{
+  return this.httpClient.get<Child[]>(`${this.ageLessThan13URL}/${age}`)
+}
+
+orderChildernByParentsSurname():Observable<Child[]>{
+  return this.httpClient.get<Child[]>(this.orderByParent)
+}
+
   addChild(child: Child):Observable<Object>{
     return this.httpClient.post(this.baseURL,child);
   }
@@ -72,5 +96,7 @@ return this.httpClient.put(`${this.baseURL}/${id}`, child);
                "childSurname: ":"child.childSurname"
                
            })}
+
+           
        
 }

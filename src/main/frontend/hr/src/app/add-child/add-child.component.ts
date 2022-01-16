@@ -31,8 +31,8 @@ id = this.route.snapshot.params['id'];
   onSubmit(){
     console.log(this.child);
    this.addChild3();
-   setTimeout(() =>this.goBack(),300); 
-     
+   this.goBack()
+   setTimeout(() => document.getElementById('goToLastPage').click(), 350)
     }
 
 

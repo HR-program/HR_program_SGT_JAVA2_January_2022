@@ -37,6 +37,25 @@ public class ChildController {
         return childService.getAllChildren();
     }
 
+    @GetMapping("children/age/{age}")
+    public Iterable<ChildOfEmployee> findByAgeLessThan(@PathVariable("age") int ageOfChild){
+        return childService.findByAgeLessThan(ageOfChild);
+    }
+    @GetMapping("children/sort-by-age")
+    public Iterable<ChildOfEmployee> sortByAgeOfChild() {
+        return childService.sortByAgeOfChild();
+    }
+
+    @GetMapping("children/sort-by-age-desc")
+    public Iterable<ChildOfEmployee> sortByAgeOfChildDesc() {
+        return childService.sortByAgeOfChildDesc();
+    }
+
+    @GetMapping("children/group-by-parent")
+    public Iterable<ChildOfEmployee>findAllByOrderByEmployeeSurname(){
+        return childService.findAllByOrderByEmployeeSurname();
+    }
+
     @PostMapping("/children")
     public ResponseEntity<ChildOfEmployee> addNewChild(@RequestBody ChildOfEmployee childOfEmployee) {
         try {
@@ -56,8 +75,11 @@ public class ChildController {
         childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
         childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
         childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
+        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
      childOfEmployee.setEmployee(employee);
         childService.addNewChild(childOfEmployee);}
+
+
     @PutMapping("/children/{id}")
     public ChildOfEmployee updateChild(@PathVariable("id") Long id, @RequestBody ChildOfEmployee childOfEmployee) {
         return childService.updateChild(id, childOfEmployee);
@@ -75,8 +97,13 @@ public class ChildController {
         childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
         childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
         childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
+        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
         childOfEmployee.setEmployee(childOfEmployee.getEmployee());
         childService.addNewChild(childOfEmployee);}
+
+    @GetMapping("/children/{id}")
+    public ChildOfEmployee findChildById(@PathVariable("id") Long childId)
+    { return childRepository.findChildOfEmployeeByChildId(childId);}
 
 //
 //    @GetMapping("/children")

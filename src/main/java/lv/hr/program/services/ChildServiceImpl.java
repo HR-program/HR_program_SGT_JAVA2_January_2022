@@ -66,6 +66,33 @@ public class ChildServiceImpl implements ChildService {
 //        log.info("The children of employees are sorted by surname in ascending order:");
         return childRepository.findAll(Sort.by(Sort.Direction.ASC, "surname"));
     }
+
+    @Override
+    public ChildOfEmployee findChildOfEmployeeByChildId(Long childId) {
+        return childRepository.findById(childId).get();
+    }
+
+    @Override
+    public Iterable<ChildOfEmployee> findByAgeLessThan(int ageOfChild) {
+        return childRepository.findByAgeOfChildLessThan(ageOfChild);
+    }
+
+    @Override
+    public Iterable<ChildOfEmployee> sortByAgeOfChild() {
+        return childRepository.findAll(Sort.by(Sort.Direction.ASC, "ageOfChild"));
+    }
+
+    @Override
+    public Iterable<ChildOfEmployee> sortByAgeOfChildDesc() {
+        return childRepository.findAll(Sort.by(Sort.Direction.DESC, "ageOfChild"));
+
+
+    }
+
+    @Override
+    public Iterable<ChildOfEmployee> findAllByOrderByEmployeeSurname() {
+        return childRepository.findAllByOrderByEmployeeSurname();
+    }
 }
 
 

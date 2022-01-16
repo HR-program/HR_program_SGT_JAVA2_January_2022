@@ -23,6 +23,7 @@ id:number;
 
   onSubmit(){
 this.updateDepartment();
+
   }
 
   goBack(){

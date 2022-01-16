@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { SearchEmloyeeComponent } from './search-emloyee/search-emloyee.component';
 import { SearchListComponent } from './search-list/search-list.component';
+import { UpdateChildComponent } from './update-child/update-child.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:'children-list', component: ChildrenListComponent},
   {path:'employees-children/:id',component: EmployessChildernComponent},
   {path:'employees-active',component:ActiveEmployeesListComponent},
-  {path:'',component:NavigationBarComponent}
+  {path:'',component:NavigationBarComponent},
+  {path:'update-child/:id',component:UpdateChildComponent}
 ];
 
 @NgModule({

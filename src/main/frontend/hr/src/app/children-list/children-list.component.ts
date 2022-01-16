@@ -15,6 +15,7 @@ export class ChildrenListComponent implements OnInit {
   page: any=1;
   pageSizes = [10,15,20];
   totalElements =0;
+  age:number =13;
   // pageSize:number=3;
   noOfRows =10;
   constructor(private childService: ChildService,
@@ -32,17 +33,55 @@ private getChildren(){
     console.log(data)},)
 }
 
+
+private sortChildrenByAge(){
+  this.childService.sortChildrenByAge().subscribe(data=>{
+    this.children = data;
+    console.log(data);
+  },
+  error=> console.log(error));
+ }
+
+private sortChildrenByAgeDesc(){
+  this.childService.sortChildrenByAgeDesc().subscribe(data=>{
+    this.children = data;
+    console.log(data);
+  },
+  error=> console.log(error));
+
+}
+private getChildrenByAgeLesThan13(){
+  this.childService.getChildrenByAgeLesThan13(this.age).subscribe(data=>{
+  this.children = data;
+  console.log(data);
+},
+error=> console.log(error));
+
+}
+
+private orderChildernByParentsSurname(){
+  this.childService.orderChildernByParentsSurname().subscribe(data=>{
+    this.children = data;
+    console.log(data);
+  },
+  error=> console.log(error));
+  
+  }
+
 selectedOption(){
 
   switch(this.selected) {
     case "1":
-       // if modo 1 is selected do something.
+       this.sortChildrenByAge();
        break;
-    case "4":
-     
+    case "2":
+      this.sortChildrenByAgeDesc();
        break;
-    case "5":
-       
+    case "3":
+      this.getChildrenByAgeLesThan13();
+       break;
+       case "4":
+      this.orderChildernByParentsSurname();
        break;
 
   }

@@ -1,6 +1,5 @@
 package lv.hr.program.controllers;
 
-import lv.hr.program.model.Department;
 import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.EmployeeRepository;
 import lv.hr.program.services.EmployeeService;
@@ -63,6 +62,7 @@ public class EmployeeController {
     public Iterable<Employee> sortAllEmployeesBySurname() {
         return employeeService.sortAllEmployeesBySurname();
     }
+
 
 //  add new employee
     @PostMapping("/employees")

@@ -1,4 +1,5 @@
-<h2>{{name}}children </h2>
+
+<h2 [(ngModel)] ="parent" >{{parent}}children </h2>
 <!-- <span>Sort by
 <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">    
     <option>--Choose option--</option>
@@ -37,13 +38,27 @@
         <td>{{child.childDateOfBirth}}</td>
         <td>{{child.childPersonalCode}}</td>
         <!-- <td>{{child.childParents}}</td>  -->
-        <td><button (click)= "goToUpdateChildPage()"  btn btn-info>Update</button>
-            <button (click) = "deleteChild()"btn btn-danger>Delete</button>
-        
+        <td><button routerLink ="/update-child/{{child.childId}}" btn btn-info>Update</button>
+            <button  mwlConfirmationPopover
+            [popoverTitle]="popoverTitle" 
+            [popoverMessage]="popoverMessage"
+            placement="right"
+            (confirm)="confirmClicked = true;  deleteChild(child.childId)"
+            (cancel)="cancelClicked = true"
+            confirmButtonType="danger"
+            cancelButtonType="outline-secondary"
+            id="deleteEmployee" class="employee_buttons">
+
+       Delete Child</button>
         </td>
-   
-        
+           
  </tr> 
+
+ <div class="alert alert-info" [hidden]="!confirmClicked">
+    You clicked confirm!
+  </div>
+  <div class="alert alert-info" [hidden]="!cancelClicked">You cancelled!</div>
+ 
     
 </tbody>
 
@@ -53,9 +68,9 @@
 <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
 
 
-<pagination-template #p="paginationApi"
+<pagination-template #p="paginationApi">
 
-                    >
+                
 
 <button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
 </pagination-template>
@@ -66,8 +81,9 @@
     <option value = "6">6</option>
     <option value = "9">9</option>
     </select>
-</Span> -->
+</Span> 
 
-<button (click)= "goToAddChildrenPage(employee.id)">Add Child</button>
-<button (click)= "goBack()">Back</button>
+<button (click)= "goToAddChildrenPage(employee.id)" class = "btn btn-success" type = "submit" >Add Child</button>
+<button (click)= "goBack()"class = "btn btn-info" type = "info" >Go Back</button>
+
 

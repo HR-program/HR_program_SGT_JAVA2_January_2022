@@ -42,8 +42,8 @@ export class AddEmployeeComponent implements OnInit {
     this.departmentService.getDepartmentsList().subscribe(data=>{
       this.departments=data;
 console.log(data);
-    })
-  
+},
+error=> console.log(error));
 }
   addEmployee(){
     this.employeeService.addEmployee( this.employee).subscribe(data=>{

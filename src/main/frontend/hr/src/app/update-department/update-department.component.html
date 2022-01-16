@@ -1,6 +1,6 @@
 <div class = "col-md-6 offset-md-3">
     <h3>Update Department</h3>
-    <form (ngSubmit)= "onSubmit()">
+    
     <div class = "form-group">
         <label>Departement Name</label>
         <input type = "text" class = "form-control" id ="name"
@@ -13,9 +13,9 @@
     </div>
     
  
-     <button  class = "btn btn-success" type = "submit" >Submit</button>
+     <button  (click) ="onSubmit()" class = "btn btn-success" type = "submit" >Submit</button>
 
     <button (click)="goBack()">Go back</button>
-    </form>
+    
     </div>
   

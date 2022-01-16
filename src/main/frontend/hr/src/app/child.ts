@@ -6,5 +6,7 @@ childPersonalCode: string;
 childDateOfBirth: string;
 childName: string;
 childSurname:string;
+ageOfChild:number;
 employee: Employee;
+
 }

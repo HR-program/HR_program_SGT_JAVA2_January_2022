@@ -14,6 +14,12 @@ public interface ChildRepository extends JpaRepository<ChildOfEmployee,Long> {
 
     Iterable<ChildOfEmployee> findByEmployeeId(long employeeId);
 
+    ChildOfEmployee findChildOfEmployeeByChildId(Long childId);
+    Iterable<ChildOfEmployee>findByAgeOfChildLessThan(int ageOfChild);
+
+    Iterable<ChildOfEmployee> findAllByOrderByEmployeeSurname();
+
+
 //    @Transactional
 //    void deleteByEmployeeId(long employeeId);
 

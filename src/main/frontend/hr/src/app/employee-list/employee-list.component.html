@@ -12,6 +12,8 @@
 </span>
 
 
+    
+
 
 <table class = "table table-striped">
 <thead>
@@ -37,7 +39,8 @@
 
 <tbody>
 
-    <tr id = "employee" *ngFor = "let employee of employees |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" routerLink ="/employees/{{employee.id}}" >
+    <tr id = "employee" *ngFor = "let employee of employees |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}"
+     routerLink ="/employees/{{employee.id}}" >
     
    
         <td>{{employee.id}}</td>

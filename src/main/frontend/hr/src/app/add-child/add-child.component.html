@@ -1,6 +1,6 @@
 <div class = "col-md-6 offset-md-3">
     <h3>Add Child</h3>
-    <form (ngSubmit)= "onSubmit()">
+
 
         <div class = "form-group">
             <label>Personal Code</label>
@@ -23,5 +23,6 @@
         [(ngModel)] ="child.childSurname" name = "childLastname">
     </div>
    
-     <button class = "btn btn-success" type = "submit" >Submit</button>
-    </form>
+    <button (click)= "onSubmit()" class = "btn btn-success" type = "submit" >Submit</button>
+    <button (click)= "goBack()"class = "btn btn-info" type = "info" >Go Back</button>
+ 

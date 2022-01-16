@@ -24,6 +24,13 @@ public interface ChildService {
 
     @NotNull
     Iterable<ChildOfEmployee> sortAllChildOfEmployeeBySurname();
+    ChildOfEmployee findChildOfEmployeeByChildId(Long childId);
 
+    Iterable<ChildOfEmployee> findByAgeLessThan(int ageOfChild);
 
+    Iterable<ChildOfEmployee> sortByAgeOfChild();
+
+    Iterable<ChildOfEmployee> sortByAgeOfChildDesc();
+
+    Iterable<ChildOfEmployee> findAllByOrderByEmployeeSurname();
 }

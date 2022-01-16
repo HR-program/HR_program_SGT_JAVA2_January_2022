@@ -13,8 +13,9 @@ import { Location } from '@angular/common';
 })
 export class EmployessChildernComponent implements OnInit {
   employee:Employee = new Employee();
-
+employeeName:string;
 id: number;
+child: Child =new Child();
   children: Child[] =[];
   totalLength: any;
   page: any=1;
@@ -23,6 +24,12 @@ id: number;
   pageSize:number=3;
   noOfRows =3;
   name=this.employee.name;
+  popoverTitle = 'Delete';
+  popoverMessage = 'Are you sure';
+  confirmClicked = false;
+  cancelClicked = false;
+  parent:string;
+  
 
   constructor(private childService: ChildService,
     private route: ActivatedRoute,
@@ -33,6 +40,9 @@ id: number;
 
     this.getEmplyoeesChildren();
     document.getElementById('goToLastPage').hidden = true;
+    this.id = this.route.snapshot.params['id'];
+  this.parent = this.employee.name;
+
 
     }
 
@@ -57,13 +67,21 @@ this.childService.getChildrenByEmployessID(this.id).subscribe(data=>{
      
   }
 
-  goToUpdateChildPage(){
+deleteChildFromDataBase(){
+  this.childService.deleteChild
+}
+
+  deleteChild(id: number):void{
+    this.childService.deleteChild(id).subscribe(data=>{
+      console.log(data);
+      console.log(id);
+  }, error => {console.log(error);})
 
   }
-
-  deleteChild(){}
-
-  }
-
 
   
+
+
+
+
+}

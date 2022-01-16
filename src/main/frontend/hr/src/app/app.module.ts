@@ -23,6 +23,7 @@ import { ChildrenListComponent } from './children-list/children-list.component';
 import { EmployessChildernComponent } from './employess-childern/employess-childern.component';
 import { ActiveEmployeesListComponent } from './active-employees-list/active-employees-list.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { UpdateChildComponent } from './update-child/update-child.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     EmployessChildernComponent,
     ActiveEmployeesListComponent,
     NavigationBarComponent,
+    UpdateChildComponent,
     
   ],
   imports: [

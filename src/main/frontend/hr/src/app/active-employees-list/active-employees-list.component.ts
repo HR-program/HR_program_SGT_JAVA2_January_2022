@@ -54,13 +54,13 @@ private location: Location,
  selectedOption(){
 
     switch(this.selected) {
-      case "1":
+      case "3":
          // if modo 1 is selected do something.
          break;
-      case "4":
+      case "1":
          this.sortBySurName();
          break;
-      case "5":
+      case "2":
          this.sortByName();
          break;
 
