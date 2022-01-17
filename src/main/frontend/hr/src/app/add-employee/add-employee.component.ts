@@ -8,6 +8,7 @@ import { Department } from '../department';
 import { DepartmentService } from '../department.service';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-add-employee',
@@ -21,7 +22,20 @@ export class AddEmployeeComponent implements OnInit {
   id!: number;
   page: any=1;
 
-  
+  colorTheme = 'theme-default';
+  bsValue = new Date();
+
+
+
+ bsConfig?: Partial<BsDatepickerConfig>;
+ 
+  applyTheme(){
+    
+    this.bsConfig =  { containerClass: this.colorTheme };
+ 
+    
+  }
+
   
   constructor(private employeeService: EmployeeService,
     private router:Router,
@@ -36,6 +50,8 @@ export class AddEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepatments();
+    this.applyTheme();
+    
   }
 
   getDepatments(){

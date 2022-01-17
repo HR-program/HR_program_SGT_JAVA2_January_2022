@@ -24,6 +24,8 @@ import { EmployessChildernComponent } from './employess-childern/employess-child
 import { ActiveEmployeesListComponent } from './active-employees-list/active-employees-list.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { UpdateChildComponent } from './update-child/update-child.component';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { UpdateChildComponent } from './update-child/update-child.component';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
