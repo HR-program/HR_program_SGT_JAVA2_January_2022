@@ -26,8 +26,13 @@ export class SearchListComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getEmployees();
-   this.dataSharingService.currentSearchedEmployees;
-   (console.log (this.dataSharingService.currentSearchedEmployees));
+   this.dataSharingService.passingArray$
+   .subscribe(
+     message=>{this.employees=message
+   
+    }
+       )
+console.log(this.employees)
     document.getElementById('goToLastPage').hidden = true;}
 
     private getEmployees(){

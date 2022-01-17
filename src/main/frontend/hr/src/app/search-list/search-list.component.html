@@ -1,5 +1,5 @@
 
-<h2>Employee List</h2>
+<h2>Searched Employee</h2>
 <span>Sort by
 <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
     <option>--Choose option--</option>
@@ -10,6 +10,8 @@
     <option value = "5">Name</option>
 </select>
 </span>
+
+
 
 <table class = "table table-striped">
 <thead>
@@ -25,7 +27,8 @@
         <th>Phone number</th>
         <th>E-mail address</th>
         <th>Address</th>
-        <th>Eduaction</th>
+        <th>Education</th>
+        <th>Department</th>
         <th>Certificates</th>
         <th>Children</th>
         <th>Active</th>
@@ -49,12 +52,13 @@
         <td>{{employee.email}}</td>
         <td>{{employee.address}}</td>
         <td>{{employee.education}}</td>
+        <td>{{employee.department.name}}</td>
         <td>{{employee.certificate}}</td>
         <td>{{employee.doesEmployeeHaveChild}}</td>
         <td>{{employee.employeeActive}}</td>
 
 
-    </tr>
+
 
 </tbody>
 

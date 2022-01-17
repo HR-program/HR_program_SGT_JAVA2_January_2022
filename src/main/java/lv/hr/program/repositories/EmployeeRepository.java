@@ -1,20 +1,33 @@
 package lv.hr.program.repositories;
 
+import lv.hr.program.model.ChildOfEmployee;
 import lv.hr.program.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
-    Optional<Employee> findById(Long id);
 
-    Optional<Employee> findByPersonalCode(String personalCode);
 
-    Iterable<Employee> findByName(String name);
 
-    Iterable<Employee> findBySurname(String surname);
+    Iterable<Employee> findByPersonalCodeLike(String personalCode);
+
+//    Iterable<Employee> findBySurname(String surname);
+    Iterable<Employee> findBySurnameLikeIgnoreCase(String surname);
+
+//    Iterable<Employee>findByNameLike(String name);
+    Iterable<Employee>findByNameLikeIgnoreCase(String name);
+
+
+    Iterable<Employee>findByDepartmentId(Long id);
+
+    @Query(value ="SELECT * FROM employee WHERE employee_is_active_worker = 1",  nativeQuery = true)
+    Iterable<Employee> findAllActiveEmployees();
+
 
 }

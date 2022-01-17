@@ -63,6 +63,10 @@
             <td class="employee_left_info"><span id="employee_address">{{employee.address}}</span></td>
           </tr>
           <tr>
+            <td class="employee_left_row_name">Eduaction</td>
+            <td class="employee_left_info"><span id="employee_education">{{employee.education}}</span></td>
+          </tr>
+          <tr>
             <td class="employee_left_row_name">Department</td>
             <td class="employee_left_info"><span id="employee_department">Department</span></td>
           </tr>
@@ -98,7 +102,7 @@
             Certificates
           </button>
 
-          <button id="children" class="employee_buttons">
+          <button (click)= "goToEmployeesChildren(employee.id)" id="children" class="employee_buttons">
             Children
           </button>
 

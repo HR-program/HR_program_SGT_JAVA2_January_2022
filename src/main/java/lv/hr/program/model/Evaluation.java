@@ -1,16 +1,9 @@
 package lv.hr.program.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "evaluation")
 public class Evaluation {
 
@@ -25,11 +18,21 @@ public class Evaluation {
     @Column(name = "summary")
     private String summary;
 
-    @ManyToOne(fetch = FetchType.LAZY,
-            optional = false)
-    @JoinColumn(name = "employee_id",
-            insertable = false,
-            updatable = false,
-            nullable = false)
-    private Employee employee;
+//    @ManyToOne(fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL,
+//            optional = false)
+//    @JoinColumn(name = "employee_id",
+//            insertable = false,
+//            updatable = false,
+//            nullable = false)
+//    private Employee employee;
+
+    public Evaluation() {
+    }
+
+    public Evaluation(LocalDate dateOfEvaluation, String summary, Employee employee) {
+        this.dateOfEvaluation = dateOfEvaluation;
+        this.summary = summary;
+//        this.employee = employee;
+    }
 }

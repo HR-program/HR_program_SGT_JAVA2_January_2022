@@ -1,6 +1,8 @@
 package lv.hr.program.services;
 
+import lv.hr.program.model.ChildOfEmployee;
 import lv.hr.program.model.Department;
+import lv.hr.program.model.Employee;
 
 import javax.validation.constraints.NotNull;
 
@@ -9,13 +11,15 @@ public interface DepartmentService {
     @NotNull
     Iterable<Department> getAllDepartments();
 
-    Department create(Department department);
+    Department addNewDepartment(Department department);
 
+    Department updateDepartment(Long id, Department department);
     @NotNull
-    void update(Long Id, Department department);
+    void deleteDepartmentById(Long id);
 
-    @NotNull
-    void deleteDepartmentByID(Long Id);
+    Department fetchDepartmentById(Long id);
+
+
 
     @NotNull
     Iterable<Department> sortAllDepartmentsByName();
@@ -25,4 +29,9 @@ public interface DepartmentService {
 
     @NotNull
     Iterable<Department> findByName(String name);
+
+
 }
+
+
+

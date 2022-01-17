@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { SearchEmployeeComponent } from '../search-employee/search-employee.component';
+import { SearchEmloyeeComponent } from '../search-emloyee/search-emloyee.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,13 +14,14 @@ export class EmployeeListComponent implements OnInit {
   employees: Employee[] =[];
   totalLength: any;
   page: any=1;
-  pageSizes = [3, 6, 9];
+  pageSizes = [10, 15, 20];
   totalElements =0;
-  pageSize:number=3;
-  noOfRows =3;
+  // pageSize:number=3;
+  noOfRows =10;
 
   constructor(private employeeService: EmployeeService,
 
+private location: Location,
    ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class EmployeeListComponent implements OnInit {
              })
   }
   sortByName():void{
-    this.employeeService.sortByName().subscribe
+    this.employeeService.sortByname().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
@@ -62,6 +64,10 @@ export class EmployeeListComponent implements OnInit {
          break;
 
     }
+  }
+  goBack(): void {
+    this.location.back();
+
   }
 }
 

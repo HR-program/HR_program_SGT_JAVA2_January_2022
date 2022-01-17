@@ -1,16 +1,9 @@
 package lv.hr.program.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "vacation")
 public class Vacation {
 
@@ -36,20 +29,24 @@ public class Vacation {
     @Column(name = "vacation_days_for_work_experience")
     private int vacationDaysForWorkExperience;
 
-    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild,
-                    int vacationDaysForWorkExperience) {
-        this.year = year;
-        this.vacationStartDate = vacationStartDate;
-        this.vacationEndDate = vacationEndDate;
-        this.vacationDaysForChild = vacationDaysForChild;
-        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
-    }
-
     @ManyToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
             optional = false)
     @JoinColumn(name = "employee_id",
             insertable = false,
             updatable = false,
             nullable = false)
     private Employee employee;
+
+    public Vacation() {
+    }
+
+    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild, int vacationDaysForWorkExperience, Employee employee) {
+        this.year = year;
+        this.vacationStartDate = vacationStartDate;
+        this.vacationEndDate = vacationEndDate;
+        this.vacationDaysForChild = vacationDaysForChild;
+        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
+//        this.employee = employee;
+    }
 }

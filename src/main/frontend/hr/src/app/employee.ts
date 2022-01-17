@@ -1,3 +1,5 @@
+import { Department } from "./department";
+
 export class Employee {
     id: number | undefined;
     name: string | undefined;
@@ -11,7 +13,7 @@ export class Employee {
     email: string|undefined;
     address: string|undefined;
     education: string|undefined;
-    // department:Department;
+    department:Department;
     // currentPosition:PositionHistory;
     certificate: string|undefined ;
     // evaluation:Evaluation;

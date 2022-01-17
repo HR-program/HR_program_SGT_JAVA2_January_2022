@@ -3,27 +3,34 @@ package lv.hr.program.services;
 import lv.hr.program.model.Employee;
 
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 public interface EmployeeService {
+    @NotNull Iterable<Employee> getAllEmployees();
+    public void create(Employee employee);
+    public  Employee update(Long id ,Employee employee);
+    public  void deleteEmployeeByID(Long Id);
 
-    @NotNull
-    Iterable<Employee> getAllEmployees();
+   Iterable <Employee> fetchEmployeeByPersonalCodeLike(String personalCode);
 
-    Employee create(Employee employee);
+//    Iterable<Employee> fetchEmployeeBySurname(String surname);
 
-    @NotNull
-    void update(Long Id, Employee employee);
+//    Optional<Employee> findEmployeeByPersonalCodeLike(String personalCode);
 
-    @NotNull
-    void deleteEmployeeByID(Long Id);
+    Employee fetchEmployeeByID(Long Id);
+    @NotNull Iterable<Employee> sortAllEmployeesByName();
+    @NotNull Iterable<Employee> sortAllEmployeesBySurname();
 
-    @NotNull
-    Iterable<Employee> sortAllEmployeesByName();
+//    Iterable<Employee> fetchEmployeeBySurnameLike(String surname);
 
-    @NotNull
-    Iterable<Employee> sortAllEmployeesBySurname();
+    Iterable<Employee> fetchEmployeeByNameLikeIgnoreCase(String name);
 
-    Iterable<Employee> findByNameLike(String name);
+    Iterable<Employee> fetchEmployeeBySurnameLikeIgnoreCase(String surname);
 
-    Iterable<Employee> findBySurnameLike(String surname);
+
+    Iterable<Employee> getAllActiveEmployees();
+
+    Iterable<Employee> getEmployeesByDepartmentId(Long id);
+
+
 }
