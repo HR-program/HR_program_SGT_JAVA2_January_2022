@@ -75,13 +75,12 @@ deleteChildFromDataBase(){
     this.childService.deleteChild(id).subscribe(data=>{
       console.log(data);
       console.log(id);
+      this.getEmplyoeesChildren();
   }, error => {console.log(error);})
 
   }
 
+
+
   
-
-
-
-
 }

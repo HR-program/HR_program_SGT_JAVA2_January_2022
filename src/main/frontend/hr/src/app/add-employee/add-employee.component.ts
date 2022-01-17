@@ -22,9 +22,7 @@ export class AddEmployeeComponent implements OnInit {
   id!: number;
   page: any=1;
 
-  colorTheme = 'theme-default';
-  bsValue = new Date();
-
+  colorTheme = 'theme-default'
 
 
  bsConfig?: Partial<BsDatepickerConfig>;

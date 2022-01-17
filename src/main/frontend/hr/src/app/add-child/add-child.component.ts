@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Employee } from '../employee';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 
 @Component({
@@ -17,7 +18,18 @@ export class AddChildComponent implements OnInit {
 child: Child = new Child();
 id = this.route.snapshot.params['id'];
   employee: Employee = new Employee;
-  
+  colorTheme = 'theme-default'
+  bsValue = new Date();
+
+
+ bsConfig?: Partial<BsDatepickerConfig>;
+
+  applyTheme(){
+
+    this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
+
+
+  }
 
   constructor(private childService: ChildService,
     private location: Location,
@@ -27,12 +39,13 @@ id = this.route.snapshot.params['id'];
     ) { }
 
   ngOnInit(): void {
+    this.applyTheme();
   }
   onSubmit(){
     console.log(this.child);
    this.addChild3();
    this.goBack()
-   setTimeout(() => document.getElementById('goToLastPage').click(), 350)
+   setTimeout(() => document.getElementById('goToLastPage').click(),400 )
     }
 
 
