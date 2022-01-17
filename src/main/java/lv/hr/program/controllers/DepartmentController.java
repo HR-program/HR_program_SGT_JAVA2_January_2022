@@ -40,10 +40,10 @@ public class DepartmentController {
 
         return departmentService.addNewDepartment(department);
     }
-//    @PutMapping("/departments/{id}")
-//    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
-//        return departmentService.updateDepartment(id, department);
-//    }
+    @PutMapping("/departments/{id}")
+    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
+        return departmentService.updateDepartment(id, department);
+    }
 
     @DeleteMapping("/departments/{id}")
     public void deleteDepartment(@PathVariable("id") Long id) {

@@ -37,7 +37,7 @@ private  employeesByDepartmentsIdURL = 'api/v1/employees/department';
     return this.httpClient.get<Employee[]>(this.findAllActiveURL);
 
   }
-  sortByname():Observable<Employee[]>{
+  sortByName():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.sortEmployeeByNameURL);
 }
 sortBySurname():Observable<Employee[]>{

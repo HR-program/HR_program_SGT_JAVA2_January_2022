@@ -85,8 +85,6 @@ public class ChildServiceImpl implements ChildService {
     @Override
     public Iterable<ChildOfEmployee> sortByAgeOfChildDesc() {
         return childRepository.findAll(Sort.by(Sort.Direction.DESC, "ageOfChild"));
-
-
     }
 
     @Override
@@ -94,7 +92,3 @@ public class ChildServiceImpl implements ChildService {
         return childRepository.findAllByOrderByEmployeeSurname();
     }
 }
-
-
-
-

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataSharingService } from '../data-sharing.service';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { SearchEmployeeComponent } from '../search-employee/search-employee.component';
+
 
 
 @Component({
@@ -49,7 +49,7 @@ console.log(this.employees)
         console.log (data);
       })}
 
-    sortBySurName():void{
+    sortBySurname():void{
       this.employeeService.sortBySurname().subscribe
       (data =>{
         this.employees = data;

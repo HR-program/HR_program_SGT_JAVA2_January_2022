@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-import { SearchEmloyeeComponent } from '../search-emloyee/search-emloyee.component';
+
 import { Location } from '@angular/common';
 
 @Component({
@@ -38,13 +38,13 @@ private location: Location,
              })
   }
   sortByName():void{
-    this.employeeService.sortByname().subscribe
+    this.employeeService.sortByName().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
     })}
     
-  sortBySurName():void{
+  sortBySurname():void{
     this.employeeService.sortBySurname().subscribe
     (data =>{
       this.employees = data;
@@ -58,7 +58,7 @@ private location: Location,
          // if modo 1 is selected do something.
          break;
       case "1":
-         this.sortBySurName();
+         this.sortBySurname();
          break;
       case "2":
          this.sortByName();

@@ -10,9 +10,9 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployessChildernComponent } from './employess-childern/employess-childern.component';
-import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { SearchEmloyeeComponent } from './search-emloyee/search-emloyee.component';
+import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { UpdateChildComponent } from './update-child/update-child.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
@@ -24,9 +24,9 @@ const routes: Routes = [
   {path:'certificates', component:CertificatesComponent},
   {path:'update-employee/:id', component: UpdateEmployeeComponent},
   {path:'add-employee', component: AddEmployeeComponent},
-  {path:'search-employees', component: SearchEmloyeeComponent},
+  {path:'search-employees', component: SearchEmployeeComponent},
   // {path:'', redirectTo: 'search-employees', pathMatch:'full'},
-  {path:'login', component: LoginComponent},
+  // {path:'login', component: LoginComponent},
   {path:'searched-employees', component:SearchListComponent},
   {path:'add-child/:id',component:AddChildComponent},
   {path:'departments',component:DepartmentListComponent},

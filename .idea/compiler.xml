@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HR_program_SGT_JAVA2_January_2022" target="14" />
+      <module name="HR_program_SGT_JAVA2_January_2022" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

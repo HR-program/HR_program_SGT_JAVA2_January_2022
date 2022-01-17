@@ -17,14 +17,15 @@ public class Evaluation {
 
     @Column(name = "summary")
     private String summary;
-
-//    @ManyToOne(fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL,
-//            optional = false)
-//    @JoinColumn(name = "employee_id",
-//            insertable = false,
-//            updatable = false,
-//            nullable = false)
+//
+//    @ManyToOne
+////            (fetch = FetchType.LAZY,
+////            cascade = CascadeType.ALL,
+////            optional = false)
+////    @JoinColumn(name = "employee_id",
+////            insertable = false,
+////            updatable = false,
+////            nullable = false)
 //    private Employee employee;
 
     public Evaluation() {

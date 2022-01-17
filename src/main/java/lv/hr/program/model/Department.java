@@ -21,7 +21,7 @@ public class Department<cascade> {
 
     @OneToMany
 //            (mappedBy = "department")
-    private List<Employee> employeeArrayList = new ArrayList<>();
+    private List<Employee> employee = new ArrayList<>();
 
 
     public Department() {

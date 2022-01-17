@@ -7,11 +7,11 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-search-emloyee',
-  templateUrl: './search-emloyee.component.html',
-  styleUrls: ['./search-emloyee.component.css']
+  selector: 'app-search-employee',
+  templateUrl: './search-employee.component.html',
+  styleUrls: ['./search-employee.component.css']
 })
-export class SearchEmloyeeComponent implements OnInit {
+export class SearchEmployeeComponent implements OnInit {
   departments: Department[]=[];
   department:Department =  new Department();
 employee:Employee = new Employee();
@@ -36,7 +36,6 @@ onSubmitName(){
 
   this.findEmployeesByName();
 
-
 }
 onSubmitSurName(){
 
@@ -46,7 +45,6 @@ onSubmitPersonalCode(){
 
   this.findEmployeesByPersonalCode();
 }
-
 
 
    findEmployeesBySurname(){
@@ -92,7 +90,6 @@ findEmployeesByPersonalCode(){
            })
 }
 
-
 goToSearchedList(){
 
   this.router.navigate(['searched-employees']);
@@ -102,7 +99,6 @@ onSubmitDepartment(){
   console.log(this.selectedDepartment);
   this.employeesByDepartmentsId();
 }
-
 
 getDepatments(){
   this.departmentService.getDepartmentsList().subscribe(data=>{
@@ -126,10 +122,7 @@ employeesByDepartmentsId(){
 }
 
 
-
 }
-
-
 
 
 
