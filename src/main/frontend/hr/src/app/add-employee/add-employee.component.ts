@@ -31,7 +31,7 @@ export class AddEmployeeComponent implements OnInit {
  
   applyTheme(){
     
-    this.bsConfig =  { containerClass: this.colorTheme };
+    this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
  
     
   }
