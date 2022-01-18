@@ -3,6 +3,8 @@ import { Department } from "./department";
 export class Employee {
     id: number | undefined;
     name: string | undefined;
+   workStartDate: any;
+   workEndDate: any;
     surname: string|undefined;
     gender:any;
     dateOfBirth:any;

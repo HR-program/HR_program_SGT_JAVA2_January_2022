@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import { Location } from '@angular/common';
+import { Department } from '../department';
+import { DepartmentService } from '../department.service';
 
 @Component({
   selector: 'app-update-employee',
@@ -10,18 +12,45 @@ import { Location } from '@angular/common';
   styleUrls: ['./update-employee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
-  id!: number; 
+  id: number; 
+  departments: Department[]=[];
   employee: Employee = new Employee();
+  employeeDepartment: number
+
   constructor(private employeeService: EmployeeService,
+    private departmentService: DepartmentService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location,
+    
     ) { }
 
   ngOnInit(): void {
     this.getEmployee();
-
+    this.getDepartments();
+// this.getemployeeDepartment();
   }
+
+  // getemployeeDepartment(){
+  //   this.employeeDepartment = this.employee.department.id;
+  //   if(this.employee.department===null){
+  //     this.employeeDepartment=Department.find(x=>x!==undefined);
+  //   }else{this.employeeDepartment=this.employee.department.id}
+
+  // }
+
+
+
+
+
+
+  getDepartments(){
+    this.departmentService.getDepartmentsList().subscribe(data=>{
+      this.departments=data;
+console.log(data);
+},
+error=> console.log(error));
+}
   onSubmit(){
     this.updateEmployee();
     

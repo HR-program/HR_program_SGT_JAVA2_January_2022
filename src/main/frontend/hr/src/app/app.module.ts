@@ -27,6 +27,7 @@ import { UpdateChildComponent } from './update-child/update-child.component';
 import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchEmployeeComponent } from './search-employee/search-employee.component';
+import { VacationComponent } from './vacation/vacation.component';
 
 
 
@@ -52,6 +53,7 @@ import { SearchEmployeeComponent } from './search-employee/search-employee.compo
     ActiveEmployeesListComponent,
     NavigationBarComponent,
     UpdateChildComponent,
+    VacationComponent
 
   ],
   imports: [

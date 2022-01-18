@@ -58,6 +58,9 @@ export class EmployeeComponent implements OnInit {
   goToEmployeesChildren(id:any){
     this.router.navigate(['employees-children',id]);
   }
+  goToVacationScreen(id:any){
+    this.router.navigate(['vacation', id])
+  }
   }
 
 
