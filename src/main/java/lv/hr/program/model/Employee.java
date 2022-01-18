@@ -52,7 +52,7 @@ public class Employee {
 
     @Column(name = "employee_education")
     private String education;
-@ManyToOne
+    @ManyToOne
 //    @Column(name = "employee_department_name")
     private Department department;
 //@OneToMany
@@ -61,37 +61,43 @@ public class Employee {
 
     @Column(name = "employee_certificate")
     private String certificate;
-//@OneToMany
-////    @Column(name = "evaluation")
+
+    // @OneToMany
+//   @Column(name = "evaluation")
 //    private Evaluation evaluation;
+
 //@OneToMany
-////    @Column(name = "vacation")
+//    @Column(name = "vacation")
 //    private Vacation vacation;
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
-@OneToMany
+    @OneToMany
 //    @Column(name = "how_many_children")
     private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
 
-    public boolean setHavingChildrenToFalse(){
-        this.doesEmployeeHaveChild=false;
+    public boolean setHavingChildrenToFalse() {
+        this.doesEmployeeHaveChild = false;
         return doesEmployeeHaveChild;
     }
 
-    public boolean setHavingChildrenToTrue(){
-        this.doesEmployeeHaveChild=true;
+    public boolean setHavingChildrenToTrue() {
+        this.doesEmployeeHaveChild = true;
         return doesEmployeeHaveChild;
     }
 
     public Employee() {
     }
 
-    public Employee(long id, String name, String surname, Gender gender, LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate, String phoneNumber, String email, String address, String education, String certificate, boolean doesEmployeeHaveChild, boolean employeeActive) {
+    public Employee(long id, LocalDate workStartDate, LocalDate workEndDate, String name, String surname, Gender gender,
+                    LocalDate dateOfBirth, String personalCode, String idDocumentNumber, LocalDate idDocumentExpiryDate,
+                    String phoneNumber, String email, String address, String education, String certificate, boolean doesEmployeeHaveChild, boolean employeeActive) {
         this.id = id;
+        this.workStartDate = workStartDate;
+        this.workEndDate = workEndDate;
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -114,6 +120,22 @@ public class Employee {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public LocalDate getWorkStartDate() {
+        return workStartDate;
+    }
+
+    public void setWorkStartDate(LocalDate workStartDate) {
+        this.workStartDate = workStartDate;
+    }
+
+    public LocalDate getWorkEndDate() {
+        return workEndDate;
+    }
+
+    public void setWorkEndDate(LocalDate workEndDate) {
+        this.workEndDate = workEndDate;
     }
 
     public String getName() {
@@ -213,7 +235,6 @@ public class Employee {
     }
 
 
-
 //    public List<PositionHistory> getCurrentPosition() {
 //        return currentPosition;
 //    }
@@ -256,7 +277,6 @@ public class Employee {
     }
 
 
-
 //    public List<ChildOfEmployee> getChildOfEmployee() {
 //        return childOfEmployee;
 //    }
@@ -265,13 +285,13 @@ public class Employee {
 //        this.childOfEmployee = childOfEmployee;
 //    }
 
-        public boolean isEmployeeActive () {
-            return employeeActive;
-        }
+    public boolean isEmployeeActive() {
+        return employeeActive;
+    }
 
-        public void setEmployeeActive ( boolean employeeActive){
-            this.employeeActive = employeeActive;
-        }
+    public void setEmployeeActive(boolean employeeActive) {
+        this.employeeActive = employeeActive;
+    }
 
     // all arguments' constructor
     // standard getters and setters

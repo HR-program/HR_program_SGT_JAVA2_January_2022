@@ -1,23 +1,18 @@
-//package lv.hr.program.services;
+package lv.hr.program.services;
+
+import lv.hr.program.model.Vacation;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+
+public interface VacationService {
+
+    Vacation addNewVacation(Vacation vacation);
 //
-//import lv.hr.program.model.Vacation;
+//    int countVacationDaysBetweenEmployeeStartWorkDateAndCurrentDate(LocalDate workStartDate, LocalDate currentDate);
 //
-//import java.time.LocalDate;
-//import java.util.List;
-//import java.util.Optional;
-//
-//public interface VacationService {
-//
-//    Vacation create(Vacation vacation);
-//
-////    List<LocalDate> countBusinessDaysBetweenEmployeeStartWorkDateAndCurrentDate(final LocalDate startDate,
-////                                                                                final LocalDate endDate,
-////                                                                                final Optional<List<LocalDate>> holidays);
-//
+//    HashMap<Integer, Integer> returnCalculatedVacationDaysForAllYears(LocalDate workStartYear, LocalDate workCurrentYear);
 //
 //
-//    int countVacationDaysBetweenEmployeeStartWorkDateAndCurrentDate(LocalDate dateBefore, LocalDate dateAfter);
-//
-//
-//
-//}
+
+}

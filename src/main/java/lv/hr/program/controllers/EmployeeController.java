@@ -80,10 +80,12 @@ List<Employee> employeeList = new ArrayList<>();
     public Employee fetchEmployeeById(@PathVariable("id") Long Id){
         return employeeService.fetchEmployeeByID(Id);
     }
+
     @GetMapping("/employees/sort-by-name")
     public Iterable<Employee> sortAllEmployeesByName() {
         return employeeService.sortAllEmployeesByName();
     }
+
     @GetMapping("/employees/sort-by-surname")
     public Iterable<Employee> sortAllEmployeesBySurname() {
         return employeeService.sortAllEmployeesBySurname();
@@ -116,10 +118,8 @@ List<Employee> employeeList = new ArrayList<>();
             employee.setDepartment(employee.getDepartment());
             employee.setDoesEmployeeHaveChild(employee.setHavingChildrenToFalse());
             employee.setEmployeeActive(employee.isEmployeeActive());
+            employee.setWorkStartDate(employee.getWorkStartDate());
             employeeService.create(employee);}
-
-
-
 
 //            _employee.setName(employee.getName());
 //            _employee.setSurname(employee.getSurname());
