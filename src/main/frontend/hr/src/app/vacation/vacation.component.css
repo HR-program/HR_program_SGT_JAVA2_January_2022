@@ -26,50 +26,30 @@ body {
   background: var(--wrap-bg-color);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 25px;
-  height: 10vh;
-  background: var(--header-footer-bg);
-  color: white;
-  user-select: none;
-  font-size: clamp(.5rem, 1vw, 1.5rem); /*for different screens*/
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.733);
-}
-
-.logo {
-  position: absolute;
-  top: 1vh;
-  left: 1vw;
-  width: 4vw;
-  height: 4vh;
-}
-
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 71vh;
 }
 
 .employee_card {
-    position: relative;
-    display: flex;
-    margin: 1em;
-    width: 75%;
-    padding: .3em;
-    height: min-content;
-    min-height: 60vh;
-    background: var(--auth-bg-color);
-    color: var(--main-color);
-    word-wrap: break-word;
-    font-size: clamp(1rem, 2vw, 2rem);
-    border-radius: 1vh;
-    box-shadow: 5px 10px 5px var(--black-shadow);
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 5px; /* space between elements */
+margin: 1em;
+width: 60%;
+padding: .5em;
+height: min-content;
+min-height: 60vh;
+background: var(--auth-bg-color);
+color: var(--main-color);
+font-size: clamp(1rem, 1vh, 2rem);
+border-radius: 1vh;
+box-shadow: 5px 10px 5px var(--black-shadow);
+word-break: break-all;
 }
-
 .col-md-6 * {
     padding: .3rem;
 }
@@ -86,21 +66,6 @@ input {
     width: 50vw;
     font-size: clamp(1rem, 1vw, 1.6rem);
     font-weight: 600;
-}
-
-.footer {
-    display: flex;
-    align-items: center; /*vertically*/
-    height: 10vh;
-    background: var(--header-footer-bg);
-    color: white;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-size: clamp(.3rem, 1vw, 1rem);
-}
-
-.footer_right {
-    margin-left: auto;
 }
 
 

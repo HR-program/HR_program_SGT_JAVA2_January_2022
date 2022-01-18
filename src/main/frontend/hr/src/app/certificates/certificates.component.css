@@ -1,0 +1,33 @@
+:root {
+    --header-footer-bg: rgb(53, 53, 53);
+    --main-color: rgb(0, 0, 0);
+    --card-parts-bg: rgb(218, 218, 218);
+    --wrap-bg-color: rgb(209, 209, 209);
+    --auth-bg-color: rgba(255, 255, 255, 0.815);
+    --black-shadow: rgba(0, 0, 0, 0.349);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 71vh;
+}
+
+.employee_card {
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 5px; /* space between elements */
+margin: 1em;
+width: 60%;
+padding: .5em;
+height: min-content;
+min-height: 60vh;
+background: var(--auth-bg-color);
+color: var(--main-color);
+font-size: clamp(1rem, 1vh, 2rem);
+border-radius: 1vh;
+box-shadow: 5px 10px 5px var(--black-shadow);
+word-break: break-all;
+}

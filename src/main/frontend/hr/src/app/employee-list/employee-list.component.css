@@ -81,3 +81,28 @@ display: block;
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 71vh;
+}
+
+.employee_card {
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 5px; /* space between elements */
+margin: 1em;
+width: 60%;
+padding: .5em;
+height: min-content;
+min-height: 60vh;
+background: var(--auth-bg-color);
+color: var(--main-color);
+font-size: clamp(1rem, 1vh, 2rem);
+border-radius: 1vh;
+box-shadow: 5px 10px 5px var(--black-shadow);
+word-break: break-all;
+}

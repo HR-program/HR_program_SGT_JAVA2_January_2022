@@ -1,79 +1,154 @@
-#employee {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: rgb(245, 241, 244);
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-  }
-  #employee:hover {
-    color: #f3f1f5;
-    background-color: #5f21f0;
-    left: .1em;
-  }
-  button{
-    padding: .5rem 1.5rem;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-   }
-   
-   button:hover {
-     color: white;
-     background-color: #42545C;
-   }
-  
-/* tr.selected {
-    background-color: black;
-    color: white;
-  }
-  tr.selected:hover {
-    background-color: #505050;
-    color: white;
-  }
- tr.selected:active {
-    background-color: rgb(163, 17, 17);
-    color: white;
-  } */
+:root {
+  --header-footer-bg: rgb(53, 53, 53);
+  --main-color: rgb(0, 0, 0);
+  --card-parts-bg: rgb(218, 218, 218);
+  --wrap-bg-color: rgb(209, 209, 209);
+  --auth-bg-color: rgba(255, 255, 255, 0.815);
+  --black-shadow: rgba(0, 0, 0, 0.349);
+}
 
-  /* Dropdown Button */
-.dropbtn {
-  background-color: #3498DB;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+body {
+background: var(--wrap-bg-color);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 71vh;
+}
+
+.employee_card {
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 5px; /* space between elements */
+margin: 1em;
+width: 60%;
+padding: .5em;
+height: min-content;
+min-height: 60vh;
+background: var(--auth-bg-color);
+color: var(--main-color);
+font-size: clamp(1rem, 1vh, 2rem);
+border-radius: 1vh;
+box-shadow: 5px 10px 5px var(--black-shadow);
+word-break: break-all;
+}
+
+span {
+  color: black;
+  font-weight: 600;
+}
+
+select {
+  font-weight: 600;
+  font-size: clamp(.7rem, 1.2vh, 2rem);
+}
+
+option {
+  font-weight: 600;
+  font-size: clamp(.7rem, 1.2vh, 2rem);
+}
+
+.column_names {
+background-color: rgb(173, 173, 173);
+color: rgb(0, 0, 0);
+word-break: break-word;
+}
+
+#employee {
+background-color: rgb(216, 216, 216);
+font-weight: 600;
+color: rgba(0, 0, 0, 0.705);
+font-size: 80%;
+cursor: pointer;
+position: relative;
+word-break: break-word;
+left: 0;
+margin: .5em;
+padding: .3em 0;
+height: 1.6em;
+border-radius: 4px;
+}
+#employee:hover {
+color: #f3f1f5;
+background-color: #5f21f0;
+left: .1em;
+}
+button{
+padding: .5rem 1.5rem;
+font-size: clamp(.6rem, 1.3vh, 2rem);
+margin-bottom: 2rem;
+color: black;
+font-weight: 600;
+}
+
+button:hover {
+color: white;
+background-color: #42545C;
+}
+
+/* tr.selected {
+  background-color: black;
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+}
+tr.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+tr.selected:active {
+  background-color: rgb(163, 17, 17);
+  color: white;
+} */
+
+/* Dropdown Button */
+.dropbtn {
+background-color: #db3434;
+color: white;
+padding: 16px;
+font-size: clamp(.9rem, 1.3vh, 2rem);
+border: none;
+cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+background-color: #2980B9;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
+position: relative;
+display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
 }
 
 /* Change color of dropdown links on hover */

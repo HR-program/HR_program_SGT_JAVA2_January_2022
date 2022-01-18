@@ -1,24 +1,41 @@
-
-<div class = "col-md-6 offset-md-3">
-    <h3>Add Department</h3>
-    <form (ngSubmit)= "onSubmit()">
-
-<label>Input Departments name:</label>
-        <input type="text" name="name" [(ngModel)]="department.name">
-        <input type="text" name="address" [(ngModel)]="department.address">
-   
-    
-     <button class = "btn btn-success" type = "submit" >Submit</button>
-    </form>
-
-
-    <!-- <div class = "form-group">
-        <label>Name</label>
-        <input type = "text" class = "form-control" id ="name"
-        [(ngModel)] ="department.name" name = "name">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="add-department.component.css">
+  <title>Add Department</title>
+</head>
+<body>
+<!--<div *ngIf="employee">-->
+  <div class="wrapper">
+    <div class="main">
+      <div class="employee_card">
+        <h3 style="position: absolute">Add Department</h3>
+        <br>
+        <div>
+          <form (ngSubmit)= "onSubmit()" style="margin-top: 35px;">
+            <label>Input Departments name:</label>
+            <input type="text" name="name" [(ngModel)]="department.name"><br><br>
+            <label>Input Departments address:</label>
+            <input type="text" name="address" [(ngModel)]="department.address"><br><br>
+            <button class = "btn btn-success" type = "submit" >Submit</button>
+          </form>
+        </div>
+        <!-- <div class = "form-group">
+            <label>Name</label>
+            <input type = "text" class = "form-control" id ="name"
+            [(ngModel)] ="department.name" name = "name">
+            </div>
+            <div class = "form-group">
+                <label>Address</label>
+                <input type = "text" class = "form-control" id ="address"
+                [(ngModel)] ="department.address" name = "address">
+            </div>   -->
+      </div>
     </div>
-    <div class = "form-group">
-        <label>Address</label>
-        <input type = "text" class = "form-control" id ="address"
-        [(ngModel)] ="department.address" name = "address">
-    </div>   -->
+  </div>
+<!--</div>-->
+</body>
+</html>
