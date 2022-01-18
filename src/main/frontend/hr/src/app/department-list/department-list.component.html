@@ -1,7 +1,7 @@
 
-<h2>Department List</h2>
+<!--<h2>Department List</h2>-->
 <!-- <span>Sort by
-<select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">    
+<select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
     <option>--Choose option--</option>
     <option value ="1">Age</option>
     <option value = "2">Gender</option>
@@ -11,62 +11,73 @@
 </select>
 </span> -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="department-list.component.css">
+  <title>Department list</title>
+</head>
+<body>
+<!--<div *ngIf="employee">-->
+  <div class="wrapper">
+    <div class="main">
+      <div class="employee_card">
+
+        <h1>Department list</h1>
+        <br>
+        <table>
+          <thead>
+          <tr>
+            <th class="column_names">Id</th>
+            <th class="column_names">Name</th>
+            <th class="column_names">Adress</th>
+            <th class="column_names">Actions</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr id = "department" *ngFor = "let department of departments |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" >
+            <td>{{department.id}}</td>
+            <td>{{department.name}}</td>
+            <td>{{department.address}}</td>
+            <td style="display: flex; justify-content: center; align-items: center;">
+              <button (click)= "goToUpdatePage(department.id)"  btn btn-info>Update</button>
+              <button (click) = "deleteDepartement(department.id)"btn btn-danger>Delete</button>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+        <br>
+        <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
 
 
-<table class = "table table-striped">
-<thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Adress</th>
-        <th>Actions</th>
-  
-    </tr>
-</thead>
+        <pagination-template #p="paginationApi">
 
-<tbody>
+          <button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
+        </pagination-template>
 
-    <tr id = "department" *ngFor = "let department of departments |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" >
-    
-   
-        <td>{{department.id}}</td>
-        <td>{{department.name}}</td>
-        <td>{{department.address}}</td>
-        <td><button (click)= "goToUpdatePage(department.id)"  btn btn-info>Update</button>
-            <button (click) = "deleteDepartement(department.id)"btn btn-danger>Delete</button>
-        
-        </td>
-    
-    </tr>
-    
-</tbody>
-
-</table>
-
-
-<pagination-controls (pageChange) = "page = $event" ></pagination-controls>
-
-
-<pagination-template #p="paginationApi"
-
-                    >
-
-<button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
-</pagination-template>
-
-<Span>Items per page
-    <select (change) = "page =1" [(ngModel)]="noOfRows">
-    <option value = "5">5</option>
-    <option value = "10">10</option>
-    <option value = "15">15</option>
-    </select>
-</Span>
-<!-- <div><button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button></div> -->
-<br>
-<span>
-    <button routerLink="/add-department">Add Department</button>
-  </span>
-
+        <Span>Items per page
+                <select (change) = "page =1" [(ngModel)]="noOfRows">
+                <option value = "5">5</option>
+                <option value = "10">10</option>
+                <option value = "15">15</option>
+                </select>
+            </Span>
+        <!-- <div><button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button></div> -->
+        <br>
+        <span>
+                <button routerLink="/add-department">Add Department</button>
+            </span>
+      </div>
+    </div>
+  </div>
+<!--</div>-->
+</body>
+</html>
 
 
 
