@@ -16,6 +16,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 export class AddChildComponent implements OnInit {
 
 child: Child = new Child();
+children: Child[]=[];
 id = this.route.snapshot.params['id'];
   employee: Employee = new Employee;
   colorTheme = 'theme-default'
@@ -44,9 +45,18 @@ id = this.route.snapshot.params['id'];
   onSubmit(){
     console.log(this.child);
    this.addChild3();
-   this.goBack()
+  //  this.updateEmployee();
+   this.goBack();
+   this.getChildren();
    setTimeout(() => document.getElementById('goToLastPage').click(),400 )
     }
+
+    getChildren(){
+      this.childService.getChildrenList().subscribe(data=>{
+        this.children = data;
+     
+    console.log(data)},)}
+        
 
 
 addChild(){
@@ -61,6 +71,16 @@ addChild(){
 goBack(): void {
   this.location.back();
 }
+
+// updateEmployee(){
+//   this.id = this.route.snapshot.params['id'];
+//   this.employeeService.updateEmployee(this.id, this.employee).subscribe(
+//     data=>{console.log(data)
+//     ;},
+//   error=>console.log(error));
+//   }
+
+
 
 getEmployee():void{
 
@@ -83,8 +103,5 @@ addChild3():void{
  error=> console.log(error));
 }    
 
-}
-
-
-
-
+    }
+  

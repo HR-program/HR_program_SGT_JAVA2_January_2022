@@ -1,5 +1,6 @@
 package lv.hr.program.controllers;
 
+import lv.hr.program.model.ChildOfEmployee;
 import lv.hr.program.model.Employee;
 import lv.hr.program.repositories.EmployeeRepository;
 import lv.hr.program.services.EmployeeService;
@@ -26,10 +27,35 @@ public class EmployeeController {
 //GET METHODS//
 
 //get all Employees
+//    @GetMapping("/employees")
+//    public Iterable<Employee> getAllEmployees() {
+//        return employeeService.getAllEmployees();
+//    }
+
     @GetMapping("/employees")
-    public Iterable<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
+    public List<Employee> getAllEmployees(){
+Employee employee = new Employee();
+List<Employee> employeeList = new ArrayList<>();
+        employee.getName();
+        employee.getSurname();
+        employee.getGender();
+        employee.getDateOfBirth();
+        employee.getPersonalCode();
+        employee.getIdDocumentNumber();
+        employee.getIdDocumentExpiryDate();
+        employee.getPhoneNumber();
+        employee.getEmail();
+        employee.getAddress();
+        employee.getEducation();
+        employee.getDepartment();
+        employee.isDoesEmployeeHaveChild();
+        employee.isEmployeeActive();
+
+        employeeList.add(employee);
+
+   return (List<Employee>) employeeService.getAllEmployees();
     }
+//
 
     @GetMapping("/employees/active")
     public Iterable<Employee> getAllActiveEmployees() {
@@ -65,13 +91,51 @@ public class EmployeeController {
 
 
 //  add new employee
-    @PostMapping("/employees")
-//    @ApiOperation("adding new employee to database")
-    public void addNewEmployee(@RequestBody Employee employee) {
+//    @PostMapping("/employees")
+////    @ApiOperation("adding new employee to database")
+//    public void addNewEmployee(@RequestBody Employee employee) {
+//
+////department.addEmployee(employee);
+//        employeeService.create(employee);
+//    }
 
-//department.addEmployee(employee);
-        employeeService.create(employee);
-    }
+    @PostMapping("/employees")
+    public void addNewEmployee2 (@RequestBody Employee employee){
+
+        employee.setName(employee.getName());
+            employee.setSurname(employee.getSurname());
+            employee.setGender(employee.getGender());
+            employee.setDateOfBirth(employee.getDateOfBirth());
+            employee.setPersonalCode(employee.getPersonalCode());
+            employee.setIdDocumentNumber(employee.getIdDocumentNumber());
+            employee.setIdDocumentExpiryDate(employee.getIdDocumentExpiryDate());
+            employee.setPhoneNumber(employee.getPhoneNumber());
+            employee.setEmail(employee.getEmail());
+            employee.setAddress(employee.getAddress());
+            employee.setEducation(employee.getEducation());
+            employee.setDepartment(employee.getDepartment());
+            employee.setDoesEmployeeHaveChild(employee.setHavingChildrenToFalse());
+            employee.setEmployeeActive(employee.isEmployeeActive());
+            employeeService.create(employee);}
+
+
+
+
+//            _employee.setName(employee.getName());
+//            _employee.setSurname(employee.getSurname());
+//            _employee.setGender(employee.getGender());
+//            _employee.setDateOfBirth(employee.getDateOfBirth());
+//            _employee.setPersonalCode(employee.getPersonalCode());
+//            _employee.setIdDocumentNumber(employee.getIdDocumentNumber());
+//            _employee.setIdDocumentExpiryDate(employee.getIdDocumentExpiryDate());
+//            _employee.setPhoneNumber(employee.getPhoneNumber());
+//            _employee.setEmail(employee.getEmail());
+//            _employee.setAddress(employee.getAddress());
+//            _employee.setEducation(employee.getEducation());
+//            _employee.setDepartment(employee.getDepartment());
+//            _employee.setCertificate(employee.getCertificate());
+//            _employee.setDoesEmployeeHaveChild(employee.isDoesEmployeeHaveChild());
+//            _employee.setEmployeeActive(employee.isEmployeeActive());
 
     @PutMapping("/employees/{id}")
     public Employee updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {

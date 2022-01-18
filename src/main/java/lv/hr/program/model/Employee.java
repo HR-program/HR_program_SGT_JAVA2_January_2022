@@ -77,6 +77,16 @@ public class Employee {
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
 
+    public boolean setHavingChildrenToFalse(){
+        this.doesEmployeeHaveChild=false;
+        return doesEmployeeHaveChild;
+    }
+
+    public boolean setHavingChildrenToTrue(){
+        this.doesEmployeeHaveChild=true;
+        return doesEmployeeHaveChild;
+    }
+
     public Employee() {
     }
 
@@ -236,13 +246,16 @@ public class Employee {
 //        this.vacation = vacation;
 //    }
 //
-        public boolean isDoesEmployeeHaveChild () {
-            return doesEmployeeHaveChild;
-        }
 
-        public void setDoesEmployeeHaveChild ( boolean doesEmployeeHaveChild){
-            this.doesEmployeeHaveChild = doesEmployeeHaveChild;
-        }
+    public boolean isDoesEmployeeHaveChild() {
+        return doesEmployeeHaveChild;
+    }
+
+    public void setDoesEmployeeHaveChild(boolean doesEmployeeHaveChild) {
+        this.doesEmployeeHaveChild = doesEmployeeHaveChild;
+    }
+
+
 
 //    public List<ChildOfEmployee> getChildOfEmployee() {
 //        return childOfEmployee;

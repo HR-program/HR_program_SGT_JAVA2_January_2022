@@ -77,6 +77,8 @@ public class ChildController {
         childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
         childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
      childOfEmployee.setEmployee(employee);
+     employee.setHavingChildrenToTrue();
+     employeeService.update(id,employee);
         childService.addNewChild(childOfEmployee);}
 
 

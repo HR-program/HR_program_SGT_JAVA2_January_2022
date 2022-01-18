@@ -21,7 +21,8 @@
         <th>Surname</th>
         <th>Date of Birth</th>
         <th>Personal Code</th>
-        <th>Actions</th>
+         <th>Age</th>
+         <th>Actions</th>
         <!-- <th>Parents</th> -->
        
     </tr>
@@ -37,6 +38,7 @@
         <td>{{child.childSurname}}</td>
         <td>{{child.childDateOfBirth}}</td>
         <td>{{child.childPersonalCode}}</td>
+        <td>{{child.ageOfChild}}</td>
         <!-- <td>{{child.childParents}}</td>  -->
         <td><button routerLink ="/update-child/{{child.childId}}" btn btn-info>Update</button>
             <button  mwlConfirmationPopover
