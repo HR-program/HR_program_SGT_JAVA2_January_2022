@@ -20,15 +20,12 @@ public class Department<cascade> {
     private String address;
 
     @OneToMany
-//            (mappedBy = "department")
     private List<Employee> employee = new ArrayList<>();
-
 
     public Department() {
     }
 
     public Department( String name, String address) {
-
         this.name = name;
         this.address = address;
     }
@@ -63,12 +60,3 @@ public class Department<cascade> {
         this.address = address;
     }
 }
-
-
-
-
-
-
-
-
-

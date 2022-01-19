@@ -52,19 +52,13 @@ public class Employee {
 
     @Column(name = "employee_education")
     private String education;
+
     @ManyToOne
 //    @Column(name = "employee_department_name")
     private Department department;
-//@OneToMany
-//    @Column(name = "employee_position")
-//    private PositionHistory currentPosition;
 
     @Column(name = "employee_certificate")
     private String certificate;
-
-    // @OneToMany
-//   @Column(name = "evaluation")
-//    private Evaluation evaluation;
 
 //@OneToMany
 //    @Column(name = "vacation")
@@ -72,22 +66,13 @@ public class Employee {
 
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
+
     @OneToMany
 //    @Column(name = "how_many_children")
     private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")
     private boolean employeeActive;
-
-    public boolean setHavingChildrenToFalse() {
-        this.doesEmployeeHaveChild = false;
-        return doesEmployeeHaveChild;
-    }
-
-    public boolean setHavingChildrenToTrue() {
-        this.doesEmployeeHaveChild = true;
-        return doesEmployeeHaveChild;
-    }
 
     public Employee() {
     }
@@ -112,6 +97,16 @@ public class Employee {
         this.certificate = certificate;
         this.doesEmployeeHaveChild = doesEmployeeHaveChild;
         this.employeeActive = employeeActive;
+    }
+
+    public boolean setHavingChildrenToFalse() {
+        this.doesEmployeeHaveChild = false;
+        return doesEmployeeHaveChild;
+    }
+
+    public boolean setHavingChildrenToTrue() {
+        this.doesEmployeeHaveChild = true;
+        return doesEmployeeHaveChild;
     }
 
     public long getId() {
@@ -234,39 +229,13 @@ public class Employee {
         this.department = department;
     }
 
+    public String getCertificate() {
+        return certificate;
+    }
 
-//    public List<PositionHistory> getCurrentPosition() {
-//        return currentPosition;
-//    }
-//
-//    public void setCurrentPosition(List<PositionHistory> currentPosition) {
-//        this.currentPosition = currentPosition;
-//    }
-//
-//    public List<Certificate> getCertificate() {
-//        return certificate;
-//    }
-//
-//    public void setCertificate(List<Certificate> certificate) {
-//        this.certificate = certificate;
-//    }
-//
-//    public List<Evaluation> getEvaluation() {
-//        return evaluation;
-//    }
-//
-//    public void setEvaluation(List<Evaluation> evaluation) {
-//        this.evaluation = evaluation;
-//    }
-
-//    public List<Vacation> getVacation() {
-//        return vacation;
-//    }
-//
-//    public void setVacation(List<Vacation> vacation) {
-//        this.vacation = vacation;
-//    }
-//
+    public void setCertificate(String certificate) {
+        this.certificate = certificate;
+    }
 
     public boolean isDoesEmployeeHaveChild() {
         return doesEmployeeHaveChild;
@@ -276,14 +245,13 @@ public class Employee {
         this.doesEmployeeHaveChild = doesEmployeeHaveChild;
     }
 
+    public List<ChildOfEmployee> getChildOfEmployee() {
+        return childOfEmployee;
+    }
 
-//    public List<ChildOfEmployee> getChildOfEmployee() {
-//        return childOfEmployee;
-//    }
-//
-//    public void setChildOfEmployee(List<ChildOfEmployee> childOfEmployee) {
-//        this.childOfEmployee = childOfEmployee;
-//    }
+    public void setChildOfEmployee(List<ChildOfEmployee> childOfEmployee) {
+        this.childOfEmployee = childOfEmployee;
+    }
 
     public boolean isEmployeeActive() {
         return employeeActive;
@@ -292,7 +260,4 @@ public class Employee {
     public void setEmployeeActive(boolean employeeActive) {
         this.employeeActive = employeeActive;
     }
-
-    // all arguments' constructor
-    // standard getters and setters
 }

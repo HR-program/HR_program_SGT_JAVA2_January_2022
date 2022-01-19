@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "certificate")
 public class Certificate {
 

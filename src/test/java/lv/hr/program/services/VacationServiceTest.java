@@ -1,8 +1,9 @@
 package lv.hr.program.services;
 
 import lv.hr.program.model.Vacation;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ class VacationServiceTest {
 
     private Vacation vacation;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         vacation = new Vacation();
     }
