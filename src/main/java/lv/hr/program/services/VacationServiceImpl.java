@@ -5,6 +5,8 @@ import lv.hr.program.repositories.VacationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VacationServiceImpl implements VacationService {
 
@@ -13,6 +15,11 @@ public class VacationServiceImpl implements VacationService {
 
     public VacationServiceImpl(VacationRepository vacationRepository) {
         this.vacationRepository = vacationRepository;
+    }
+
+    @Override
+    public List<Vacation> getAllVacation() {
+        return vacationRepository.findAll();
     }
 
     @Override
