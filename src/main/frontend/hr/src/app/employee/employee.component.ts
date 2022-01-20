@@ -60,7 +60,7 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(['employees-children',id]);
   }
   goToVacationScreen(id:any){
-    this.router.navigate(['vacation', id])
+    this.router.navigate(['employee-vacation', id])
   }
   }
 

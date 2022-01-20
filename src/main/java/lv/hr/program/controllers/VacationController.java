@@ -54,15 +54,20 @@ public class VacationController {
         }
     }
 
-    @GetMapping("/vacation/employee/{id}")
-    public ResponseEntity<Iterable<Vacation>> getVacationByEmployeesID(@PathVariable("id") Long id) {
-        try {
-            if (vacationService.getAllVacation().isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity<>(vacationService.getAllVacation(), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//    @GetMapping("/vacation/employee/{id}")
+//    public ResponseEntity<Iterable<Vacation>> getVacationByEmployeesID(@PathVariable("id") Long id) {
+//        try {
+//            if (vacationService.getAllVacation().isEmpty()) {
+//                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//            }
+//            return new ResponseEntity<>(vacationService.getAllVacation(), HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+
+
+        @GetMapping("/vacation/employee/{id}")
+        public Iterable<Vacation> getVacationByEmployeesID(@PathVariable("id") Long id) {
+            return vacationService.getVacationByEmployeesID(id);
         }
     }
-}

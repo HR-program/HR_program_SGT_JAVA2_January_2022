@@ -18,4 +18,8 @@ export class VacationService {
 
 
 
+      getVacationTable(id:number): Observable<Vacation[]>{
+        return this.httpClient.get<Vacation[]>(`${this.baseURL}/${id}`);
+      }
+
 }

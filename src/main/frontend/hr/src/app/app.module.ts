@@ -15,7 +15,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SearchListComponent } from './search-list/search-list.component';
 import { AddChildComponent } from './add-child/add-child.component';
-import { DepartmentComponent } from './department/department.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
@@ -46,8 +45,7 @@ import { RequestInterceptor } from './request.interceptor';
     SearchEmployeeComponent,
     SearchListComponent,
     AddChildComponent,
-    DepartmentComponent,
-    DepartmentListComponent,
+     DepartmentListComponent,
     AddDepartmentComponent,
     UpdateDepartmentComponent,
     ChildrenListComponent,

@@ -1,43 +1,45 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="vacation.component.css">
-  <title>Update employee</title> -->
-  <!-- <script src="scripts.js"></script> -->
-<!-- </head>
-<body>
-<div *ngIf="employee">
-  <div class="wrapper">
-    <div class="header">
-      <div class="logo">
-        <svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 189.6 189.7" style="enable-background:new 0 0 189.6 189.7" xml:space="preserve"><style>.st0{fill:none;stroke:#ffffff;stroke-miterlimit:10}.st1{fill:#ffffff}</style><switch><g><g id="SQUARE"><path class="st0" d="M.5 4.2h185v185H.5zM4.2 7.6v44.5M181.7 140.4v44.4M48.6 184.8H4.2M4.2 7.6h44.4M141.1.5h48M189.1.5v48.1"/></g><path class="st1" d="M135.8 118.1c-2.7-3-5.2-6.1-7.4-9.4-2.8-4.1-6.8-10.2-8.5-13.1 6.9-2.9 12.1-7.9 12.1-15.7 0-5.6-2.5-9.7-6.4-12.1-3.4-2.2-7.7-3-14-3.1H86.7v2.5c7.4.8 8.4 1.1 8.4 8.9v14.5H63.4V76.2c0-7.6.9-8.2 8.4-8.9v-2.6H46.9v2.5c7.5.7 8.4 1.2 8.4 8.9v36.6c0 7.7-.8 7.9-8.4 8.8v2.6h24.8v-2.6c-7.6-.9-8.4-1.2-8.4-8.8V94.6h31.8v18.1c0 4.1-.2 6.2-1.5 7.3s-3.3 1.3-6.9 1.7v2.6h25v-2.6l-1.8-.2c-.7-.1-1.3-.2-1.8-.3-4.2-.7-4.9-2.2-4.9-8.5V98.3h3.3c4.8 0 6 .6 7.9 3.5 3 4.7 6.4 10.4 9.8 15.1 4.1 5.7 7.8 7.4 14.6 7.9 1.2.1 2.2.2 3.5.2l.4-2.6c-2.8-.8-5.1-2.2-6.9-4.3zM118 92.5c-2.3 1.9-5.4 2.7-10.3 2.7h-4.5V72.8c0-2.1.2-3 .8-3.6.1-.1.2-.2.3-.2.3-.2.6-.3.9-.4h.1l.3-.1c1.2-.3 2.4-.4 3.6-.3 7.2 0 13.9 3.6 13.9 13.3 0 4.7-1.5 8.4-5.1 11z" id="HR"/><text transform="matrix(1.0029 0 0 1 41.787 143.043)" class="st1" style="font-size:21.0845px;font-family:'BaskOldFace'">PROGRAM</text></g></switch></svg>
-      </div>
-      <h1>HR PROGRAM</h1>
-    </div>
-    <div class="main">
-      <div class="employee_card">
+<div class="main">
+
+  <div class="vacation_card">
 
 
-        Vacation
+    <h2 > Vacation </h2>
 
-      </div>
-    </div>
 
-    <div class="footer">
-      <div class="footer_left">
-        SHEGOESJAVA2
-      </div>
-      <div class="footer_right">
-        <a href="https://github.com/HR-program" target="blank_">github.com</a>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html> -->
 
-Vacation
-<button (click)="onSubmit()">Add New Vacation</button>
+    <table class = "table table-striped">
+      <thead>
+      <tr>
+        <th>Vacation Id</th>
+        <th>Calculated Vacation Days </th>
+     
+
+      </tr>
+     
+
+      <tbody>
+
+      <tr id = "vacation" *ngFor = "let vacation of vacations "  >
+
+
+        <td>{{vacation.id}}</td>
+        <td>{{vacation.vacationDays}}</td>
+      
+ 
+
+      </tr> 
+      
+   
+
+
+  <tbody>
+
+      <button (click)="onSubmit()">Calculate Vacation Days</button>
+      
+
+    
+
+
+
+
+

@@ -14,25 +14,30 @@ export class VacationComponent implements OnInit {
   vacation:Vacation = new Vacation();
   employee: Employee= new Employee();
   id:number;
-
+  vacations:Vacation[]=[];
+  totalLength: any;
+  page: any=1;
+  pageSizes = [3, 6, 9];
+  totalElements =0;
+  pageSize:number=3;
+  noOfRows =3;
   constructor(
     private vacationService:VacationService,
     private employeeService:EmployeeService,
-    private route:ActivatedRoute) { }
+    private route:ActivatedRoute,
+    private location: Location) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getEmployee();
+      
+      
+  }
 
-    // addVacationTable(id:number, vacation){
-    //   this.
-    // }
 
-    // addVacationTable(vacation:Vacation, id:number): Observable<Object>{
-    //   return this.httpClient.post(`${this.baseURL}/${id}`, vacation);
-    // }
 
     onSubmit(){
-      this.getEmployee();
       this.addNewVacation();
+      this.getAllVacations();
     }
 
     getEmployee():void{
@@ -53,4 +58,16 @@ export class VacationComponent implements OnInit {
         },
         error=> console.log(error));
        }    
+
+       getAllVacations(){
+        this.id = this.route.snapshot.params['id'];
+        this.vacationService.getVacationTable(this.id).subscribe(data=>{
+          this.vacations=data;
+          console.log(data);
+                   
+        },
+        error=> console.log(error));
+       }    
+
+
       }
