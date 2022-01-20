@@ -59,11 +59,22 @@
         <input type = "text" class = "form-control" id ="education"
                [(ngModel)] ="employee.education" name = "education">
       </div>
-      <div class = "form-group">
-        <label>Department</label>
-        <input type = "text" class = "form-control" id ="department"
-               [(ngModel)] ="employee.department" name = "department">
+
+      <div class = "form group row">
+        <label class = "col-form-label col sm-2">Department</label>
+        <select
+          [(ngModel)]="employee.department.id" class = "form-control" name = "department"
+        >
+          <!-- <option [ngValue]="undefined">{{employee.department.name}}}</option> -->
+          <option *ngFor = "let department of departments" [ngValue] = "department.id">{{department.name}}</option>
+        </select>
       </div>
+
+      <!--      <div class = "form-group">-->
+<!--        <label>Department</label>-->
+<!--        <input type = "text" class = "form-control" id ="department"-->
+<!--               [(ngModel)] ="employee.department" name = "department">-->
+<!--      </div>-->
       <div class = "form-group">
         <label>Certificate</label>
         <input type = "text" class = "form-control" id ="certificate"
