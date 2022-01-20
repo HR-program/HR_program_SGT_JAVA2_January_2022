@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
@@ -11,7 +11,7 @@ import { CertificatesComponent } from './certificates/certificates.component';
 
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { SearchListComponent } from './search-list/search-list.component';
 import { AddChildComponent } from './add-child/add-child.component';
@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 import { VacationComponent } from './vacation/vacation.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { RequestInterceptor } from './request.interceptor';
 
 
 
@@ -36,7 +37,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
 @NgModule({
   declarations: [
     AppComponent,
-    // LoginComponent,
+    LoginComponent,
     EmployeeComponent,
     EmployeeListComponent,
     AddEmployeeComponent,
@@ -71,7 +72,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

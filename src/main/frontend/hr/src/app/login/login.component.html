@@ -20,15 +20,15 @@
     </div>
 
     <!--link to main program page with any role (manager / employee)) -->
-    <form action="" id="login_form">
+    <form action="" id="login_form"  (ngSubmit)="login()">
 
       <p class="heading">Login</p>
       <label for="umail" class="label_field">Email</label>
-      <input type="text" id="umail" name="umail" class="input_field">
+      <input type="text" id="umail" name="username" [(ngModel)]="model.username" #username="ngModel" required class="input_field">
 
       <label for="upass" class="label_field">Password</label>
       <div class="pass_container">  <!-- password input field with visibility icon -->
-        <input type="password" id="upass" name="upass" class="input_field">
+        <input type="password" id="upass" name="password" [(ngModel)]="model.password" #password="ngModel" required class="input_field">
         <span class="material-icons" id="visibility_icon" onclick="toggleVisibility()">visibility</span>
       </div>
 
