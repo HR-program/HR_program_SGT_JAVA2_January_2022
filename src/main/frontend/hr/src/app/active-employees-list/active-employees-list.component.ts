@@ -19,14 +19,14 @@ export class ActiveEmployeesListComponent implements OnInit {
   totalElements =0;
   pageSize:number=10;
   noOfRows =10;
-  
+
   constructor(private employeeService: EmployeeService,
- 
+
 private location: Location,
    ) { }
 
   ngOnInit(): void {
-  
+
     this.getActiveEmployees();
     document.getElementById('goToLastPage').hidden = true;
   }
@@ -43,14 +43,14 @@ private location: Location,
       this.employees = data;
       console.log (data);
     })}
-    
+
   sortBySurname():void{
     this.employeeService.sortBySurname().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
     })}
-   
+
  selectedOption(){
 
     switch(this.selected) {
@@ -68,7 +68,6 @@ private location: Location,
   }
   goBack(): void {
     this.location.back();
-     
   }
 }
 

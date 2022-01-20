@@ -1,21 +1,22 @@
+<div class="main">
+  <div class="employee_card">
+    <h2>Searched Employee</h2>
+    <span>Sort by
+    <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
+        <option>--Choose option--</option>
+        <option value ="1">Age</option>
+        <option value = "2">Gender</option>
+        <option value = "3">Start date</option>
+        <option value = "4">Surname</option>
+        <option value = "5">Name</option>
+    </select>
+    </span>
 
-<h2>Searched Employee</h2>
-<span>Sort by
-<select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
-    <option>--Choose option--</option>
-    <option value ="1">Age</option>
-    <option value = "2">Gender</option>
-    <option value = "3">Start date</option>
-    <option value = "4">Surname</option>
-    <option value = "5">Name</option>
-</select>
-</span>
 
 
-
-<table class = "table table-striped">
-<thead>
-    <tr>
+    <table class = "table table-striped">
+      <thead>
+      <tr>
         <th>Id</th>
         <th>First Name</th>
         <th>Surname</th>
@@ -32,12 +33,12 @@
         <th>Certificates</th>
         <th>Children</th>
         <th>Active</th>
-    </tr>
-</thead>
+      </tr>
+      </thead>
 
-<tbody>
+      <tbody>
 
-    <tr id = "employee" *ngFor = "let employee of employees |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" routerLink ="/employees/{{employee.id}}" >
+      <tr id = "employee" *ngFor = "let employee of employees |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" routerLink ="/employees/{{employee.id}}" >
 
 
         <td>{{employee.id}}</td>
@@ -60,22 +61,22 @@
 
 
 
-</tbody>
+      </tbody>
 
-</table>
-
-
-<pagination-controls (pageChange) = "page = $event" ></pagination-controls>
+    </table>
 
 
-<pagination-template #p="paginationApi"
+    <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
 
-                    >
 
-<button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
-</pagination-template>
+    <pagination-template #p="paginationApi"
 
-<Span>Items per page
+    >
+
+      <button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
+    </pagination-template>
+
+    <Span>Items per page
     <select (change) = "page =1" [(ngModel)]="noOfRows">
     <option value = "3">3</option>
     <option value = "6">6</option>
@@ -83,3 +84,9 @@
     </select>
 </Span>
 
+
+
+  </div>
+
+
+</div>
