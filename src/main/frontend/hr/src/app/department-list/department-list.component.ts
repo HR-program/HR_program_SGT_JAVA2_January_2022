@@ -13,7 +13,7 @@ import { Location } from '@angular/common';
 })
 export class DepartmentListComponent implements OnInit {
 
-  
+
 
   constructor(private departmentService:DepartmentService,
     private route: ActivatedRoute,
@@ -38,14 +38,15 @@ department: Department = new Department();
       this.totalLength=data.length;
 console.log(data);
     })
-  
+
 }
 
 
 deleteDepartement(id: number):void{
   // const id = Number(this.route.snapshot.paramMap.get('id'));
   this.departmentService.deleteDepartment(id).subscribe(data=>{console.log(id);
-    this.getDepatments();},
+    setTimeout(() => this.getDepatments(), 350)},
+
   error => {
     console.log(error);
   }
@@ -56,6 +57,6 @@ goToUpdatePage(id:number){
 }
 goBack(): void {
   this.location.back();
-   
+
 }
 }
