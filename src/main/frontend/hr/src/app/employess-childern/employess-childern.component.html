@@ -1,8 +1,9 @@
+<div class="main">
 
-<div class="employee_card">
+  <div class="employee_card">
 
 
-    <h2 [(ngModel)] ="parent" >{{parent}}children </h2>
+    <h2 [(ngModel)] ="parent" >{{parent}} children </h2>
     <!-- <span>Sort by
     <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
         <option>--Choose option--</option>
@@ -87,11 +88,15 @@
       <option value = "9">9</option>
       </select>
   </Span>
+    <div class="buttons">
+      <button (click)= "goToAddChildrenPage(employee.id)" class = "btn " type = "submit" >Add Child</button>
+      <button (click)= "goBack()" class = "btn " type = "info" >Go Back</button>
+    </div>
 
-    <button (click)= "goToAddChildrenPage(employee.id)" class = "btn btn-success" type = "submit" >Add Child</button>
-    <button (click)= "goBack()"class = "btn btn-info" type = "info" >Go Back</button>
 
 
+
+  </div>
 
 
 </div>
