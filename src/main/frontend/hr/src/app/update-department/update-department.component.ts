@@ -18,35 +18,35 @@ id:number;
 
   ngOnInit(): void {
     this.getDepartement();
-    
+
   }
 
   onSubmit(){
 this.updateDepartment();
-
+this.goToDepartmetList();
   }
 
   goBack(){
-
+    this.goToDepartmetList()
   }
 
   getDepartement():void{
     this.id = this.route.snapshot.params['id'];
     this.departmentService.getDepartment(this.id).subscribe(data=>{this.department=data;},
-      
-      error=>console.log(error)); 
-      
+
+      error=>console.log(error));
+
   }
 
 
-  
+
 
   updateDepartment():void{
     this.id = this.route.snapshot.params['id'];
     this.departmentService.updateDepartment(this.id,this.department).subscribe((data)=>{
       console.log(this.department);
 this.goToDepartmetList();
-      
+
     },error=>console.log(error));
   }
 
@@ -57,13 +57,13 @@ this.goToDepartmetList();
 
     // updateEmployee():void{
     //   // this.id = this.route.snapshot.params['id'];
-      
+
     //   this.employeeService.updateEmployee(this.id,this.employee).subscribe(data=>  {
     //     this.goToEmployeesDetails();
     //   },
-  
+
     //     error=>console.log(error));
-    
+
     // }
 
 }
