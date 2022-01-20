@@ -77,13 +77,8 @@
 
           </div>
           <div class="right_bottom">
-            <button id="copy_of_id" class="employee_buttons">
-              Copy of id
-            </button>
 
-            <button [routerLink]="'/certificates'" id="certificates" class="employee_buttons">
-              Certificates
-            </button>
+            <app-upload-files></app-upload-files>
 
             <button (click)= "goToEmployeesChildren(employee.id)" id="children" class="employee_buttons">
               Children
@@ -110,5 +105,7 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
 

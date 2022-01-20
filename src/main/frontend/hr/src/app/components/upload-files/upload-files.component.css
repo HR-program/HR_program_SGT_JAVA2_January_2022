@@ -1,0 +1,16 @@
+#upload-btn {
+background: rgb(92, 92, 92);
+color: white;
+margin-left: 12px;
+border-radius: 1vh;
+}
+button:hover {
+cursor: pointer;
+background: rgb(119, 119, 119);
+color: black;
+}
+
+.alert {
+background: #DCDCDC;
+margin-top: 5px;
+}
