@@ -19,31 +19,7 @@ public class Vacation {
     @Column(name = "vacation_days")
     private int vacationDays;
 
-//    @Column(name = "year")
-//    private int year;
-    // int year = Year.now().getValue();
-    // int year = ZonedDateTime.now(ZoneId.of("Africa/Casablanca")).getYear();
-
-//    @Column(name = "vacation_start_date")
-//    private LocalDate vacationStartDate;
-//
-//    @Column(name = "vacation_end_date")
-//    private LocalDate vacationEndDate;
-//
-//    @Column(name = "vacation_days_for_child")
-//    private int vacationDaysForChild;
-//
-//    @Column(name = "vacation_days_for_work_experience")
-//    private int vacationDaysForWorkExperience;
-
     @OneToOne
-//            (fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL,
-//            optional = false)
-//    @JoinColumn(name = "employee_id",
-//            insertable = false,
-//            updatable = false,
-//            nullable = false)
     private Employee employee;
 
     public Vacation() {
@@ -59,14 +35,6 @@ public class Vacation {
         this.vacationDays = vacationDays;
         this.employee = employee;
     }
-
-    //    public Vacation(int year, LocalDate vacationStartDate, LocalDate vacationEndDate, int vacationDaysForChild, int vacationDaysForWorkExperience) {
-//        this.year = year;
-//        this.vacationStartDate = vacationStartDate;
-//        this.vacationEndDate = vacationEndDate;
-//        this.vacationDaysForChild = vacationDaysForChild;
-//        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
-//    }
 
     public int countVacationDaysBetweenEmployeeStartWorkDateAndCurrentDate(LocalDate workStartDate, LocalDate currentDate) {
         //" > 0" if workStartDate is after currentDate.minus(Period.ofDays(365))
@@ -109,47 +77,6 @@ public class Vacation {
     public void setId(long id) {
         this.id = id;
     }
-
-//    public int getYear() {
-//        return year;
-//    }
-//
-//    public void setYear(int year) {
-//        this.year = year;
-//    }
-
-//    public LocalDate getVacationStartDate() {
-//        return vacationStartDate;
-//    }
-//
-//    public void setVacationStartDate(LocalDate vacationStartDate) {
-//        this.vacationStartDate = vacationStartDate;
-//    }
-//
-//    public LocalDate getVacationEndDate() {
-//        return vacationEndDate;
-//    }
-//
-//    public void setVacationEndDate(LocalDate vacationEndDate) {
-//        this.vacationEndDate = vacationEndDate;
-//    }
-//
-//    public int getVacationDaysForChild() {
-//        return vacationDaysForChild;
-//    }
-//
-//    public void setVacationDaysForChild(int vacationDaysForChild) {
-//        this.vacationDaysForChild = vacationDaysForChild;
-//    }
-//
-//    public int getVacationDaysForWorkExperience() {
-//        return vacationDaysForWorkExperience;
-//    }
-//
-//    public void setVacationDaysForWorkExperience(int vacationDaysForWorkExperience) {
-//        this.vacationDaysForWorkExperience = vacationDaysForWorkExperience;
-//    }
-
 
     public int getVacationDays() {
         return vacationDays;

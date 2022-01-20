@@ -1,30 +1,31 @@
 package lv.hr.program.services;
 
-import lv.hr.program.model.ChildOfEmployee;
 import lv.hr.program.model.Department;
 import lv.hr.program.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-@Service
-public class DepartmentServiceImpl implements DepartmentService{
-@Autowired
-    private DepartmentRepository departmentRepository;
+import java.util.List;
 
+@Service
+public class DepartmentServiceImpl implements DepartmentService {
+
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
     }
 
     @Override
-    public Iterable<Department> getAllDepartments() {
+    public List<Department> getAllDepartments() {
         return departmentRepository.findAll();
     }
 
     @Override
     public Department addNewDepartment(Department department) {
-         return departmentRepository.save(department);
+        return departmentRepository.save(department);
     }
 
     @Override
@@ -34,10 +35,8 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public void deleteDepartmentById(Long id) {
-     departmentRepository.deleteById(id);
-
+        departmentRepository.deleteById(id);
     }
-
 
     @Override
     public Department fetchDepartmentById(Long id) {
@@ -56,8 +55,6 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public Iterable<Department> findByName(String name) {
-        return  departmentRepository.findByName(name);
+        return departmentRepository.findByName(name);
     }
-
 }
-

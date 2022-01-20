@@ -4,18 +4,21 @@ import lv.hr.program.model.ChildOfEmployee;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Optional;
 
 public interface ChildService {
+
     List<ChildOfEmployee> getAllChildren();
 
     ChildOfEmployee addNewChild(ChildOfEmployee childOfEmployee);
 
     ChildOfEmployee updateChild(Long id, ChildOfEmployee childOfEmployee);
 
+    ChildOfEmployee fetchChildByID(Long Id);
+
     void deleteChildByID(Long id);
 
     Iterable<ChildOfEmployee> findByEmployeeId(Long id);
+
     @NotNull
     void deleteChildOfEmployeeByID(Long Id);
 
@@ -24,6 +27,7 @@ public interface ChildService {
 
     @NotNull
     Iterable<ChildOfEmployee> sortAllChildOfEmployeeBySurname();
+
     ChildOfEmployee findChildOfEmployeeByChildId(Long childId);
 
     Iterable<ChildOfEmployee> findByAgeLessThan(int ageOfChild);

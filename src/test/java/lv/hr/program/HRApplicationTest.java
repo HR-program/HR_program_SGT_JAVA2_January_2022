@@ -9,5 +9,4 @@ class HRApplicationTest {
     @Test
     void contextLoads() {
     }
-
 }
