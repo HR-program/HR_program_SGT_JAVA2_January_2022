@@ -32,7 +32,6 @@ body {
 position: relative;
 display: flex;
 flex-direction: column;
-gap: 5px; /* space between elements */
 margin: 1em;
 width: 60%;
 padding: .5em;
@@ -44,6 +43,14 @@ font-size: clamp(1rem, 1vh, 2rem);
 border-radius: 1vh;
 box-shadow: 5px 10px 5px var(--black-shadow);
 word-break: break-all;
+}
+
+.container span {
+  margin: 5px;
+}
+
+button {
+  padding: 6px;
 }
 
 .col-md-6 * {
@@ -62,6 +69,7 @@ input {
     width: 50vw;
     font-size: clamp(.8rem, 1vw, 1.4rem);
     font-weight: 600;
+    height: 2rem;
 }
 
 

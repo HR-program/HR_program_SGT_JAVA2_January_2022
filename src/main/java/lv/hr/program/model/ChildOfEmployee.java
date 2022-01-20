@@ -3,11 +3,9 @@ package lv.hr.program.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table (name = "child")
+@Table(name = "child")
 public class ChildOfEmployee {
 
     @Id
@@ -26,15 +24,38 @@ public class ChildOfEmployee {
 
     @Column(name = "child_surname")
     private String childSurname;
+
     @ManyToOne
 //            (fetch = FetchType.LAZY)
 ////            (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 ////    @JoinColumn(name = "employee_id")
-//
     private Employee employee;
+
     @Column(name = "child_age")
     private int ageOfChild;
 
+    public ChildOfEmployee() {
+
+    }
+
+    public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee) {
+        this.childId = childId;
+        this.childPersonalCode = childPersonalCode;
+        this.childDateOfBirth = childDateOfBirth;
+        this.childName = childName;
+        this.childSurname = childSurname;
+        this.employee = employee;
+    }
+
+    public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee, int ageOfChild) {
+        this.childId = childId;
+        this.childPersonalCode = childPersonalCode;
+        this.childDateOfBirth = childDateOfBirth;
+        this.childName = childName;
+        this.childSurname = childSurname;
+        this.employee = employee;
+        this.ageOfChild = ageOfChild;
+    }
 
 //    @Column(name = "child_age")
 //    private int getAgeOfChild(LocalDate childDateOfBirth, LocalDate currentDate){
@@ -42,15 +63,6 @@ public class ChildOfEmployee {
 //
 //            return Period.between(childDateOfBirth,currentDate).getYears();}
 
-
-    public int getAgeOfChild() {
-        LocalDate currentDate = LocalDate.now();
-        return Period.between(childDateOfBirth, currentDate).getYears();
-    }
-
-    public void setAgeOfChild(int ageOfChild) {
-        this.ageOfChild = ageOfChild;
-    }
 //        public int calculateAge(
 //                LocalDate birthDate,
 //                LocalDate currentDate) {
@@ -109,27 +121,12 @@ public class ChildOfEmployee {
         this.employee = employee;
     }
 
-    public ChildOfEmployee() {
-
+    public int getAgeOfChild() {
+        LocalDate currentDate = LocalDate.now();
+        return Period.between(childDateOfBirth, currentDate).getYears();
     }
 
-    public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee) {
-        this.childId = childId;
-        this.childPersonalCode = childPersonalCode;
-        this.childDateOfBirth = childDateOfBirth;
-        this.childName = childName;
-        this.childSurname = childSurname;
-        this.employee = employee;
-    }
-
-    public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee, int ageOfChild) {
-        this.childId = childId;
-        this.childPersonalCode = childPersonalCode;
-        this.childDateOfBirth = childDateOfBirth;
-        this.childName = childName;
-        this.childSurname = childSurname;
-        this.employee = employee;
+    public void setAgeOfChild(int ageOfChild) {
         this.ageOfChild = ageOfChild;
     }
-
 }

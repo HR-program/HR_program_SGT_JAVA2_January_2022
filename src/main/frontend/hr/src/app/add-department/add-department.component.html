@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="add-department.component.css">
-  <title>Add Department</title>
-</head>
-<body>
-<!--<div *ngIf="employee">-->
   <div class="wrapper">
     <div class="main">
       <div class="employee_card">
@@ -16,11 +5,11 @@
         <br>
         <div>
           <form (ngSubmit)= "onSubmit()" style="margin-top: 35px;">
-            <label>Input Departments name:</label>
-            <input type="text" name="name" [(ngModel)]="department.name"><br><br>
-            <label>Input Departments address:</label>
-            <input type="text" name="address" [(ngModel)]="department.address"><br><br>
-            <button class = "btn btn-success" type = "submit" >Submit</button>
+            <label>Input Departments name:</label><br>
+            <input type="text" name="name" [(ngModel)]="department.name"><br>
+            <label>Input Departments address:</label><br>
+            <input type="text" name="address" [(ngModel)]="department.address"><br>
+            <button class = "btn" type = "submit" >Submit</button>
           </form>
         </div>
         <!-- <div class = "form-group">
@@ -36,6 +25,3 @@
       </div>
     </div>
   </div>
-<!--</div>-->
-</body>
-</html>

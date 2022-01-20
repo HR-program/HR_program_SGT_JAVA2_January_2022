@@ -1,135 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="employee.component.css">
-  <title>Employee Name</title>
-  <script src="scripts.js"></script>
-</head>
-<body>
-  <div *ngIf="employee">
-<div class="wrapper">
-  <div class="main">
-    <div class="employee_card">
+<div *ngIf="employee">
+  <div class="wrapper">
+    <div class="main">
+      <div class="employee_card">
 
-      <div class="left_side">
-        <table class="employee_table">
-          <tr>
-            <td class="employee_left_row_name">Nr</td>
-            <td class="employee_left_info"><span id="employee_nr">{{employee.id}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Name</td>
-            <td class="employee_left_info"><span id="employee_name">{{employee.name}} {{employee.surname}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Gender</td>
-            <td class="employee_left_info"><span id="employee_gender">{{employee.gender}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Date of Birth</td>
-            <td class="employee_left_info"><span id="employee_dob">{{employee.dateOfBirth}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Personal code</td>
-            <td class="employee_left_info"><span id="employee_pers_code">{{employee.personalCode}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Document number</td>
-            <td class="employee_left_info"><span id="employee_bday">{{employee.idDocumentNumber}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Document expiry date</td>
-            <td class="employee_left_info"><span id="document_exiry_date)">{{employee.idDocumentExpiryDate}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Phone number</td>
-            <td class="employee_left_info"><span id="employee_phonenumber">{{employee.phoneNumber}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Email address</td>
-            <td class="employee_left_info"><span id="employee_email">{{employee.email}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Address</td>
-            <td class="employee_left_info"><span id="employee_address">{{employee.address}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Eduaction</td>
-            <td class="employee_left_info"><span id="employee_education">{{employee.education}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Department</td>
-            <td class="employee_left_info"><span id="employee_department">{{employee.department.name}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Position</td>
-            <td class="employee_left_info"><span id="employee_position">Position</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Employment date</td>
-            <td class="employee_left_info"><span id="employee_date_employment">{{employee.workStartDate}}</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Dismissal date</td>
-            <td class="employee_left_info"><span id="employee_dismissal">xx.xx.xxxx (<span id="employee_dismissal_reason">REASON</span>)</span></td>
-          </tr>
-          <tr>
-            <td class="employee_left_row_name">Does employee have children</td>
-            <td class="employee_left_info"><span id="employee_doesEmployeeHaveChildren">{{employee.doesEmployeeHaveChild}}</span></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="right_side">
-        <div class="right_top">
-
+        <div class="left_side">
+          <table class="employee_table">
+            <tr>
+              <td class="employee_left_row_name">Nr</td>
+              <td class="employee_left_info"><span id="employee_nr">{{employee.id}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Name</td>
+              <td class="employee_left_info"><span id="employee_name">{{employee.name}} {{employee.surname}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Gender</td>
+              <td class="employee_left_info"><span id="employee_gender">{{employee.gender}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Date of Birth</td>
+              <td class="employee_left_info"><span id="employee_dob">{{employee.dateOfBirth}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Personal code</td>
+              <td class="employee_left_info"><span id="employee_pers_code">{{employee.personalCode}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Document number</td>
+              <td class="employee_left_info"><span id="employee_bday">{{employee.idDocumentNumber}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Document expiry date</td>
+              <td class="employee_left_info"><span id="document_exiry_date)">{{employee.idDocumentExpiryDate}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Phone number</td>
+              <td class="employee_left_info"><span id="employee_phonenumber">{{employee.phoneNumber}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Email address</td>
+              <td class="employee_left_info"><span id="employee_email">{{employee.email}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Address</td>
+              <td class="employee_left_info"><span id="employee_address">{{employee.address}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Eduaction</td>
+              <td class="employee_left_info"><span id="employee_education">{{employee.education}}</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Department</td>
+              <td class="employee_left_info"><span id="employee_department">Department</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Position</td>
+              <td class="employee_left_info"><span id="employee_position">Position</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Employment date</td>
+              <td class="employee_left_info"><span id="employee_date_employment">xx.xx.xxxx</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Dismissal date</td>
+              <td class="employee_left_info"><span id="employee_dismissal">xx.xx.xxxx (<span id="employee_dismissal_reason">REASON</span>)</span></td>
+            </tr>
+            <tr>
+              <td class="employee_left_row_name">Does employee have children</td>
+              <td class="employee_left_info"><span id="employee_doesEmployeeHaveChildren">{{employee.doesEmployeeHaveChild}}</span></td>
+            </tr>
+          </table>
         </div>
-        <div class="right_bottom">
-          <button id="copy_of_id" class="employee_buttons">
-            Copy of id
-          </button>
 
-          <button [routerLink]="'/certificates'" id="certificates" class="employee_buttons">
-            Certificates
-          </button>
+        <div class="right_side">
+          <div class="right_top">
 
-          <button (click)= "goToEmployeesChildren(employee.id)" id="children" class="employee_buttons">
-            Children
-          </button>
+          </div>
+          <div class="right_bottom">
+            <button id="copy_of_id" class="employee_buttons">
+              Copy of id
+            </button>
 
-          <button (click) = "goToVacationScreen(employee.id)" id="vacation" class="employee_buttons">
-            Vacation
-          </button>
-          <button  mwlConfirmationPopover
-          [popoverTitle]="popoverTitle"
-          [popoverMessage]="popoverMessage"
-          placement="right"
-          (confirm)="confirmClicked = true;  deleteEmployee()"
-          (cancel)="cancelClicked = true"
-          confirmButtonType="danger"
-          cancelButtonType="outline-secondary"
-          id="deleteEmployee" class="employee_buttons">
-            Delete Employee
-          </button>
-          <button (click)= "openUpdateEmplyeeScreen(employee.id)"
-           id="updateEmployee" class="employee_buttons">
-            Update Employee
-          </button>
+            <button [routerLink]="'/certificates'" id="certificates" class="employee_buttons">
+              Certificates
+            </button>
+
+            <button (click)= "goToEmployeesChildren(employee.id)" id="children" class="employee_buttons">
+              Children
+            </button>
+
+            <button id="vacation" class="employee_buttons">
+              Vacation
+            </button>
+            <button  mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="right"
+            (confirm)="confirmClicked = true;  deleteEmployee()"
+            (cancel)="cancelClicked = true"
+            confirmButtonType="danger"
+            cancelButtonType="outline-secondary"
+            id="deleteEmployee" class="employee_buttons">
+              Delete Employee
+            </button>
+            <button (click)= "openUpdateEmplyeeScreen(employee.id)"
+             id="updateEmployee" class="employee_buttons">
+              Update Employee
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <div class="alert alert-info" [hidden]="!confirmClicked">
+      You clicked confirm!
+    </div>
+    <div class="alert alert-info" [hidden]="!cancelClicked">You cancelled!</div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
   </div>
-  <div class="alert alert-info" [hidden]="!confirmClicked">
-    You clicked confirm!
-  </div>
-  <div class="alert alert-info" [hidden]="!cancelClicked">You cancelled!</div>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-
-  </button>
 </div>
-</div>
-<div>
 

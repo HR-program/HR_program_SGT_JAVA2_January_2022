@@ -8,7 +8,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ChildServiceImpl implements ChildService {
@@ -30,6 +29,11 @@ public class ChildServiceImpl implements ChildService {
     public ChildOfEmployee addNewChild(ChildOfEmployee childOfEmployee) {
         childRepository.save(childOfEmployee);
         return childOfEmployee;
+    }
+
+    @Override
+    public ChildOfEmployee fetchChildByID(Long Id) {
+        return childRepository.findById(Id).get();
     }
 
     @Override
