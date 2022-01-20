@@ -33,7 +33,21 @@
             <td>{{department.address}}</td>
             <td style="display: flex; justify-content: center; align-items: center;">
               <button (click)= "goToUpdatePage(department.id)"  btn btn-info>Update</button>
-              <button (click) = "deleteDepartement(department.id)"btn btn-danger>Delete</button>
+
+
+              <button mwlConfirmationPopover
+              [popoverTitle]="popoverTitle"
+              [popoverMessage]="popoverMessage"
+              placement="right"
+              (confirm)="confirmClicked = true;  deleteDepartment(department.id)"
+              (cancel)="cancelClicked = true"
+              confirmButtonType="danger"
+              cancelButtonType="outline-secondary"
+              id="deleteEmployee" class="employee_buttons">
+                Delete Department
+              </button>
+
+
             </td>
           </tr>
           </tbody>

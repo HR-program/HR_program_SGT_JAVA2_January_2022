@@ -19,6 +19,12 @@ export class DepartmentListComponent implements OnInit {
     private route: ActivatedRoute,
     private router:Router,
   private location: Location,) { }
+  
+ popoverTitle = 'Delete Deartment';
+ popoverMessage = 'Are you sure you want to delete department? It can be deleted only if it is emty.';
+ confirmClicked = false;
+ cancelClicked = false;
+
 department: Department = new Department();
   departments:Department[]=[];
   totalLength: any;
@@ -42,7 +48,7 @@ console.log(data);
 }
 
 
-deleteDepartement(id: number):void{
+deleteDepartment(id: number):void{
   // const id = Number(this.route.snapshot.paramMap.get('id'));
   this.departmentService.deleteDepartment(id).subscribe(data=>{console.log(id);
     setTimeout(() => this.getDepatments(), 350)},

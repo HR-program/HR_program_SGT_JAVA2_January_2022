@@ -50,7 +50,7 @@ onSubmit(){
 
   goToDepartmentList(){
     setTimeout(() => this.router.navigate(['departments']),350);
-    setTimeout(() => document.getElementById('goToLastPage').click(), 350)
+    setTimeout(() => document.getElementById('goToLastPage').click(), 500)
 
 
   }

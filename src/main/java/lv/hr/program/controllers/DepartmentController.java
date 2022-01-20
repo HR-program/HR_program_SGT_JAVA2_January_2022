@@ -56,24 +56,24 @@ public class DepartmentController {
         }
     }
 
-//    @PutMapping("/departments/{id}")
-//    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
-//        return departmentService.updateDepartment(id, department);
-//    }
-
     @PutMapping("/departments/{id}")
-    public ResponseEntity<Department> updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
-        Optional<Department> departmentData = departmentRepository.findById(id);
-
-        if (departmentData.isPresent()) {
-            Department departmentToBeUpdated = departmentData.get();
-            departmentToBeUpdated.setName(department.getName());
-            departmentToBeUpdated.setAddress(department.getAddress());
-            return new ResponseEntity<>(departmentService.updateDepartment(id, department), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
+        return departmentService.updateDepartment(id, department);
     }
+
+//    @PutMapping("/departments/{id}")
+//    public ResponseEntity<Department> updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
+//        Optional<Department> departmentData = departmentRepository.findById(id);
+//
+//        if (departmentData.isPresent()) {
+//            Department departmentToBeUpdated = departmentData.get();
+//            departmentToBeUpdated.setName(department.getName());
+//            departmentToBeUpdated.setAddress(department.getAddress());
+//            return new ResponseEntity<>(departmentService.updateDepartment(id, department), HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
 //    @DeleteMapping("/departments/{id}")
 //    public void deleteDepartment(@PathVariable("id") Long id) {

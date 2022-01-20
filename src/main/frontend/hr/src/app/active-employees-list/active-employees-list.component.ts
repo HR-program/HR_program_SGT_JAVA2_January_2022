@@ -54,9 +54,6 @@ private location: Location,
  selectedOption(){
 
     switch(this.selected) {
-      case "3":
-         // if modo 1 is selected do something.
-         break;
       case "1":
          this.sortBySurname();
          break;

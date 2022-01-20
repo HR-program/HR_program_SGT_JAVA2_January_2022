@@ -66,7 +66,7 @@ import { UploadFilesComponent } from './components/upload-files/upload-files.com
     NgxPaginationModule,
     HttpClientModule,
     ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'danger', // set defaults here
+      // confirmButtonType: 'danger', // set defaults here
     }),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule

@@ -6,11 +6,8 @@
         <span>Sort by
                 <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
                     <option>--Choose option--</option>
-                    <option value ="1">Age</option>
-                    <option value = "2">Gender</option>
-                    <option value = "3">Start date</option>
-                    <option value = "4">Surname</option>
-                    <option value = "5">Name</option>
+                    <option value = "1">Surname</option>
+                    <option value = "2">Name</option>
                 </select>
             </span>
         <table class>
@@ -31,6 +28,7 @@
             <th class="column_names">Department</th>
             <th class="column_names">Certificates</th>
             <th class="column_names">Children</th>
+            <th class="column_names">Employment date</th>
             <th class="column_names">Active</th>
           </tr>
           </thead>
@@ -51,6 +49,7 @@
             <td>{{employee.department.name}}</td>
             <td>{{employee.certificate}}</td>
             <td>{{employee.doesEmployeeHaveChild}}</td>
+            <td>{{employee.workStartDate}}</td>
             <td>{{employee.employeeActive}}</td>
           </tr>
           </tbody>
