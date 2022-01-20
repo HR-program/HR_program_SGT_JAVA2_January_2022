@@ -28,6 +28,7 @@ import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 import { VacationComponent } from './vacation/vacation.component';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 
 
@@ -53,7 +54,8 @@ import { VacationComponent } from './vacation/vacation.component';
     ActiveEmployeesListComponent,
     NavigationBarComponent,
     UpdateChildComponent,
-    VacationComponent
+    VacationComponent,
+    UploadFilesComponent
 
   ],
   imports: [
