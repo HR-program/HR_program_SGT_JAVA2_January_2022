@@ -4,24 +4,20 @@ package lv.hr.program.controllers;
 import lv.hr.program.model.Department;
 import lv.hr.program.repositories.DepartmentRepository;
 import lv.hr.program.services.DepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/v1/")
 public class DepartmentController {
-    @Autowired
-    private DepartmentService departmentService;
-    DepartmentRepository departmentRepository;
 
-    public DepartmentController(DepartmentService departmentService) {
+    private DepartmentService departmentService;
+    private DepartmentRepository departmentRepository;
+
+    public DepartmentController(DepartmentService departmentService, DepartmentRepository departmentRepository) {
         this.departmentService = departmentService;
+        this.departmentRepository = departmentRepository;
     }
 
 //    @GetMapping("/departments")

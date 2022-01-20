@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class UploadFileService {
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = '/api/v1/upload';
+  private baseUrlTwo = '/api/v1/files';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class UploadFileService {
 
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    const req = new HttpRequest('POST', this.baseUrl, formData, {
       reportProgress: true,
       responseType: 'json'
     });
@@ -25,6 +26,6 @@ export class UploadFileService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+    return this.http.get(this.baseUrlTwo);
   }
 }
