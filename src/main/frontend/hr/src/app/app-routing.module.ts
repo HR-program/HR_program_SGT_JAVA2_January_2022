@@ -41,9 +41,8 @@ const routes: Routes = [
   {path:'children-list', component: ChildrenListComponent},
   {path:'employees-children/:id',component: EmployessChildernComponent},
   {path:'employees-active',component:ActiveEmployeesListComponent},
-
   {path:'update-child/:id',component:UpdateChildComponent},
-  {path:'vacation/:id',component:VacationComponent}
+  {path:'employee-vacation/:id',component:VacationComponent}
 ]}
 ];
 

@@ -21,7 +21,7 @@ export class DepartmentListComponent implements OnInit {
   private location: Location,) { }
   
  popoverTitle = 'Delete Deartment';
- popoverMessage = 'Are you sure you want to delete department? It can be deleted only if it is emty.';
+ popoverMessage = 'Are you sure you want to delete department? It can be deleted only if it is empty.';
  confirmClicked = false;
  cancelClicked = false;
 
