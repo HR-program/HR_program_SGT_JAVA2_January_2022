@@ -42,15 +42,43 @@ public class ChildController {
         }
     }
 
-    @PostMapping("/children")
-    public ResponseEntity<ChildOfEmployee> addNewChild(@RequestBody ChildOfEmployee childOfEmployee) {
-        try {
-            ChildOfEmployee childOfEmployeeSaved = childService.addNewChild(childOfEmployee);
-            return new ResponseEntity<>(childOfEmployeeSaved, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
+    @PostMapping("/children/employee/{id}")
+    public void addNewChildByEmployeesID(@RequestBody ChildOfEmployee childOfEmployee,
+                                         @PathVariable("id") Long id) {
+        Employee employee = new Employee();
+        employee = employeeService.fetchEmployeeByID(id);
+        childOfEmployee.setChildName(childOfEmployee.getChildName());
+        childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
+        childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
+        childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
+        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
+        childOfEmployee.setEmployee(employee);
+        employee.setHavingChildrenToTrue();
+        employeeService.update(id, employee);
+        childService.addNewChild(childOfEmployee);
     }
+
+//    @PostMapping("/employees/children/")
+//    public void saveEmployeeChild(@RequestBody ChildOfEmployee childOfEmployee) {
+//        childOfEmployee.setChildName(childOfEmployee.getChildName());
+//        childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
+//        childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
+//        childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
+//        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
+//        childOfEmployee.setEmployee(childOfEmployee.getEmployee());
+//        childService.addNewChild(childOfEmployee);
+//    }
+
+//    @PostMapping("/children")
+//    public ResponseEntity<ChildOfEmployee> addNewChild(@RequestBody ChildOfEmployee childOfEmployee) {
+//        try {
+//            ChildOfEmployee childOfEmployeeSaved = childService.addNewChild(childOfEmployee);
+//            return new ResponseEntity<>(childOfEmployeeSaved, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 //    @PutMapping("/children/{id}")
 //    public ChildOfEmployee updateChild(@PathVariable("id") Long id, @RequestBody ChildOfEmployee childOfEmployee) {
@@ -106,32 +134,5 @@ public class ChildController {
     @GetMapping("children/group-by-parent")
     public Iterable<ChildOfEmployee> findAllByOrderByEmployeeSurname() {
         return childService.findAllByOrderByEmployeeSurname();
-    }
-
-    @PostMapping("/children/employee/{id}")
-    public void addNewChildByEmployeesID(@RequestBody ChildOfEmployee childOfEmployee,
-                                         @PathVariable("id") Long id) {
-        Employee employee = new Employee();
-        employee = employeeService.fetchEmployeeByID(id);
-        childOfEmployee.setChildName(childOfEmployee.getChildName());
-        childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
-        childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
-        childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
-        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
-        childOfEmployee.setEmployee(employee);
-        employee.setHavingChildrenToTrue();
-        employeeService.update(id, employee);
-        childService.addNewChild(childOfEmployee);
-    }
-
-    @PostMapping("/employees/children/")
-    public void saveEmployeeChild(@RequestBody ChildOfEmployee childOfEmployee) {
-        childOfEmployee.setChildName(childOfEmployee.getChildName());
-        childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
-        childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
-        childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
-        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
-        childOfEmployee.setEmployee(childOfEmployee.getEmployee());
-        childService.addNewChild(childOfEmployee);
     }
 }
