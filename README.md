@@ -1,9 +1,9 @@
 # HR_program_SGT_JAVA2_January_2022
 
-**HR program**
+# **HR program**
 
-_Authors and developers: Oxana Belyaeva, Kristīne Šķendere, Tatjana Sokolova
-January 21st, 2022_
+# _Authors and developers: Oxana Belyaeva, Kristīne Šķendere, Tatjana Sokolova
+# January 21st, 2022_
 
 The code is for an application for HR department of any company. For now it works via web.
 This program will make company’s responsibility for all employees’ information, documentation, children, vacations and departments much more productive and transparent.
