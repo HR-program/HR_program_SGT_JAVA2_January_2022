@@ -20,4 +20,14 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query(value = "SELECT * FROM employee WHERE employee_is_active_worker = 1", nativeQuery = true)
     List<Employee> findAllActiveEmployees();
+
+    @Query(value= "SELECT * FROM employee WHERE employee_is_active_worker= 1 ORDER BY employee_name",nativeQuery = true)
+
+    Iterable<Employee> findAllActiveEmployeesAndSortByName();
+
+
+
+    @Query(value= "SELECT * FROM employee WHERE employee_is_active_worker= 1 ORDER BY employee_surname",nativeQuery = true)
+
+    Iterable<Employee> findAllActiveEmployeesAndSortBySurname();
 }

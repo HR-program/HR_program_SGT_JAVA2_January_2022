@@ -17,7 +17,7 @@ public class ChildOfEmployee {
 
     @Column(name = "child_personal_code")
     private String childPersonalCode;
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+
     @Column(name = "child_date_of_birth")
     private LocalDate childDateOfBirth;
 

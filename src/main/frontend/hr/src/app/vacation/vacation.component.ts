@@ -34,7 +34,7 @@ export class VacationComponent implements OnInit {
 
   calculateDays(){
     this.addNewVacation();
-    setTimeout(() => this.getAllVacations(),400 );
+    setTimeout(() => this.getAllVacations(),500 );
   
   }
   

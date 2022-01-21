@@ -14,10 +14,10 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private long id;
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+
     @Column(name = "work_start_date")
     private LocalDate workStartDate;
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+
     @Column(name = "work_end_date")
     private LocalDate workEndDate;
 
@@ -29,7 +29,7 @@ public class Employee {
 
     @Column(name = "gender")
     private Gender gender;
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+
     @Column(name = "employee_date_of_birth")
     private LocalDate dateOfBirth;
 
@@ -38,7 +38,7 @@ public class Employee {
 
     @Column(name = "employee_id_document_number")
     private String idDocumentNumber;
-    @DateTimeFormat(pattern="dd/MM/yyyy")
+
     @Column(name = "employee_id_document_expiry_date")
     private LocalDate idDocumentExpiryDate;
 

@@ -61,10 +61,7 @@ public class EmployeeController {
         }
     }
 
-//    @GetMapping("/employees/active")
-//    public Iterable<Employee> getAllActiveEmployees() {
-//        return employeeService.getAllActiveEmployees();
-//    }
+
 
     @GetMapping("/employees/active")
     public ResponseEntity<Iterable<Employee>> getAllActiveEmployees() {
@@ -199,7 +196,17 @@ public class EmployeeController {
 //        } else {
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //        }
-//    }
+
+
+    @GetMapping("/employees/active/sort-by-name")
+    public Iterable<Employee> getAllActiveEmployeesAndSortByName() {
+        return employeeService.getAllActiveEmployeesAndSortByName();
+    }
+
+    @GetMapping("/employees/active/sort-by-surname")
+    public Iterable<Employee> getAllActiveEmployeesAndSortBySurname() {
+        return employeeService.getAllActiveEmployeesAndSortBySurname();
+    }
 
     @GetMapping("/employees/sort-by-name")
     public Iterable<Employee> sortAllEmployeesByName() {
@@ -225,6 +232,11 @@ public class EmployeeController {
 //        } else {
 //            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //        }
+//    }
+
+    //    @GetMapping("/employees/active")
+//    public Iterable<Employee> getAllActiveEmployees() {
+//        return employeeService.getAllActiveEmployees();
 //    }
 
     @GetMapping("/employees/surname/{surname}")

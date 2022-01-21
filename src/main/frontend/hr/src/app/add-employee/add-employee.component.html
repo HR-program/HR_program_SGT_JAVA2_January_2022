@@ -22,25 +22,29 @@
   <router-outlet></router-outlet>
   <div class="wrapper">
     <div class="main">
+      <form #employeeForm = "ngForm">
       <div class="employee_card">
 <div class = "col-md-6 offset-md-3">
     <h3>Add Employee</h3>
 
-    <div class = "form-group">
+    <div class = "form-group" [class.has-error]="nameControl.invalid && nameControl.touched">
         <label>FirstName</label>
-        <input type = "text" class = "form-control" id ="name"
-        [(ngModel)] ="employee.name" name = "name" #name="ngModel">
-         </div>
+        <input required  type = "text" class = "form-control" id ="name"
+        [(ngModel)] ="employee.name" name = "name"  #nameControl = "ngModel">
+      <span class = "help-block" *ngIf = "nameControl.invalid && nameControl.touched">First Name is required</span>   
+      </div>
+        
          <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
          class="alert"></div>
      
        <div *ngIf="name.errors?.['required']">
          Name is required.
        </div> -->
-    <div class = "form-group">
+    <div class = "form-group"[class.has-error]="lastnameControl.invalid && lastnameControl.touched">
         <label>Last Name</label>
-        <input type = "text" class = "form-control" id ="surname"
-        [(ngModel)] ="employee.surname" name = "lastname">
+        <input required = "text" class = "form-control" id ="surname"
+        [(ngModel)] ="employee.surname" name = "lastname"  #lastnameControl = "ngModel">
+        <span class = "help-block" *ngIf = "lastnameControl.invalid && lastnameControl.touched">Last Name is required</span>  
     </div>
 
     <div class = "form group row">
@@ -71,19 +75,20 @@
 
 
         </div>
+      
 
 
-
-
-    <div class = "form-group">
+    <div class = "form-group" [class.has-error]="personalCodeControl.invalid && personalCodeControl.touched">
         <label>Personal Code</label>
-        <input type = "text" class = "form-control" id ="personalCode"
-        [(ngModel)] ="employee.personalCode" name = "personalCode">
+        <input required type = "text" class = "form-control" id ="personalCode"
+        [(ngModel)] ="employee.personalCode" name = "personalCode" #personalCodeControl = "ngModel">
+        <span class = "help-block" *ngIf = "personalCodeControl.invalid && personalCodeControl.touched">Personal Code is required</span>  
     </div>
-    <div class = "form-group">
+    <div class = "form-group"[class.has-error]="docNumberControl.invalid && docNumberControl.touched">
         <label>Document Number</label>
-        <input type = "text" class = "form-control" id ="idDocumentNumber"
-        [(ngModel)] ="employee.idDocumentNumber" name = "idDocumentNumber">
+        <input required type = "text" class = "form-control" id ="idDocumentNumber"
+        [(ngModel)] ="employee.idDocumentNumber" name = "idDocumentNumber"#docNumberControl = "ngModel">
+        <span class = "help-block" *ngIf = "docNumberControl.invalid && docNumberControl.touched">Document Number is required</span>  
     </div>
     <div class = "form-group">
         <label>Document Expiry Date</label>
@@ -99,43 +104,44 @@
                    [(ngModel)] ="employee.idDocumentExpiryDate"
                    bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
     </div>
-    <div class = "form-group">
+    <div class = "form-group"[class.has-error]="phoneNumberControl.invalid && phoneNumberControl.touched">
         <label>Phone Number</label>
-        <input type = "text" class = "form-control" id ="phoneNumber"
+        <input required type = "text" class = "form-control" id ="phoneNumber"#phoneNumberControl = "ngModel"
         [(ngModel)] ="employee.phoneNumber" name = "phoneNumber">
+        <span class = "help-block" *ngIf = "phoneNumberControl.invalid && phoneNumberControl.touched">Phone Number is required</span> 
     </div>
-    <div class = "form-group">
+    <div class = "form-group"[class.has-error]="emailControl.invalid && emailControl.touched">
         <label>E-mail</label>
-        <input type = "text" class = "form-control" id ="email"
-        [(ngModel)] ="employee.email" name = "email">
+        <input required type = "text" class = "form-control" id ="email"
+        [(ngModel)] ="employee.email" name = "email" #emailControl = "ngModel">
+        <span class = "help-block" *ngIf = "emailControl.invalid && emailControl.touched">E-mail is required</span> 
     </div>
-    <div class = "form-group">
+    <div class = "form-group"[class.has-error]="addressControl.invalid && addressControl.touched">
         <label>Address</label>
-        <input type = "text" class = "form-control" id ="address"
-        [(ngModel)] ="employee.address" name = "address">
+        <input required type = "text" class = "form-control" id ="address"
+        [(ngModel)] ="employee.address" name = "address"#addressControl = "ngModel">
+        <span class = "help-block" *ngIf = "addressControl.invalid && addressControl.touched">Address is required</span> 
     </div>
-    <div class = "form-group">
+    
+    <div class = "form-group" [class.has-error]="educationControl.invalid && educationControl.touched">
         <label>Education</label>
-        <input type = "text" class = "form-control" id ="education"
-        [(ngModel)] ="employee.education" name = "education">
-    </div>
-    <div class = "form group row">
+        <input required type = "text" class = "form-control" id ="education"
+        [(ngModel)] ="employee.education" name = "education" #educationControl = "ngModel">
+        <span class = "help-block" *ngIf = "educationControl.invalid && educationControl.touched">Education is required</span> 
+            </div>
+
+    <div class = "form group row"[class.has-error]="departmentControl.invalid && departmentControl.touched">
         <label for = "department" class = "col-form-label col sm-2">Department</label>
-           <select [(ngModel)]="employee.department" class = "form-control" name = "department">
+           <select required #departmentControl = "ngModel"[(ngModel)]="employee.department" class = "form-control" name = "department">
                 <option [ngValue]="undefined">---Choose departement-----</option>
                 <option *ngFor = "let department of departments" [ngValue] = "department">{{department.name}}</option>
            </select>
+           <span class = "help-block" *ngIf = "departmentControl.invalid && departmentControl.touched">Department is required</span> 
     </div>
     
 
-    <div class = "form-group">
-        <label>Certificate</label>
-        <input type = "text" class = "form-control" id ="certificate"
-        [(ngModel)] ="employee.certificate" name = "certificate">
-    </div>
 
-
-    <div class = "form-group">
+    <div class = >
       <label>Employment Date</label>
       
         <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
@@ -143,21 +149,23 @@
 
           placeholder= "DD/MM/YYYY "
 
-                 class="form-control"
+                 class="form-control" [class.has-error]="employmentDateControl.invalid "
                  bsDatepicker
-                 [(ngModel)] ="employee.workStartDate"
+                 required #employmentDateControl = "ngModel" [(ngModel)] ="employee.workStartDate"
                  bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+                 <span class = "help-block" *ngIf = "employmentDateControl.invalid">Is Employee Active is required</span> 
   </div>
 
 
-    <div class = "form group row">
+    <div class = "form group row" [class.has-error]="employeeActiveControl.invalid && employeeActiveControl.touched">
         <label for = "employeeActive" class = "col-form-label col sm-2">Is Employee Active</label>
-           <select [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
+           <select required #employeeActiveControl = "ngModel" [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
                 <option [ngValue]="undefined">-------Choose option-----</option>
                 <option [ngValue]= "true" >Yes</option>
                 <option [ngValue]= "false">No</option>
 
            </select>
+           <span class = "help-block" *ngIf = "employeeActiveControl.invalid && employeeActiveControl.touched">Is Employee Active is required</span> 
     <!-- <div class = "form group row">
         <label for = "doesEmployeeHaveChild" class = "col-form-label col sm-2">Does Employee Have Children</label>
            <select [(ngModel)]="employee.doesEmployeeHaveChild"  class = "form-control" name = "doesEmployeeHaveChild">
@@ -168,12 +176,14 @@
            </select>
 
     </div> -->
-      <button (click)="onSubmit()" class = "btn " type = "submit" >Submit</button>
+      <button [disabled]= "employeeForm.invalid" (click)="onSubmit()" class = "btn " type = "submit" >Submit</button>
       <button class="btn "(click)="goBack()">Go back</button>
         </div>
   </div>
+  
 </div>
 </div>
 </div>
 </div>
 </div>
+</form>>

@@ -89,4 +89,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Iterable<Employee> getEmployeesByDepartmentId(Long id) {
         return employeeRepository.findByDepartmentId(id);
     }
+
+    @Override
+    public Iterable<Employee> getAllActiveEmployeesAndSortByName() {
+        return employeeRepository.findAllActiveEmployeesAndSortByName();
+    }
+
+    @Override
+    public Iterable<Employee> getAllActiveEmployeesAndSortBySurname() {
+        return employeeRepository.findAllActiveEmployeesAndSortBySurname();
+    }
 }
