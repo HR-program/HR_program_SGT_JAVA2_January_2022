@@ -6,7 +6,6 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { AuthenticationGuard } from './authentication.guard';
 
-
 import { CertificatesComponent } from './certificates/certificates.component';
 import { ChildrenListComponent } from './children-list/children-list.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
@@ -46,10 +45,9 @@ const routes: Routes = [
 ]}
 ];
 
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

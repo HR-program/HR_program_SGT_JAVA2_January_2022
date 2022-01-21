@@ -1,189 +1,155 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a routerLink="/"class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/departments" class="nav-link" href="#">Departments</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
-        </li>
-  
-      </ul>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
-  <div class="wrapper">
-    <div class="main">
-      <form #employeeForm = "ngForm">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/" class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/search-employees" class="nav-link" href="#">Employees</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/departments" class="nav-link" href="#">Departments</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/children-list" class="nav-link" href="#">Employees children</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="main">
+    <form #employeeForm="ngForm">
       <div class="employee_card">
-<div class = "col-md-6 offset-md-3">
-    <h3>Add Employee</h3>
+        <div class="col-md-6 offset-md-3">
+          <h3>Add Employee</h3>
 
-    <div class = "form-group" [class.has-error]="nameControl.invalid && nameControl.touched">
-        <label>FirstName</label>
-        <input required  type = "text" class = "form-control" id ="name"
-        [(ngModel)] ="employee.name" name = "name"  #nameControl = "ngModel">
-      <span class = "help-block" *ngIf = "nameControl.invalid && nameControl.touched">First Name is required</span>   
-      </div>
-        
-         <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
-         class="alert"></div>
-     
-       <div *ngIf="name.errors?.['required']">
-         Name is required.
-       </div> -->
-    <div class = "form-group"[class.has-error]="lastnameControl.invalid && lastnameControl.touched">
-        <label>Last Name</label>
-        <input required = "text" class = "form-control" id ="surname"
-        [(ngModel)] ="employee.surname" name = "lastname"  #lastnameControl = "ngModel">
-        <span class = "help-block" *ngIf = "lastnameControl.invalid && lastnameControl.touched">Last Name is required</span>  
-    </div>
+          <div class="form-group" [class.has-error]="nameControl.invalid && nameControl.touched">
+            <label>FirstName</label>
+            <input required type="text" class="form-control" id="name"
+                   [(ngModel)]="employee.name" name="name" #nameControl="ngModel">
+            <span class="help-block" *ngIf="nameControl.invalid && nameControl.touched">First Name is required</span>
+          </div>
 
-    <div class = "form group row">
-        <label for = "gender" class = "col-form-label col sm-2">Gender</label>
-           <select [(ngModel)]="employee.gender" class = "form-control" name = "gender">
-                <option [ngValue]="undefined">-------Choose gender-----</option>
-                <option [value]= >FEMALE</option>
-                <option [value]= >MALE</option>
-                </select>
-    </div>
-    <div class = "form-group">
-        <label>Date Of Birth</label>
+          <div class="form-group" [class.has-error]="lastnameControl.invalid && lastnameControl.touched">
+            <label>Last Name</label>
+            <input required="text" class="form-control" id="surname"
+                   [(ngModel)]="employee.surname" name="lastname" #lastnameControl="ngModel">
+            <span class="help-block"
+                  *ngIf="lastnameControl.invalid && lastnameControl.touched">Last Name is required</span>
+          </div>
 
+          <div class="form group row">
+            <label for="gender" class="col-form-label col sm-2">Gender</label>
+            <select [(ngModel)]="employee.gender" class="form-control" name="gender">
+              <option [ngValue]="undefined">-------Choose gender-----</option>
+              <option [value]=>FEMALE</option>
+              <option [value]=>MALE</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date Of Birth</label>
 
+            <div class="row">
+              <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                <input type="text"
+                       placeholder="DD/MM/YYYY "
+                       class="form-control"
+                       bsDatepicker
+                       [(ngModel)]="employee.dateOfBirth"
+                       bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+              </div>
+              <div class="form-group" [class.has-error]="personalCodeControl.invalid && personalCodeControl.touched">
+                <label>Personal Code</label>
+                <input required type="text" class="form-control" id="personalCode"
+                       [(ngModel)]="employee.personalCode" name="personalCode" #personalCodeControl="ngModel">
+                <span class="help-block" *ngIf="personalCodeControl.invalid && personalCodeControl.touched">Personal Code is required</span>
+              </div>
+              <div class="form-group" [class.has-error]="docNumberControl.invalid && docNumberControl.touched">
+                <label>Document Number</label>
+                <input required type="text" class="form-control" id="idDocumentNumber"
+                       [(ngModel)]="employee.idDocumentNumber" name="idDocumentNumber" #docNumberControl="ngModel">
+                <span class="help-block" *ngIf="docNumberControl.invalid && docNumberControl.touched">Document Number is required</span>
+              </div>
+              <div class="form-group">
+                <label>Document Expiry Date</label>
+                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                  <input type="text"
+                         placeholder="DD/MM/YYYY "
+                         class="form-control"
+                         bsDatepicker
+                         [(ngModel)]="employee.idDocumentExpiryDate"
+                         bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+                </div>
+                <div class="form-group" [class.has-error]="phoneNumberControl.invalid && phoneNumberControl.touched">
+                  <label>Phone Number</label>
+                  <input required type="text" class="form-control" id="phoneNumber" #phoneNumberControl="ngModel"
+                         [(ngModel)]="employee.phoneNumber" name="phoneNumber">
+                  <span class="help-block" *ngIf="phoneNumberControl.invalid && phoneNumberControl.touched">Phone Number is required</span>
+                </div>
+                <div class="form-group" [class.has-error]="emailControl.invalid && emailControl.touched">
+                  <label>E-mail</label>
+                  <input required type="text" class="form-control" id="email"
+                         [(ngModel)]="employee.email" name="email" #emailControl="ngModel">
+                  <span class="help-block"
+                        *ngIf="emailControl.invalid && emailControl.touched">E-mail is required</span>
+                </div>
+                <div class="form-group" [class.has-error]="addressControl.invalid && addressControl.touched">
+                  <label>Address</label>
+                  <input required type="text" class="form-control" id="address"
+                         [(ngModel)]="employee.address" name="address" #addressControl="ngModel">
+                  <span class="help-block"
+                        *ngIf="addressControl.invalid && addressControl.touched">Address is required</span>
+                </div>
+                <div class="form-group" [class.has-error]="educationControl.invalid && educationControl.touched">
+                  <label>Education</label>
+                  <input required type="text" class="form-control" id="education"
+                         [(ngModel)]="employee.education" name="education" #educationControl="ngModel">
+                  <span class="help-block" *ngIf="educationControl.invalid && educationControl.touched">Education is required</span>
+                </div>
 
-        <!-- placeholder="Datepicker" -->
+                <div class="form group row" [class.has-error]="departmentControl.invalid && departmentControl.touched">
+                  <label for="department" class="col-form-label col sm-2">Department</label>
+                  <select required #departmentControl="ngModel" [(ngModel)]="employee.department" class="form-control"
+                          name="department">
+                    <option [ngValue]="undefined">---Choose departement-----</option>
+                    <option *ngFor="let department of departments" [ngValue]="department">{{department.name}}</option>
+                  </select>
+                  <span class="help-block" *ngIf="departmentControl.invalid && departmentControl.touched">Department is required</span>
+                </div>
+                <div class=>
+                  <label>Employment Date</label>
+                  <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                    <input type="text"
+                           placeholder="DD/MM/YYYY "
+                           class="form-control" [class.has-error]="employmentDateControl.invalid "
+                           bsDatepicker
+                           required #employmentDateControl="ngModel" [(ngModel)]="employee.workStartDate"
+                           bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+                    <span class="help-block" *ngIf="employmentDateControl.invalid">Is Employee Active is required</span>
+                  </div>
+                  <div class="form group row"
+                       [class.has-error]="employeeActiveControl.invalid && employeeActiveControl.touched">
+                    <label for="employeeActive" class="col-form-label col sm-2">Is Employee Active</label>
+                    <select required #employeeActiveControl="ngModel" [(ngModel)]="employee.employeeActive"
+                            class="form-control" name="employeeActive">
+                      <option [ngValue]="undefined">-------Choose option-----</option>
+                      <option [ngValue]="true">Yes</option>
+                      <option [ngValue]="false">No</option>
+                    </select>
+                    <span class="help-block" *ngIf="employeeActiveControl.invalid && employeeActiveControl.touched">Is Employee Active is required</span>
+                    <button [disabled]="employeeForm.invalid" (click)="onSubmit()" class="btn " type="submit">Submit
+                    </button>
+                    <button class="btn " (click)="goBack()">Go back</button>
+                  </div>
+                </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-          <input type="text"
-
-          placeholder= "DD/MM/YYYY "
-
-                 class="form-control"
-                 bsDatepicker
-                 [(ngModel)] ="employee.dateOfBirth"
-                 bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
-
-
-        </div>
-      
-
-
-    <div class = "form-group" [class.has-error]="personalCodeControl.invalid && personalCodeControl.touched">
-        <label>Personal Code</label>
-        <input required type = "text" class = "form-control" id ="personalCode"
-        [(ngModel)] ="employee.personalCode" name = "personalCode" #personalCodeControl = "ngModel">
-        <span class = "help-block" *ngIf = "personalCodeControl.invalid && personalCodeControl.touched">Personal Code is required</span>  
-    </div>
-    <div class = "form-group"[class.has-error]="docNumberControl.invalid && docNumberControl.touched">
-        <label>Document Number</label>
-        <input required type = "text" class = "form-control" id ="idDocumentNumber"
-        [(ngModel)] ="employee.idDocumentNumber" name = "idDocumentNumber"#docNumberControl = "ngModel">
-        <span class = "help-block" *ngIf = "docNumberControl.invalid && docNumberControl.touched">Document Number is required</span>  
-    </div>
-    <div class = "form-group">
-        <label>Document Expiry Date</label>
-      
-        
-          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-            <input type="text"
-  
-            placeholder= "DD/MM/YYYY "
-  
-                   class="form-control"
-                   bsDatepicker
-                   [(ngModel)] ="employee.idDocumentExpiryDate"
-                   bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
-    </div>
-    <div class = "form-group"[class.has-error]="phoneNumberControl.invalid && phoneNumberControl.touched">
-        <label>Phone Number</label>
-        <input required type = "text" class = "form-control" id ="phoneNumber"#phoneNumberControl = "ngModel"
-        [(ngModel)] ="employee.phoneNumber" name = "phoneNumber">
-        <span class = "help-block" *ngIf = "phoneNumberControl.invalid && phoneNumberControl.touched">Phone Number is required</span> 
-    </div>
-    <div class = "form-group"[class.has-error]="emailControl.invalid && emailControl.touched">
-        <label>E-mail</label>
-        <input required type = "text" class = "form-control" id ="email"
-        [(ngModel)] ="employee.email" name = "email" #emailControl = "ngModel">
-        <span class = "help-block" *ngIf = "emailControl.invalid && emailControl.touched">E-mail is required</span> 
-    </div>
-    <div class = "form-group"[class.has-error]="addressControl.invalid && addressControl.touched">
-        <label>Address</label>
-        <input required type = "text" class = "form-control" id ="address"
-        [(ngModel)] ="employee.address" name = "address"#addressControl = "ngModel">
-        <span class = "help-block" *ngIf = "addressControl.invalid && addressControl.touched">Address is required</span> 
-    </div>
-    
-    <div class = "form-group" [class.has-error]="educationControl.invalid && educationControl.touched">
-        <label>Education</label>
-        <input required type = "text" class = "form-control" id ="education"
-        [(ngModel)] ="employee.education" name = "education" #educationControl = "ngModel">
-        <span class = "help-block" *ngIf = "educationControl.invalid && educationControl.touched">Education is required</span> 
+              </div>
             </div>
-
-    <div class = "form group row"[class.has-error]="departmentControl.invalid && departmentControl.touched">
-        <label for = "department" class = "col-form-label col sm-2">Department</label>
-           <select required #departmentControl = "ngModel"[(ngModel)]="employee.department" class = "form-control" name = "department">
-                <option [ngValue]="undefined">---Choose departement-----</option>
-                <option *ngFor = "let department of departments" [ngValue] = "department">{{department.name}}</option>
-           </select>
-           <span class = "help-block" *ngIf = "departmentControl.invalid && departmentControl.touched">Department is required</span> 
-    </div>
-    
-
-
-    <div class = >
-      <label>Employment Date</label>
-      
-        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-          <input type="text"
-
-          placeholder= "DD/MM/YYYY "
-
-                 class="form-control" [class.has-error]="employmentDateControl.invalid "
-                 bsDatepicker
-                 required #employmentDateControl = "ngModel" [(ngModel)] ="employee.workStartDate"
-                 bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
-                 <span class = "help-block" *ngIf = "employmentDateControl.invalid">Is Employee Active is required</span> 
-  </div>
-
-
-    <div class = "form group row" [class.has-error]="employeeActiveControl.invalid && employeeActiveControl.touched">
-        <label for = "employeeActive" class = "col-form-label col sm-2">Is Employee Active</label>
-           <select required #employeeActiveControl = "ngModel" [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
-                <option [ngValue]="undefined">-------Choose option-----</option>
-                <option [ngValue]= "true" >Yes</option>
-                <option [ngValue]= "false">No</option>
-
-           </select>
-           <span class = "help-block" *ngIf = "employeeActiveControl.invalid && employeeActiveControl.touched">Is Employee Active is required</span> 
-    <!-- <div class = "form group row">
-        <label for = "doesEmployeeHaveChild" class = "col-form-label col sm-2">Does Employee Have Children</label>
-           <select [(ngModel)]="employee.doesEmployeeHaveChild"  class = "form-control" name = "doesEmployeeHaveChild">
-                <option [ngValue]="undefined">-------Choose option-----</option>
-                <option [value]= "true">Yes</option>
-                <option [value]= "false">No</option>
-
-           </select>
-
-    </div> -->
-      <button [disabled]= "employeeForm.invalid" (click)="onSubmit()" class = "btn " type = "submit" >Submit</button>
-      <button class="btn "(click)="goBack()">Go back</button>
+          </div>
         </div>
+      </div>
+    </form>
   </div>
-  
 </div>
-</div>
-</div>
-</div>
-</div>
-</form>>

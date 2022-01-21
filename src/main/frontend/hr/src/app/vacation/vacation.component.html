@@ -14,15 +14,12 @@
         <li class="nav-item">
             <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
         </li>
-  
       </ul>
     </div>
   </nav>
   <router-outlet></router-outlet>
   <div class="main">
-
     <div class="employee_card">
-  
       <h2 > Vacation </h2>
       <table class = "table table-striped">
         <thead>
@@ -35,10 +32,8 @@
         <tr id = "vacation" *ngFor = "let vacation of vacations "  >
           <td>{{vacation.id}}</td>
           <td>{{vacation.vacationDays}}</td>
-             </tr> 
-          
+             </tr>
       </tbody>
-      
     </table>
     <div class="buttons">
         <button (click)= "calculateDays()" class = "btn " type = "submit" >Calculate</button>
@@ -46,5 +41,3 @@
       </div>
     </div>
   </div>
-
- 

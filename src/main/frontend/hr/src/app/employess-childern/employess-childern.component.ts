@@ -12,6 +12,7 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './employess-childern.component.html',
   styleUrls: ['./employess-childern.component.css']
 })
+
 export class EmployessChildernComponent implements OnInit {
   employee:Employee = new Employee();
 employeeName:string;
@@ -30,7 +31,6 @@ child: Child =new Child();
   confirmClicked = false;
   cancelClicked = false;
   parent:string;
-  
 
   constructor(private childService: ChildService,
     private route: ActivatedRoute,
@@ -39,13 +39,10 @@ child: Child =new Child();
     private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
-
     this.getEmplyoeesChildren();
     document.getElementById('goToLastPage').hidden = true;
     this.id = this.route.snapshot.params['id'];
   this.parent = this.employee.name;
-
-
     }
 
     getEmplyoeesChildren(){
@@ -54,41 +51,22 @@ this.childService.getChildrenByEmployessID(this.id).subscribe(data=>{
   this.children = data
   console.log(data);
 },)
-    
   }
-
-
-
-
-
 
   goToAddChildrenPage(id:number){
     this.id = this.route.snapshot.params['id'];
     this.router.navigate (['add-child',this.id]);
-
   }
-
 
   goBack(): void {
     this.location.back();
-     
   }
-
-
 
   deleteChild(id: number){
     this.childService.deleteChild(id).subscribe(data=>{
       console.log(data);
       console.log(id);
       this.getEmplyoeesChildren();
-    
-
-      
   }, error => {console.log(error);})
-
   }
-
-
-
-  
 }

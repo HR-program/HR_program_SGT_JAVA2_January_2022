@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -15,17 +14,14 @@
       <li class="nav-item">
           <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
 <div class="main">
   <div class="employee_card">
-
     <div class = "col-md-6 offset-md-3">
       <h3>Update Department</h3>
-
       <div class = "form-group">
         <label>Departement Name</label>
         <input type = "text" class = "form-control" id ="name"
@@ -36,19 +32,8 @@
         <input type = "text" class = "form-control" id ="address"
                [(ngModel)] ="department.address" name = "address">
       </div>
-
-
       <button  (click) ="onSubmit()" class = "btn" type = "submit" >Submit</button>
-
       <button (click)="goBack()">Go back</button>
-
     </div>
-
-
-
   </div>
-
 </div>
-
-
-

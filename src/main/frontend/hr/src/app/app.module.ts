@@ -30,9 +30,6 @@ import { VacationComponent } from './vacation/vacation.component';
 import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { RequestInterceptor } from './request.interceptor';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,17 +52,14 @@ import { RequestInterceptor } from './request.interceptor';
     UpdateChildComponent,
     VacationComponent,
     UploadFilesComponent
-
   ],
   imports: [
- 
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxPaginationModule,
     HttpClientModule,
     ConfirmationPopoverModule.forRoot({
-      // confirmButtonType: 'danger', // set defaults here
     }),
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
@@ -74,4 +68,5 @@ import { RequestInterceptor } from './request.interceptor';
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

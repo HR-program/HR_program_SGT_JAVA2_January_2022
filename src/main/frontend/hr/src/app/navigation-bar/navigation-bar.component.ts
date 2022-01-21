@@ -11,12 +11,9 @@ import { AuthenticationGuard } from '../authentication.guard';
 })
 export class NavigationBarComponent implements OnInit {
 
-
-
   constructor(
 ) { }
 
   ngOnInit(): void {
   }
-
 }

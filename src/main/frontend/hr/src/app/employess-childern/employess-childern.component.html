@@ -1,45 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <a routerLink="/"class="nav-link" href="#">Home</a>
+        <a routerLink="/" class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item active">
-        <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+        <a routerLink="/search-employees" class="nav-link" href="#">Employees</a>
       </li>
       <li class="nav-item">
         <a routerLink="/departments" class="nav-link" href="#">Departments</a>
       </li>
       <li class="nav-item">
-          <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+        <a routerLink="/children-list" class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
 <div class="main">
-
   <div class="employee_card">
-
-
-    <h2 [(ngModel)] ="parent" >{{parent}} children </h2>
-    <!-- <span>Sort by
-    <select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
-        <option>--Choose option--</option>
-        <option value ="1">Age</option>
-        <option value = "2">Gender</option>
-        <option value = "3">Start date</option>
-        <option value = "4">Surname</option>
-        <option value = "5">Name</option>
-    </select>
-    </span> -->
-
-
-
-    <table class = "table table-striped">
+    <h2 [(ngModel)]="parent">{{parent}} children </h2>
+    <table class="table table-striped">
       <thead>
       <tr>
         <th>Id</th>
@@ -49,72 +31,50 @@
         <th>Personal Code</th>
         <th>Age</th>
         <th>Actions</th>
-        <!-- <th>Parents</th> -->
-
       </tr>
       </thead>
-
       <tbody>
-
-      <tr id = "child" *ngFor = "let child of children |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}"  >
-
-
+      <tr id="child"
+          *ngFor="let child of children |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}">
         <td>{{child.childId}}</td>
         <td>{{child.childName}}</td>
         <td>{{child.childSurname}}</td>
         <td>{{child.childDateOfBirth}}</td>
         <td>{{child.childPersonalCode}}</td>
         <td>{{child.ageOfChild}}</td>
-        <!-- <td>{{child.childParents}}</td>  -->
         <td style=" justify-content: center; align-items: center;">
-          <button routerLink ="/update-child/{{child.childId}}"btn btn-info class="employee_buttons">Update</button>
-          <button  mwlConfirmationPopover
-                   [popoverTitle]="popoverTitle"
-                   [popoverMessage]="popoverMessage"
-                   placement="right"
-                   (confirm)="confirmClicked = true;  deleteChild(child.childId)"
-                   (cancel)="cancelClicked = true"
-                   confirmButtonType="danger"
-                   cancelButtonType="outline-secondary"
-                   id="deleteEmployee" class="employee_buttons">
-
-            Delete</button>
-          </td>
-
+          <button routerLink="/update-child/{{child.childId}}" btn btn-info class="employee_buttons">Update</button>
+          <button mwlConfirmationPopover
+                  [popoverTitle]="popoverTitle"
+                  [popoverMessage]="popoverMessage"
+                  placement="right"
+                  (confirm)="confirmClicked = true;  deleteChild(child.childId)"
+                  (cancel)="cancelClicked = true"
+                  confirmButtonType="danger"
+                  cancelButtonType="outline-secondary"
+                  id="deleteEmployee" class="employee_buttons">
+            Delete
+          </button>
+        </td>
       </tr>
-        </tbody>
-
+      </tbody>
     </table>
-
-
-
-    <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
-
-
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
     <pagination-template #p="paginationApi">
-
-
-
-      <button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
+      <button [hidden] id="goToLastPage" (click)="page=p.getLastPage()">Go to last page</button>
     </pagination-template>
 
     <Span>Items per page
-      <select (change) = "page =1" [(ngModel)]="noOfRows">
-      <option value = "3">3</option>
-      <option value = "6">6</option>
-      <option value = "9">9</option>
+      <select (change)="page =1" [(ngModel)]="noOfRows">
+      <option value="3">3</option>
+      <option value="6">6</option>
+      <option value="9">9</option>
       </select>
   </Span>
 
     <div class="buttons">
-      <button (click)= "goToAddChildrenPage(employee.id)" class = "btn " type = "submit" >Add Child</button>
-      <button (click)= "goBack()" class = "btn " type = "info" >Go Back</button>
+      <button (click)="goToAddChildrenPage(employee.id)" class="btn " type="submit">Add Child</button>
+      <button (click)="goBack()" class="btn " type="info">Go Back</button>
     </div>
-
-
-
-
   </div>
-
-
 </div>

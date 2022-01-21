@@ -16,10 +16,4 @@ export class DataSharingService {
     sendMessage(message:any){
 this.passingArraySource.next(message);
     }
-
 }
-
-
-
-
-  

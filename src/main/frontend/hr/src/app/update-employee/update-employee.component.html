@@ -1,153 +1,124 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <a routerLink="/"class="nav-link" href="#">Home</a>
+        <a routerLink="/" class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item active">
-        <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+        <a routerLink="/search-employees" class="nav-link" href="#">Employees</a>
       </li>
       <li class="nav-item">
         <a routerLink="/departments" class="nav-link" href="#">Departments</a>
       </li>
       <li class="nav-item">
-          <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+        <a routerLink="/children-list" class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
 <div class="main">
   <div class="employee_card">
-
-    <div class = "col-md-6 offset-md-3">
+    <div class="col-md-6 offset-md-3">
       <h3>Update Employee</h3>
-      <!-- <form (ngSubmit)= "onSubmit()"> -->
-      <div class = "form-group">
+      <div class="form-group">
         <label>FirstName</label>
-        <input type = "text" class = "form-control" id ="name"
-               [(ngModel)] ="employee.name" name = "name">
+        <input type="text" class="form-control" id="name"
+               [(ngModel)]="employee.name" name="name">
       </div>
-      <div class = "form-group">
+      <div class="form-group">
         <label>Last Name</label>
-        <input type = "text" class = "form-control" id ="surname"
-               [(ngModel)] ="employee.surname" name = "lastname">
+        <input type="text" class="form-control" id="surname"
+               [(ngModel)]="employee.surname" name="lastname">
       </div>
-      <div class = "form group row">
-        <label for = "gender" class = "col-form-label col sm-2">Gender</label>
-           <select [(ngModel)]="employee.gender" class = "form-control" name = "gender">
-                <option [ngValue]="undefined">-------Choose gender-----</option>
-                <option [value]= >FEMALE</option>
-                <option [value]= >MALE</option>
-                </select>
-    </div>
-      <div class = "form-group">
-        <label>Date Of Birth</label>
-        <input type = "text" class = "form-control" id ="dateOfBirth"
-               [(ngModel)] ="employee.dateOfBirth" name = "dateOfBirth">
-      </div>
-      <div class = "form-group">
-        <label>Personal Code</label>
-        <input type = "text" class = "form-control" id ="personalCode"
-               [(ngModel)] ="employee.personalCode" name = "personalCode">
-      </div>
-      <div class = "form-group">
-        <label>Document Number</label>
-        <input type = "text" class = "form-control" id ="idDocumentNumber"
-               [(ngModel)] ="employee.idDocumentNumber" name = "idDocumentNumber">
-      </div>
-      <div class = "form-group">
-        <label>Document Expiry Date</label>
-        <input type = "text" class = "form-control" id ="idDocumentExpiryDate"
-               [(ngModel)] ="employee.idDocumentExpiryDate" name = "idDocumentExpiryDate">
-      </div>
-      <div class = "form-group">
-        <label>Phone Number</label>
-        <input type = "text" class = "form-control" id ="phoneNumber"
-               [(ngModel)] ="employee.phoneNumber" name = "phoneNumber">
-      </div>
-      <div class = "form-group">
-        <label>E-mail</label>
-        <input type = "text" class = "form-control" id ="email"
-               [(ngModel)] ="employee.email" name = "email">
-      </div>
-      <div class = "form-group">
-        <label>Address</label>
-        <input type = "text" class = "form-control" id ="address"
-               [(ngModel)] ="employee.address" name = "address">
-      </div>
-      <div class = "form-group">
-        <label>Education</label>
-        <input type = "text" class = "form-control" id ="education"
-               [(ngModel)] ="employee.education" name = "education">
-      </div>
-
-      <div class = "form group row">
-        <label class = "col-form-label col sm-2">Department</label>
-        <select
-          [(ngModel)]="employee.department.id" class = "form-control" name = "department"
-        >
-          <!-- <option [ngValue]="undefined">{{employee.department.name}}}</option> -->
-          <option *ngFor = "let department of departments" [ngValue] = "department.id">{{department.name}}</option>
+      <div class="form group row">
+        <label for="gender" class="col-form-label col sm-2">Gender</label>
+        <select [(ngModel)]="employee.gender" class="form-control" name="gender">
+          <option [ngValue]="undefined">-------Choose gender-----</option>
+          <option [value]=>FEMALE</option>
+          <option [value]=>MALE</option>
         </select>
       </div>
-
-
-
-
-      
-
-               <div class = "form-group">
-                <label>Dismissal Date</label>
-        
-        
-        
-                <!-- placeholder="Datepicker" -->
-        
-              <div class="row">
-                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-                  <input type="text"
-        
-                  placeholder= "DD/MM/YYYY "
-        
-                         class="form-control"
-                         bsDatepicker
-                         [(ngModel)] ="employee.workEndDate"
-                         bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
-        
-        
-                </div>
-
-
-
-      <div class = "form group row">
-        <label for = "employeeActive" class = "col-form-label col sm-2">Is Employee Active</label>
-           <select [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
+      <div class="form-group">
+        <label>Date Of Birth</label>
+        <input type="text" class="form-control" id="dateOfBirth"
+               [(ngModel)]="employee.dateOfBirth" name="dateOfBirth">
+      </div>
+      <div class="form-group">
+        <label>Personal Code</label>
+        <input type="text" class="form-control" id="personalCode"
+               [(ngModel)]="employee.personalCode" name="personalCode">
+      </div>
+      <div class="form-group">
+        <label>Document Number</label>
+        <input type="text" class="form-control" id="idDocumentNumber"
+               [(ngModel)]="employee.idDocumentNumber" name="idDocumentNumber">
+      </div>
+      <div class="form-group">
+        <label>Document Expiry Date</label>
+        <input type="text" class="form-control" id="idDocumentExpiryDate"
+               [(ngModel)]="employee.idDocumentExpiryDate" name="idDocumentExpiryDate">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber"
+               [(ngModel)]="employee.phoneNumber" name="phoneNumber">
+      </div>
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="text" class="form-control" id="email"
+               [(ngModel)]="employee.email" name="email">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" class="form-control" id="address"
+               [(ngModel)]="employee.address" name="address">
+      </div>
+      <div class="form-group">
+        <label>Education</label>
+        <input type="text" class="form-control" id="education"
+               [(ngModel)]="employee.education" name="education">
+      </div>
+      <div class="form group row">
+        <label class="col-form-label col sm-2">Department</label>
+        <select
+          [(ngModel)]="employee.department.id" class="form-control" name="department"
+        >
+          <option *ngFor="let department of departments" [ngValue]="department.id">{{department.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dismissal Date</label>
+        <div class="row">
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input type="text"
+                   placeholder="DD/MM/YYYY "
+                   class="form-control"
+                   bsDatepicker
+                   [(ngModel)]="employee.workEndDate"
+                   bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+          </div>
+          <div class="form group row">
+            <label for="employeeActive" class="col-form-label col sm-2">Is Employee Active</label>
+            <select [(ngModel)]="employee.employeeActive" class="form-control" name="employeeActive">
+              <option [ngValue]="undefined">-------Choose option-----</option>
+              <option [ngValue]="true">Yes</option>
+              <option [ngValue]="false">No</option>
+            </select>
+            <div class="form group row">
+              <label for="employeeActive" class="col-form-label col sm-2">Children</label>
+              <select [(ngModel)]="employee.doesEmployeeHaveChild" class="form-control" name="employeehavechild">
                 <option [ngValue]="undefined">-------Choose option-----</option>
-                <option [ngValue]= "true" >Yes</option>
-                <option [ngValue]= "false">No</option>
-
-           </select>
-
-           <div class = "form group row">
-            <label for = "employeeActive" class = "col-form-label col sm-2">Children</label>
-               <select [(ngModel)]="employee.doesEmployeeHaveChild" class = "form-control" name = "employeehavechild">
-                    <option [ngValue]="undefined">-------Choose option-----</option>
-                    <option [ngValue]= "true" >Yes</option>
-                    <option [ngValue]= "false">No</option>
-    
-               </select>
-
-
-      <button  (click)="onSubmit()"class = "btn " type = "submit" >Submit</button>
-      <button type="button" class="btn " (click)="goBack()">Go Back</button>
-      <!-- </form> -->
+                <option [ngValue]="true">Yes</option>
+                <option [ngValue]="false">No</option>
+              </select>
+              <button (click)="onSubmit()" class="btn " type="submit">Submit</button>
+              <button type="button" class="btn " (click)="goBack()">Go Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
-
 </div>
-

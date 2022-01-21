@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Department } from './department';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,10 +11,9 @@ export class DepartmentService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  
+
   baseURL ='api/v1/departments';
   addURL ='api/v1/departments/add';
-
 
  department: Department = new Department();
 
@@ -25,16 +23,10 @@ export class DepartmentService {
     return this.httpClient.get<Department[]>(this.baseURL);
   }
 
-
   addDepartment(department: Department):Observable<Department>{
     console.log(department)
     return this.httpClient.post<any>(this.addURL,department,this.httpOptions);
   }
-    
-
-
- 
-
 
   updateDepartment(id:number,department: Department): Observable<Object>{
 return this.httpClient.put(`${this.baseURL}/${id}`, department);

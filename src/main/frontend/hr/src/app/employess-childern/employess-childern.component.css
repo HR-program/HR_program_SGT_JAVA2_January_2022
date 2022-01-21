@@ -102,19 +102,6 @@ margin-top: 10px;
   gap: 5px;
 }
 
-/* tr.selected {
-  background-color: black;
-  color: white;
-}
-tr.selected:hover {
-  background-color: #505050;
-  color: white;
-}
-tr.selected:active {
-  background-color: rgb(163, 17, 17);
-  color: white;
-} */
-
 /* Dropdown Button */
 .dropbtn {
 background-color: #db3434;

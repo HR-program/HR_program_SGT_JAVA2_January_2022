@@ -8,11 +8,10 @@ import { Department } from './department';
   providedIn: 'root'
 })
 
-
 export class EmployeeService {
-  private addURL ='/api/v1/departments/add';
-  private sortEmployeeByNameURL = '/api/v1/employees/sort-by-name';
-  private sortEmloyeeBySurnameURL ='/api/v1/employees/sort-by-surname';
+private addURL ='/api/v1/departments/add';
+private sortEmployeeByNameURL = '/api/v1/employees/sort-by-name';
+private sortEmloyeeBySurnameURL ='/api/v1/employees/sort-by-surname';
 private findBySurnameURL ='/api/v1/employees/surname';
 private findByNameURL='/api/v1/employees/name';
 private findByPersonalCodeURL='api/v1/employees/personal-code';
@@ -31,7 +30,6 @@ private getAllActiveSortBySurnameURL='api/v1/employees/active/sort-by-surname';
   getAllActiveSortBySurname():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(this.getAllActiveSortBySurnameURL);
   }
-
 
   getEmployee(id: number): Observable<Employee> {
     const url = `${this.baseURL}/${id}`;
@@ -65,7 +63,6 @@ addDepartment(department: Department):Observable<any>{
 updateEmployee(id: number,employee: Employee): Observable<Object>{
   return this.httpClient.put(`${this.baseURL}/${id}`,employee);
 }
-
 
 deleteEmployee(id: number): Observable<Employee> {
   return this.httpClient.delete<Employee>(`${this.baseURL}/${id}`);

@@ -3,13 +3,12 @@ import { DataSharingService } from '../data-sharing.service';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
-
-
 @Component({
   selector: 'app-search-list',
   templateUrl: './search-list.component.html',
   styleUrls: ['./search-list.component.css']
 })
+
 export class SearchListComponent implements OnInit {
   selected: string ="--Choose option--";
   employees: Employee[] =[];
@@ -25,11 +24,9 @@ export class SearchListComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-    // this.getEmployees();
    this.dataSharingService.passingArray$
    .subscribe(
      message=>{this.employees=message
-   
     }
        )
 console.log(this.employees)
@@ -42,6 +39,7 @@ console.log(this.employees)
         console.log (data)
                })
     }
+
     sortByName():void{
       this.employeeService.sortByName().subscribe
       (data =>{
@@ -60,7 +58,6 @@ console.log(this.employees)
 
       switch(this.selected) {
         case "1":
-           // if modo 1 is selected do something.
            break;
         case "4":
            this.sortBySurname();

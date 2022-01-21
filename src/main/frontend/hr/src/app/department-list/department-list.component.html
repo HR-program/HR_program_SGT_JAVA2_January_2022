@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -15,22 +14,10 @@
       <li class="nav-item">
           <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
-<!--<h2>Department List</h2>-->
-<!-- <span>Sort by
-<select  [(ngModel)]="selected" (ngModelChange)="selectedOption()">
-    <option>--Choose option--</option>
-    <option value ="1">Age</option>
-    <option value = "2">Gender</option>
-    <option value = "3">Start date</option>
-    <option value = "4">Surname</option>
-    <option value = "5">Name</option>
-</select>
-</span> -->
   <div class="wrapper">
     <div class="main">
       <div class="employee_card">
@@ -46,7 +33,6 @@
             <th class="column_names">Actions</th>
           </tr>
           </thead>
-
           <tbody>
           <tr id = "department" *ngFor = "let department of departments |paginate :{itemsPerPage: noOfRows, currentPage:page, totalItems:totalLength}" >
             <td>{{department.id}}</td>
@@ -54,8 +40,6 @@
             <td>{{department.address}}</td>
             <td style="display: flex; justify-content: center; align-items: center;">
               <button (click)= "goToUpdatePage(department.id)"  btn btn-info>Update</button>
-
-
               <button mwlConfirmationPopover
               [popoverTitle]="popoverTitle"
               [popoverMessage]="popoverMessage"
@@ -67,19 +51,13 @@
               id="deleteEmployee" class="employee_buttons">
                 Delete Department
               </button>
-
-
             </td>
           </tr>
           </tbody>
-
         </table>
         <br>
         <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
-
-
         <pagination-template #p="paginationApi">
-
           <button [hidden] id = "goToLastPage" (click) = "page=p.getLastPage()">Go to last page</button>
         </pagination-template>
 
@@ -90,7 +68,6 @@
                 <option value = "15">15</option>
                 </select>
             </Span>
-        <!-- <div><button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button></div> -->
         <br>
         <span>
                 <button routerLink="/add-department">Add Department</button>
@@ -98,5 +75,3 @@
       </div>
     </div>
   </div>
-
-

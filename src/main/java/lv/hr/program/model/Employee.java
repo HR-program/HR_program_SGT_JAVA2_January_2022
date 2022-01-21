@@ -1,7 +1,5 @@
 package lv.hr.program.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -56,21 +54,15 @@ public class Employee {
     private String education;
 
     @ManyToOne
-//    @Column(name = "employee_department_name")
     private Department department;
 
     @Column(name = "employee_certificate")
     private String certificate;
 
-//@OneToMany
-//    @Column(name = "vacation")
-//    private Vacation vacation;
-
     @Column(name = "employee_has_a_child")
     private boolean doesEmployeeHaveChild;
 
     @OneToMany
-//    @Column(name = "how_many_children")
     private List<ChildOfEmployee> childOfEmployee;
 
     @Column(name = "employee_is_active_worker")

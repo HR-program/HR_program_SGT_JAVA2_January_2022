@@ -1,6 +1,5 @@
 package lv.hr.program.controllers;
 
-
 import lv.hr.program.model.Department;
 import lv.hr.program.repositories.DepartmentRepository;
 import lv.hr.program.services.DepartmentService;
@@ -20,11 +19,6 @@ public class DepartmentController {
         this.departmentRepository = departmentRepository;
     }
 
-//    @GetMapping("/departments")
-//    public Iterable<Department> getAllDepartments() {
-//        return departmentService.getAllDepartments();
-//    }
-
     @GetMapping("/departments")
     public ResponseEntity<Iterable<Department>> getAllDepartments() {
         try {
@@ -36,11 +30,6 @@ public class DepartmentController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-//        @PostMapping("/departments/add")
-//        public Department addNewDepartment (@RequestBody Department department){
-//            return departmentService.addNewDepartment(department);
-//        }
 
     @PostMapping("/departments/add")
     public ResponseEntity<Department> addNewDepartment(@RequestBody Department department) {
@@ -56,25 +45,6 @@ public class DepartmentController {
     public Department updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
         return departmentService.updateDepartment(id, department);
     }
-
-//    @PutMapping("/departments/{id}")
-//    public ResponseEntity<Department> updateDepartment(@PathVariable("id") Long id, @RequestBody Department department) {
-//        Optional<Department> departmentData = departmentRepository.findById(id);
-//
-//        if (departmentData.isPresent()) {
-//            Department departmentToBeUpdated = departmentData.get();
-//            departmentToBeUpdated.setName(department.getName());
-//            departmentToBeUpdated.setAddress(department.getAddress());
-//            return new ResponseEntity<>(departmentService.updateDepartment(id, department), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
-//    @DeleteMapping("/departments/{id}")
-//    public void deleteDepartment(@PathVariable("id") Long id) {
-//        departmentService.deleteDepartmentById(id);
-//    }
 
     @DeleteMapping("/departments/{id}")
     public ResponseEntity<HttpStatus> deleteDepartment(@PathVariable("id") Long id) {

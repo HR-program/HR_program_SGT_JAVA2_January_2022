@@ -16,11 +16,7 @@ export class Employee {
     address: string|undefined;
     education: string|undefined;
     department:Department;
-    // currentPosition:PositionHistory;
     certificate: string|undefined ;
-    // evaluation:Evaluation;
-    // vacation:Vacation;
     doesEmployeeHaveChild: boolean|undefined;
-    //childOfEmployee
     employeeActive: boolean|undefined;
 }

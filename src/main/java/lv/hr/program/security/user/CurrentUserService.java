@@ -20,7 +20,6 @@ public class CurrentUserService implements UserDetailsService {
         if (currentUser == null) {
             throw new UsernameNotFoundException("Failed to find user with username: " + username);
         }
-
         return currentUser;
     }
 }

@@ -3,7 +3,6 @@ package lv.hr.program.services;
 import lv.hr.program.model.Vacation;
 import lv.hr.program.repositories.VacationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -15,7 +14,6 @@
       <li class="nav-item">
           <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
@@ -23,12 +21,9 @@
 <div class="main">
   <div class="employee_card">
 
-
     <div class = "col-md-6 offset-md-3">
       <h3>Update Child {{child.childName}} {{child.childSurname}}</h3>
       <form (ngSubmit)= "onSubmit()">
-
-
         <div class = "form-group">
           <label>Date Of Birth</label>
           <input type = "text" class = "form-control" id ="dateOfBirth"
@@ -53,10 +48,5 @@
         <button class = "btn " type = "submit" >Submit</button>
         <button class = "btn " type = "info" >Go Back</button>
       </form>
-
-
     </div>
-
 </div>
-
-

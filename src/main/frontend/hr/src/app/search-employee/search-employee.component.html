@@ -1,86 +1,59 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <a routerLink="/"class="nav-link" href="#">Home</a>
+        <a routerLink="/" class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item active">
-        <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+        <a routerLink="/search-employees" class="nav-link" href="#">Employees</a>
       </li>
       <li class="nav-item">
         <a routerLink="/departments" class="nav-link" href="#">Departments</a>
       </li>
       <li class="nav-item">
-          <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+        <a routerLink="/children-list" class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>
-  <div class="wrapper">
-    <div class="main">
-      <div class="employee_card">
-        <div class = "container">
-
+<div class="wrapper">
+  <div class="main">
+    <div class="employee_card">
+      <div class="container">
                         <span>
                             <button routerLink="/employees">All Employees</button>
                         </span>
-          <span>
+        <span>
                             <button routerLink="/employees-active">Active Employees</button>
                         </span>
-          <span>
+        <span>
                             <button routerLink="/add-employee">Add employee</button>
                         </span>
 
-          <br><br><h3>Search Employee by:</h3><br>
-
-          <!-- <form (ngSubmit)= "onSubmit()"> -->
-          <!-- <div class = "form-group">
-          <label>First Name: </label>
-          <input type = "text" class = "form-control" id ="name"
-          [(ngModel)] ="employee.name" name = "name">
-          </div> -->
-
-          <!-- <label for="hero-name">Hero name: </label>
-          <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name"> -->
-
-
-          <label>Name: </label><br>
-          <input class = "form-control" type = "text"   [(ngModel)] ="employee.name" name ="name" placeholder = "name" ><br>
-
-          <!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
-          <button (click)= "onSubmitName()">Submit</button><br><br>
-
-          <label>Last Name: </label><br>
-          <input class = "form-control" type = "text"   [(ngModel)] ="employee.surname" name ="surname" placeholder = "surname" ><br>
-
-          <!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
-          <button (click)= "onSubmitSurName()" >Submit</button><br><br>
-
-          <label>Personal code: </label><br>
-          <input class = "form-control" type = "text"   [(ngModel)] ="employee.personalCode"name ="personalCode" placeholder = "personal code" ><br>
-
-          <!-- <button class = "btn btn-success" type = "submit" >Submit</button> -->
-          <button (click)= "onSubmitPersonalCode()" >Submit</button><br><br>
-
-          <!-- <form (ngSubmit)= "onSubmitDepartment()"> -->
-
-          <!-- <select  [(ngModel)]="selectedDepartment">
-          <option>--Choose option--</option>
-          <option *ngFor =" let department of departments" [value] = "department.id" >{{department.name}}</option>
-          <button  (click)="onSubmitDepartment()">Submit</button> -->
-
-          <label>Department: </label><br>
-          <select class="form-select"[(ngModel)]="selectedDepartment">
-            <option [ngValue]="undefined">--Choose department--</option>
-            <option *ngFor =" let department of departments" [value] = "department.id" >{{department.name}}</option>
-          </select>
-          <button (click)="onSubmitDepartment()" >Submit</button>
-
-        </div>
+        <br><br>
+        <h3>Search Employee by:</h3><br>
+        <label>Name: </label><br>
+        <input class="form-control" type="text" [(ngModel)]="employee.name" name="name" placeholder="name"><br>
+        <button (click)="onSubmitName()">Submit</button>
+        <br><br>
+        <label>Last Name: </label><br>
+        <input class="form-control" type="text" [(ngModel)]="employee.surname" name="surname" placeholder="surname"><br>
+        <button (click)="onSubmitSurName()">Submit</button>
+        <br><br>
+        <label>Personal code: </label><br>
+        <input class="form-control" type="text" [(ngModel)]="employee.personalCode" name="personalCode"
+               placeholder="personal code"><br>
+        <button (click)="onSubmitPersonalCode()">Submit</button>
+        <br><br>
+        <label>Department: </label><br>
+        <select class="form-select" [(ngModel)]="selectedDepartment">
+          <option [ngValue]="undefined">--Choose department--</option>
+          <option *ngFor=" let department of departments" [value]="department.id">{{department.name}}</option>
+        </select>
+        <button (click)="onSubmitDepartment()">Submit</button>
       </div>
     </div>
   </div>
+</div>

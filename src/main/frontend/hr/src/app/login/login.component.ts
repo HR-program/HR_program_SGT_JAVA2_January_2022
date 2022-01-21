@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   model: any = {};
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(res => {
       if (res) {
         this.sessionId = res.sessionId;
-          
+
         sessionStorage.setItem(
           'token',
           this.sessionId
@@ -39,6 +40,4 @@ export class LoginComponent implements OnInit {
       }
     });
 }
-
 }
-

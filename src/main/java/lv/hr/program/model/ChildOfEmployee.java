@@ -28,16 +28,12 @@ public class ChildOfEmployee {
     private String childSurname;
 
     @ManyToOne
-//            (fetch = FetchType.LAZY)
-////            (fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-////    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @Column(name = "child_age")
     private int ageOfChild;
 
     public ChildOfEmployee() {
-
     }
 
     public ChildOfEmployee(long childId, String childPersonalCode, LocalDate childDateOfBirth, String childName, String childSurname, Employee employee) {
@@ -58,22 +54,6 @@ public class ChildOfEmployee {
         this.employee = employee;
         this.ageOfChild = ageOfChild;
     }
-
-//    @Column(name = "child_age")
-//    private int getAgeOfChild(LocalDate childDateOfBirth, LocalDate currentDate){
-//
-//
-//            return Period.between(childDateOfBirth,currentDate).getYears();}
-
-//        public int calculateAge(
-//                LocalDate birthDate,
-//                LocalDate currentDate) {
-//            // validate inputs ...
-//            return Period.between(birthDate, currentDate).getYears();
-
-//    @ManyToMany(mappedBy = "childrenOfEmployee",
-//            fetch = FetchType.LAZY)
-//    private List<Employee> employees;
 
     public long getChildId() {
         return childId;

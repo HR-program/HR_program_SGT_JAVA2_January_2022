@@ -11,6 +11,7 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './search-employee.component.html',
   styleUrls: ['./search-employee.component.css']
 })
+
 export class SearchEmployeeComponent implements OnInit {
   departments: Department[]=[];
   department:Department =  new Department();
@@ -22,6 +23,7 @@ totalLength: any;
 departmentId:number;
 id: number;
 selectedDepartment:number;
+
   constructor(private employeeService: EmployeeService,
     private router: Router,
     private dataSharingService: DataSharingService,
@@ -32,66 +34,49 @@ selectedDepartment:number;
 
   }
 onSubmitName(){
-  // console.log(this.employee.surname);
-
   this.findEmployeesByName();
-
 }
-onSubmitSurName(){
 
+onSubmitSurName(){
   this.findEmployeesBySurname();
 }
-onSubmitPersonalCode(){
 
+onSubmitPersonalCode(){
   this.findEmployeesByPersonalCode();
 }
 
 
    findEmployeesBySurname(){
-    //  console.log(this.employee.surname)
-    // console.log(this.employee.surname);
-
-    this.employeeService.findEmployeesBySurnameLike(this.employee.surname).subscribe(data =>{
+       this.employeeService.findEmployeesBySurnameLike(this.employee.surname).subscribe(data =>{
       this.employees = data;
       console.log(this.employees);
       this.dataSharingService.sendMessage(this.employees);
-
       this.totalLength=data.length;
-
       this.goToSearchedList();
              })
 }
 
 findEmployeesByName(){
-  //  console.log(this.employee.surname)
-  // console.log(this.employee.surname);
-
-  this.employeeService.findEmployeesByNameLike(this.employee.name).subscribe(data =>{
+   this.employeeService.findEmployeesByNameLike(this.employee.name).subscribe(data =>{
     this.employees = data;
     console.log(this.employees);
     this.dataSharingService.sendMessage(this.employees);
-
     this.totalLength=data.length;
-
     this.goToSearchedList();
            })
 }
 
 findEmployeesByPersonalCode(){
-
   this.employeeService.findEmployeesByPersonalCodeLike(this.employee.personalCode).subscribe(data =>{
     this.employees = data;
     console.log(this.employees);
     this.dataSharingService.sendMessage(this.employees);
-
     this.totalLength=data.length;
-
     this.goToSearchedList();
            })
 }
 
 goToSearchedList(){
-
   this.router.navigate(['searched-employees']);
 }
 
@@ -106,7 +91,6 @@ getDepatments(){
     this.totalLength=data.length;
 console.log(data);
   },error=>console.log(error));
-
 }
 
 employeesByDepartmentsId(){
@@ -114,15 +98,8 @@ employeesByDepartmentsId(){
     this.employees = data;
     console.log(data);
     this.dataSharingService.sendMessage(this.employees);
-
     this.totalLength=data.length;
-
     this.goToSearchedList();
   },error=>console.log(error));
 }
-
-
 }
-
-
-

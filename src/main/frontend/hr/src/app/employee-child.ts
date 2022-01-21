@@ -7,5 +7,4 @@ childDateOfBirth: string;
 childName: string;
 childSurname:string;
 employee: Employee;
-
 }

@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -15,7 +14,6 @@
       <li class="nav-item">
           <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
       </li>
-
     </ul>
   </div>
 </nav>
@@ -24,7 +22,6 @@
   <div class="wrapper">
     <div class="main">
       <div class="employee_card">
-
         <div class="left_side">
           <table class="employee_table">
             <tr>
@@ -75,12 +72,10 @@
               <td class="employee_left_row_name">Department</td>
               <td class="employee_left_info"><span id="employee_department">{{employee.department.name}}</span></td>
             </tr>
-       
             <tr>
               <td class="employee_left_row_name">Employment date</td>
               <td class="employee_left_info"><span id="employee_date_employment">{{employee.workStartDate}}</span></td>
             </tr>
-
             <tr>
               <td class="employee_left_row_name">Does employee have children</td>
               <td class="employee_left_info"><span id="employee_doesEmployeeHaveChildren">{{employee.doesEmployeeHaveChild}}</span></td>
@@ -90,20 +85,15 @@
 
         <div class="right_side">
           <div class="right_top">
-
           </div>
           <div class="right_bottom">
-
             <app-upload-files></app-upload-files>
-
             <button (click)= "goToEmployeesChildren(employee.id)" id="children" class="employee_buttons">
               Children
             </button>
-
             <button (click) ="goToVacationScreen(employee.id)" id="vacation" class="employee_buttons">
               Vacation
             </button>
-
             <button  mwlConfirmationPopover
             [popoverTitle]="popoverTitle"
             [popoverMessage]="popoverMessage"
@@ -125,4 +115,3 @@
     </div>
     </div>
     </div>
-

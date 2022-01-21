@@ -22,30 +22,24 @@ id = this.route.snapshot.params['id'];
   colorTheme = 'theme-default'
   bsValue = new Date();
 
-
  bsConfig?: Partial<BsDatepickerConfig>;
 
   applyTheme(){
-
     this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
-
-
   }
 
   constructor(private childService: ChildService,
     private location: Location,
        private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    
-    ) { }
+        ) { }
 
   ngOnInit(): void {
     this.applyTheme();
   }
   onSubmit(){
-    console.log(this.child);
+   console.log(this.child);
    this.addChild3();
-  //  this.updateEmployee();
    this.goBack();
    setTimeout(() =>this.getChildren(),500 );
    setTimeout(() => document.getElementById('goToLastPage').click(),400 )
@@ -54,16 +48,11 @@ id = this.route.snapshot.params['id'];
     getChildren(){
       this.childService.getChildrenList().subscribe(data=>{
         this.children = data;
-     
-    console.log(data)},)}
-        
-
+        console.log(data)},)}
 
 addChild(){
   this.childService.addChild( this.child).subscribe(data=>{
     console.log(data)
-   
-    
   },
  error=> console.log(error));
 }
@@ -72,20 +61,9 @@ goBack(): void {
   this.location.back();
 }
 
-// updateEmployee(){
-//   this.id = this.route.snapshot.params['id'];
-//   this.employeeService.updateEmployee(this.id, this.employee).subscribe(
-//     data=>{console.log(data)
-//     ;},
-//   error=>console.log(error));
-//   }
-
-
-
 getEmployee():void{
-
   this.id = this.route.snapshot.params['id'];
-  this.employeeService.getEmployee(this.id).subscribe(data=>{this.employee=data 
+  this.employeeService.getEmployee(this.id).subscribe(data=>{this.employee=data
     console.log(data)
     ;},
   error=>console.log(error));
@@ -93,15 +71,9 @@ getEmployee():void{
 
 addChild3():void{
   this.id = this.route.snapshot.params['id'];
-  
-   
   this.childService.addEmployeesChild3( this.child,this.id).subscribe(data=>{
     console.log(data)
-   
-    
   },
  error=> console.log(error));
-}    
-
-    }
-  
+}
+}

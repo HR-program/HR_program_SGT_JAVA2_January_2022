@@ -14,27 +14,18 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
+
 export class AddEmployeeComponent implements OnInit {
-  // addEmployeeForm = new FormGroup({
-  //   name: new FormControl('', Validators.required),
-  // });
   employee: Employee = new Employee();
   departments: Department[]=[];
   id!: number;
   page: any=1;
-
   colorTheme = 'theme-default'
-
-
  bsConfig?: Partial<BsDatepickerConfig>;
 
   applyTheme(){
-
     this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
-
-
   }
-
 
   constructor(private employeeService: EmployeeService,
     private router:Router,
@@ -44,17 +35,10 @@ export class AddEmployeeComponent implements OnInit {
     private location: Location,
     ) { }
 
-
-
-
   ngOnInit(): void {
     this.getDepatments();
     this.applyTheme();
-
   }
-
-  // get name (){return this.addEmployeeForm.get('name')}
-
 
   getDepatments(){
     this.departmentService.getDepartmentsList().subscribe(data=>{
@@ -67,39 +51,25 @@ error=> console.log(error));
     this.employeeService.addEmployee( this.employee).subscribe(data=>{
       console.log(data);
       this.goToEmployeesList();
-
     },
    error=> console.log(error));
   }
 
   goToEmployeesList(){
-
-  this.router.navigate(['employees-active']);
+  this.router.navigate(['employees']);
   setTimeout(() => document.getElementById('goToLastPage').click(), 350)
-
-
   }
 
   goToEmployeesScreen(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.router.navigate(['employees', id]);
-
-
     }
 
     onSubmit(){
-
       this.addEmployee();
-
     }
+
     goBack(): void {
       this.location.back();
     }
-
-
-
-
 }
-
-
-

@@ -22,33 +22,6 @@ public class EmployeeController {
         this.employeeRepository = employeeRepository;
     }
 
-    //    @GetMapping("/employees")
-//    public Iterable<Employee> getAllEmployees() {
-//        return employeeService.getAllEmployees();
-//    }
-
-//    @GetMapping("/employees")
-//    public List<Employee> getAllEmployees() {
-//        Employee employee = new Employee();
-//        List<Employee> employeeList = new ArrayList<>();
-//        employee.getName();
-//        employee.getSurname();
-//        employee.getGender();
-//        employee.getDateOfBirth();
-//        employee.getPersonalCode();
-//        employee.getIdDocumentNumber();
-//        employee.getIdDocumentExpiryDate();
-//        employee.getPhoneNumber();
-//        employee.getEmail();
-//        employee.getAddress();
-//        employee.getEducation();
-//        employee.getDepartment();
-//        employee.isDoesEmployeeHaveChild();
-//        employee.isEmployeeActive();
-//        employeeList.add(employee);
-//        return (List<Employee>) employeeService.getAllEmployees();
-//    }
-
     @GetMapping("/employees")
     public ResponseEntity<Iterable<Employee>> getAllEmployees() {
         try {
@@ -60,8 +33,6 @@ public class EmployeeController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
 
     @GetMapping("/employees/active")
     public ResponseEntity<Iterable<Employee>> getAllActiveEmployees() {
@@ -75,27 +46,6 @@ public class EmployeeController {
         }
     }
 
-//    @PostMapping("/employees")
-//    public void addNewEmployee(@RequestBody Employee employee) {
-//
-//        employee.setName(employee.getName());
-//        employee.setSurname(employee.getSurname());
-//        employee.setGender(employee.getGender());
-//        employee.setDateOfBirth(employee.getDateOfBirth());
-//        employee.setPersonalCode(employee.getPersonalCode());
-//        employee.setIdDocumentNumber(employee.getIdDocumentNumber());
-//        employee.setIdDocumentExpiryDate(employee.getIdDocumentExpiryDate());
-//        employee.setPhoneNumber(employee.getPhoneNumber());
-//        employee.setEmail(employee.getEmail());
-//        employee.setAddress(employee.getAddress());
-//        employee.setEducation(employee.getEducation());
-//        employee.setDepartment(employee.getDepartment());
-//        employee.setDoesEmployeeHaveChild(employee.setHavingChildrenToFalse());
-//        employee.setEmployeeActive(employee.isEmployeeActive());
-//        employee.setWorkStartDate(employee.getWorkStartDate());
-//        employeeService.create(employee);
-//    }
-
     @PostMapping("/employees")
     public ResponseEntity<Employee> addNewEmployee(@RequestBody Employee employee) {
         try {
@@ -105,11 +55,6 @@ public class EmployeeController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-//    @PutMapping("/employees/{id}")
-//    public Employee updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
-//        return employeeService.update(id, employee);
-//    }
 
     @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
@@ -140,63 +85,25 @@ public class EmployeeController {
         }
     }
 
-
-
     @DeleteMapping("/employees/{id}")
     public void deleteEmployeeById(@PathVariable("id") Long Id) {
         employeeService.deleteEmployeeByID(Id);
     }
-
-//    @DeleteMapping("/employees/{id}")
-//    public ResponseEntity<HttpStatus> deleteEmployeeById(@PathVariable("id") Long id) {
-//        try {
-//            employeeService.deleteEmployeeByID(id);
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
 
     @GetMapping("/employees/department/{id}")
     public Iterable<Employee> getEmployeesByDepartmentID(@PathVariable("id") Long id) {
         return employeeService.getEmployeesByDepartmentId(id);
     }
 
-
-
-
-
     @GetMapping("/employees/personal-code/{personal-code}")
     public Iterable<Employee> fetchEmployeeByPersonalCodeLike(@PathVariable("personal-code") String personalCode) {
         return employeeService.fetchEmployeeByPersonalCodeLike(personalCode);
     }
 
-//    @GetMapping("/employees/personal-code/{personal-code}")
-//    public ResponseEntity<Employee> findByPersonalCodeLike(@RequestParam String personalCode) {
-//        Optional<Employee> employeeData = employeeService.findEmployeeByPersonalCodeLike(personalCode);
-//
-//        if (employeeData.isPresent()) {
-//            return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
     @GetMapping("/employees/{id}")
     public Employee fetchEmployeeById(@PathVariable("id") Long Id) {
         return employeeService.fetchEmployeeByID(Id);
     }
-
-//    @GetMapping("/employees/{id}")
-//    public ResponseEntity<Employee> findById(@PathVariable("id") long id) {
-//        Optional<Employee> employeeData = employeeRepository.findById(id);
-//
-//        if (employeeData.isPresent()) {
-//            return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-
 
     @GetMapping("/employees/active/sort-by-name")
     public Iterable<Employee> getAllActiveEmployeesAndSortByName() {
@@ -223,35 +130,8 @@ public class EmployeeController {
         return employeeService.fetchEmployeeByNameLikeIgnoreCase(name);
     }
 
-    //    @GetMapping("/employees/name/{name}")
-//    public ResponseEntity<Iterable<Employee>> findByNameLike(@RequestParam String name) {
-//        Optional<Iterable<Employee>> employeeData = Optional.ofNullable(employeeService.fetchEmployeeByNameLikeIgnoreCase(name));
-//
-//        if (employeeData.isPresent()) {
-//            return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-
-    //    @GetMapping("/employees/active")
-//    public Iterable<Employee> getAllActiveEmployees() {
-//        return employeeService.getAllActiveEmployees();
-//    }
-
     @GetMapping("/employees/surname/{surname}")
     public Iterable<Employee> fetchEmployeeBySurnameLike(@PathVariable String surname) {
         return employeeService.fetchEmployeeBySurnameLikeIgnoreCase(surname);
     }
-
-//    @GetMapping("/employees/surname/{surname}")
-//    public ResponseEntity<Iterable<Employee>> findBySurnameLike(@RequestParam String surname) {
-//        Optional<Iterable<Employee>> employeeData = Optional.ofNullable(employeeService.fetchEmployeeBySurnameLikeIgnoreCase("%" + surname + "%"));
-//
-//        if (employeeData.isPresent()) {
-//            return new ResponseEntity<>(employeeData.get(), HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
 }

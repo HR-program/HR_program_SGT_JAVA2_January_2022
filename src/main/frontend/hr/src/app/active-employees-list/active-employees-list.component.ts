@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
-
 import { Location } from '@angular/common';
 
 @Component({
@@ -21,22 +20,19 @@ export class ActiveEmployeesListComponent implements OnInit {
   noOfRows =10;
 
   constructor(private employeeService: EmployeeService,
-
-private location: Location,
-   ) { }
+              private location: Location,) { }
 
   ngOnInit(): void {
-
     this.getActiveEmployees();
     document.getElementById('goToLastPage').hidden = true;
   }
+
   private getActiveEmployees(){
     this.employeeService.getActiveEmployeesList().subscribe(data =>{
       this.employees = data;
       this.totalLength=data.length;
       console.log (data)
-             })
-  }
+             })}
 
 getAllActiveSortByName():void{
   this.employeeService.getAllActiveSortByName().subscribe
@@ -44,9 +40,6 @@ getAllActiveSortByName():void{
       this.employees = data;
       console.log (data);
     },)}
-
-
-
 
   getAllActiveSortBySurname():void{
     this.employeeService.getAllActiveSortBySurname().subscribe
@@ -56,7 +49,6 @@ getAllActiveSortByName():void{
     })}
 
  selectedOption(){
-
     switch(this.selected) {
       case "1":
          this.getAllActiveSortBySurname();
@@ -64,11 +56,9 @@ getAllActiveSortByName():void{
       case "2":
          this.getAllActiveSortByName();
          break;
-
     }
   }
   goBack(): void {
     this.location.back();
   }
 }
-

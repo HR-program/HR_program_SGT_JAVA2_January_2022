@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -18,7 +19,6 @@ export class EmployeeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    // private location: Location,
     private router: Router
 
   ) { }
@@ -49,11 +49,8 @@ export class EmployeeComponent implements OnInit {
       });
   }
 
-
   openUpdateEmplyeeScreen(id: any){
-
     this.router.navigate(['update-employee', id]) ;
-
   }
 
   goToEmployeesChildren(id:any){
@@ -63,5 +60,3 @@ export class EmployeeComponent implements OnInit {
     this.router.navigate(['employee-vacation', id])
   }
   }
-
-

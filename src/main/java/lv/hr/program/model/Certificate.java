@@ -1,9 +1,5 @@
 package lv.hr.program.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -36,12 +32,3 @@ public class Certificate {
             nullable = false)
     private Employee employee;
 }
-
-//    @ManyToOne(fetch = FetchType.LAZY,
-//            optional = false)
-//    @JoinColumn(name = "employee_id",
-//            insertable = false,
-//            updatable = false,
-//            nullable = false)
-//    private Employee employee;
-//}

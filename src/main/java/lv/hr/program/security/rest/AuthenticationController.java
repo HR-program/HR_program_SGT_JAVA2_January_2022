@@ -1,6 +1,5 @@
 package lv.hr.program.security.rest;
 
-
 import lv.hr.program.security.dto.ResponseDTO;
 import lv.hr.program.security.dto.UserDTO;
 import lv.hr.program.security.session.InMemorySessionRegistry;
@@ -30,7 +29,6 @@ public class AuthenticationController {
         final String sessionId = sessionRegistry.registerSession(user.getUsername());
         ResponseDTO response = new ResponseDTO();
         response.setSessionId(sessionId);
-
         return ResponseEntity.ok(response);
     }
 }

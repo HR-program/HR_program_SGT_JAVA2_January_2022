@@ -28,7 +28,6 @@ public class UserInMemoryRepository {
         final CurrentUser currentUser = new CurrentUser();
         currentUser.setUsername(username);
         currentUser.setPassword(password);
-
         return currentUser;
     }
 }

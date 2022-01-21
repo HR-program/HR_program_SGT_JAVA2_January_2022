@@ -3,7 +3,6 @@ import { UploadFileService } from 'src/app/services/upload-file.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-upload-files',
   templateUrl: './upload-files.component.html',
@@ -26,7 +25,7 @@ export class UploadFilesComponent implements OnInit {
 
   upload() {
     this.progress = 0;
-  
+
     this.currentFile = this.selectedFiles.item(0);
     this.uploadService.upload(this.currentFile).subscribe(
       event => {
@@ -42,12 +41,11 @@ export class UploadFilesComponent implements OnInit {
         this.message = 'Could not upload the file!';
         this.currentFile = undefined;
       });
-  
+
     this.selectedFiles = undefined;
   }
 
   ngOnInit() {
     this.fileInfos = this.uploadService.getFiles();
   }
-
 }

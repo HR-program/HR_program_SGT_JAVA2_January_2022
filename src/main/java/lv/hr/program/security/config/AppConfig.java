@@ -42,7 +42,6 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
         ).and();
 
         http.authorizeRequests()
-
                 .antMatchers("/api/v1/login").permitAll()
                 .anyRequest().authenticated();
 

@@ -15,7 +15,6 @@ public class InMemorySessionRegistry {
         if (username == null) {
             throw new RuntimeException("Username needs to be provided");
         }
-
         final String sessionId = generateSessionId();
         SESSIONS.put(sessionId, username);
         return sessionId;

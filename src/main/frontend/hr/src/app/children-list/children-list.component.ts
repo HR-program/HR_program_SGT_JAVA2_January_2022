@@ -16,7 +16,6 @@ export class ChildrenListComponent implements OnInit {
   pageSizes = [10,15,20];
   totalElements =0;
   age:number =13;
-  // pageSize:number=3;
   noOfRows =10;
   constructor(private childService: ChildService,
     private location: Location,) { }
@@ -24,7 +23,7 @@ export class ChildrenListComponent implements OnInit {
   ngOnInit(): void {
     this.getChildren();
     document.getElementById('goToLastPage').hidden = true;
-    
+
   }
 private getChildren(){
   this.childService.getChildrenList().subscribe(data=>
@@ -32,7 +31,6 @@ private getChildren(){
       this.totalLength=data.length;
     console.log(data)},)
 }
-
 
 private sortChildrenByAge(){
   this.childService.sortChildrenByAge().subscribe(data=>{
@@ -65,11 +63,9 @@ private orderChildernByParentsSurname(){
     console.log(data);
   },
   error=> console.log(error));
-  
   }
 
 selectedOption(){
-
   switch(this.selected) {
     case "1":
        this.sortChildrenByAge();
@@ -83,20 +79,6 @@ selectedOption(){
        case "4":
       this.orderChildernByParentsSurname();
        break;
-
   }
 }
-
-// goBack(): void {
-//   this.location.back();
-   
-// }
 }
-
-
-// private getEmployees(){
-//   this.employeeService.getEmployeesList().subscribe(data =>{
-//     this.employees = data;
-//     this.totalLength=data.length;
-//     console.log (data)
-//            })

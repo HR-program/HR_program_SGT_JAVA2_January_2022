@@ -25,11 +25,6 @@ public class ChildController {
         this.childRepository = childRepository;
     }
 
-//    @GetMapping("/children")
-//    public List<ChildOfEmployee> getAllChildren() {
-//        return childService.getAllChildren();
-//    }
-
     @GetMapping("/children")
     public ResponseEntity<Iterable<ChildOfEmployee>> getAllChildren() {
         try {
@@ -41,7 +36,6 @@ public class ChildController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
     @PostMapping("/children/employee/{id}")
     public void addNewChildByEmployeesID(@RequestBody ChildOfEmployee childOfEmployee,
@@ -58,32 +52,6 @@ public class ChildController {
         employeeService.update(id, employee);
         childService.addNewChild(childOfEmployee);
     }
-
-//    @PostMapping("/employees/children/")
-//    public void saveEmployeeChild(@RequestBody ChildOfEmployee childOfEmployee) {
-//        childOfEmployee.setChildName(childOfEmployee.getChildName());
-//        childOfEmployee.setChildSurname(childOfEmployee.getChildSurname());
-//        childOfEmployee.setChildPersonalCode(childOfEmployee.getChildPersonalCode());
-//        childOfEmployee.setChildDateOfBirth(childOfEmployee.getChildDateOfBirth());
-//        childOfEmployee.setAgeOfChild(childOfEmployee.getAgeOfChild());
-//        childOfEmployee.setEmployee(childOfEmployee.getEmployee());
-//        childService.addNewChild(childOfEmployee);
-//    }
-
-//    @PostMapping("/children")
-//    public ResponseEntity<ChildOfEmployee> addNewChild(@RequestBody ChildOfEmployee childOfEmployee) {
-//        try {
-//            ChildOfEmployee childOfEmployeeSaved = childService.addNewChild(childOfEmployee);
-//            return new ResponseEntity<>(childOfEmployeeSaved, HttpStatus.CREATED);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-
-//    @PutMapping("/children/{id}")
-//    public ChildOfEmployee updateChild(@PathVariable("id") Long id, @RequestBody ChildOfEmployee childOfEmployee) {
-//        return childService.updateChild(id, childOfEmployee);
-//    }
 
     @PutMapping("/children/{id}")
     public ResponseEntity<ChildOfEmployee> updateChild(@PathVariable("id") Long id, @RequestBody ChildOfEmployee childOfEmployee) {
@@ -110,8 +78,6 @@ public class ChildController {
     public void deleteChild(@PathVariable("id") Long id) {
         childService.deleteChildByID(id);
     }
-
-
 
     @GetMapping("/children/employee/{id}")
     public Iterable<ChildOfEmployee> findByEmployeesID(@PathVariable("id") Long id) {

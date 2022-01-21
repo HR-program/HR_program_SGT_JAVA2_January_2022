@@ -17,7 +17,6 @@ export class RequestInterceptor implements HttpInterceptor {
     if (token) {
       request = request.clone({ headers: request.headers.set('Authorization', token) });
     }
-
     return next.handle(request);
   }
 }

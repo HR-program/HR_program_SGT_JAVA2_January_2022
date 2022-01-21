@@ -18,15 +18,9 @@ export class UpdateChildComponent implements OnInit {
 id = this.route.snapshot.params['id'];
   employee: Employee = new Employee;
   colorTheme = 'theme-default'
-
-
   bsConfig?: Partial<BsDatepickerConfig>;
- 
    applyTheme(){
- 
      this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
- 
- 
    }
 
   constructor(
@@ -34,12 +28,9 @@ id = this.route.snapshot.params['id'];
     private location: Location,
        private route: ActivatedRoute,
     private employeeService: EmployeeService,
-    
+      ) { }
 
 
-  ) { }
-
-  
     ngOnInit(): void {
 this.getChild()
 this.applyTheme();
@@ -60,23 +51,13 @@ updateChild(){
   error=> console.log(error));
   }
 
-
     onSubmit(){
       console.log(this.child);
     this.updateChild();
-     setTimeout(() =>this.goBack(),300); 
-       
+     setTimeout(() =>this.goBack(),300);
       }
-  
-  
 
-  
   goBack(): void {
     this.location.back();
   }
-
-
-  
   }
-  
-
