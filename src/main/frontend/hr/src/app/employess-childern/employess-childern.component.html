@@ -66,8 +66,8 @@
         <td>{{child.childPersonalCode}}</td>
         <td>{{child.ageOfChild}}</td>
         <!-- <td>{{child.childParents}}</td>  -->
-        <td style="display: flex; justify-content: center; align-items: center;">
-          <button routerLink ="/update-child/{{child.childId}}"btn btn-info >Update</button>
+        <td style=" justify-content: center; align-items: center;">
+          <button routerLink ="/update-child/{{child.childId}}"btn btn-info class="employee_buttons">Update</button>
           <button  mwlConfirmationPopover
                    [popoverTitle]="popoverTitle"
                    [popoverMessage]="popoverMessage"
@@ -80,14 +80,14 @@
 
             Delete</button>
           </td>
-    
+
       </tr>
         </tbody>
 
     </table>
 
 
-    
+
     <pagination-controls (pageChange) = "page = $event" ></pagination-controls>
 
 
@@ -105,7 +105,7 @@
       <option value = "9">9</option>
       </select>
   </Span>
-  
+
     <div class="buttons">
       <button (click)= "goToAddChildrenPage(employee.id)" class = "btn " type = "submit" >Add Child</button>
       <button (click)= "goBack()" class = "btn " type = "info" >Go Back</button>
