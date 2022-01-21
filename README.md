@@ -52,7 +52,7 @@
 2) to press “Children” button
 <br />a)	There you will automatically see the list of children of the employee.
 <br />You can choose how many children will be displayed on one page: 3, 6 or 9.
-<br />
+
 <br />b)	If there are children, you can:
 - update child’s information (press “Update”, change necessary information, press “Submit” to save the changes or press “Go Back” to cancel the changes).
 - delete the child from database; the system will ask you “Are you sure?” and then you can cancel your choice or confirm it.
@@ -84,8 +84,8 @@
 - update department’s information (press “Update”, change necessary information, press “Submit” to save the changes or press “Go Back” to cancel the changes).
 - delete the department from database; the system will ask you “Are you sure you want to delete department? It can be deleted only if it is empty.” and then you can cancel your choice or confirm it.
 If department has at least one employee, you will not be able to delete the department. After pressing “confirm” nothing will happen. In this case, you need to go to the “Employees” -> “All Employees” and move employees to another department by “Update Employee” button in each employee.
-<br />
-- <br />b)	You can add new department by pressing “Add Department”.
+
+<br />b)	You can add new department by pressing “Add Department”.
 <br />If you pressed “Add Department”, you have to fill in the information (name and address), press “Submit” to save the new department’s information.
 
 <br />**“Employees children” button**
