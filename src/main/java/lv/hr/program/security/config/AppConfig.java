@@ -41,10 +41,10 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
                         ex.getMessage())
         ).and();
 
-//        http.authorizeRequests()
-//
-//                .antMatchers("/api/v1/login").permitAll()
-//                .anyRequest().authenticated();
+        http.authorizeRequests()
+
+                .antMatchers("/api/v1/login").permitAll()
+                .anyRequest().authenticated();
 
         http.addFilterBefore(
                 sessionFilter,
