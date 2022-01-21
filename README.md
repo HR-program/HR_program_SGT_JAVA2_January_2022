@@ -56,7 +56,7 @@
 <br />b)	If there are children, you can:
 - update child’s information (press “Update”, change necessary information, press “Submit” to save the changes or press “Go Back” to cancel the changes).
 - delete the child from database; the system will ask you “Are you sure?” and then you can cancel your choice or confirm it.
-<br />
+
 <br />c)	You can add new child by pressing “Add Child” or go back to the information of employee by pressing “Go Back”.
 <br />
 <br />d)	If you pressed “Add Child”, you have to fill in the information (personal code, date of birth, First name and Last name), press “Submit” to save the new child’s information or press “Go Back” to cancel the changes.
