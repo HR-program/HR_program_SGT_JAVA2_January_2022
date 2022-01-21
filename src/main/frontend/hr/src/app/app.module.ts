@@ -8,7 +8,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { CertificatesComponent } from './certificates/certificates.component';
-
+import {ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
@@ -68,7 +68,8 @@ import { RequestInterceptor } from './request.interceptor';
       // confirmButtonType: 'danger', // set defaults here
     }),
     BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]

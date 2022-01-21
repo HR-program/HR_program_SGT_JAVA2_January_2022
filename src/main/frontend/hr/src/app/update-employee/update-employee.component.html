@@ -1,3 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a routerLink="/"class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/departments" class="nav-link" href="#">Departments</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
 <div class="main">
   <div class="employee_card">
 
@@ -70,26 +92,42 @@
         </select>
       </div>
 
-      <!--      <div class = "form-group">-->
-<!--        <label>Department</label>-->
-<!--        <input type = "text" class = "form-control" id ="department"-->
-<!--               [(ngModel)] ="employee.department" name = "department">-->
-<!--      </div>-->
+<div class = "form-group">
+  <label>Certificate</label>
+  <input type = "text" class = "form-control" id ="certificate"
+         [(ngModel)] ="employee.certificate" name = "certificate">
+</div>
+<div class = "form-group">
+  <label>Employment Date</label>
+  <input type = "text" class = "form-control" id ="certificate"
+         [(ngModel)] ="employee.workStartDate" name = "certificate">
+</div>
+
+
       <div class = "form-group">
-        <label>Certificate</label>
+        <label>Dismissal Date</label>
         <input type = "text" class = "form-control" id ="certificate"
-               [(ngModel)] ="employee.certificate" name = "certificate">
-      </div>
-      <!-- <div class = "form-group">
-        <label>Does Employee Have Children </label>
-        <input type = "text" class = "form-control" id ="doesEmployeeHaveChild"
-               [(ngModel)] ="employee.doesEmployeeHaveChild" name = "doesEmployeeHaveChild">
-      </div> -->
-      <div>
-        <label>Is Employee Active</label>
-        <input type = "text" class = "form-control" id ="employeeActive"
-               [(ngModel)] ="employee.employeeActive" name = "employeeActive">
-      </div>
+               [(ngModel)] ="employee.workEndDate" name = "certificate">
+
+
+
+      <div class = "form group row">
+        <label for = "employeeActive" class = "col-form-label col sm-2">Is Employee Active</label>
+           <select [(ngModel)]="employee.employeeActive" class = "form-control" name = "employeeActive">
+                <option [ngValue]="undefined">-------Choose option-----</option>
+                <option [ngValue]= "true" >Yes</option>
+                <option [ngValue]= "false">No</option>
+
+           </select>
+
+           <div class = "form group row">
+            <label for = "employeeActive" class = "col-form-label col sm-2">Children</label>
+               <select [(ngModel)]="employee.doesEmployeeHaveChild" class = "form-control" name = "employeehavechild">
+                    <option [ngValue]="undefined">-------Choose option-----</option>
+                    <option [ngValue]= "true" >Yes</option>
+                    <option [ngValue]= "false">No</option>
+    
+               </select>
 
 
       <button  (click)="onSubmit()"class = "btn " type = "submit" >Submit</button>

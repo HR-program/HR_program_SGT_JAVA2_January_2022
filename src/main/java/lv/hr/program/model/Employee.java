@@ -1,5 +1,7 @@
 package lv.hr.program.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -12,10 +14,10 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private long id;
-
+    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "work_start_date")
     private LocalDate workStartDate;
-
+    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "work_end_date")
     private LocalDate workEndDate;
 
@@ -27,7 +29,7 @@ public class Employee {
 
     @Column(name = "gender")
     private Gender gender;
-
+    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "employee_date_of_birth")
     private LocalDate dateOfBirth;
 
@@ -36,7 +38,7 @@ public class Employee {
 
     @Column(name = "employee_id_document_number")
     private String idDocumentNumber;
-
+    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "employee_id_document_expiry_date")
     private LocalDate idDocumentExpiryDate;
 
@@ -97,6 +99,10 @@ public class Employee {
         this.certificate = certificate;
         this.doesEmployeeHaveChild = doesEmployeeHaveChild;
         this.employeeActive = employeeActive;
+    }
+
+    public Employee(boolean doesEmployeeHaveChild) {
+        this.doesEmployeeHaveChild = doesEmployeeHaveChild;
     }
 
     public boolean setHavingChildrenToFalse() {

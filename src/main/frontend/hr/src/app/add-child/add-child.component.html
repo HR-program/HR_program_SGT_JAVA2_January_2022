@@ -1,3 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a routerLink="/"class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/departments" class="nav-link" href="#">Departments</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
 <div class="main">
   <div class="employee_card">
 
@@ -13,9 +35,17 @@
       </div>
       <div class = "form-group">
         <label>Date Of Birth</label>
-        <input type = "text" class = "form-control" id ="dateOfBirth"
-               [(ngModel)] ="child.childDateOfBirth" name = "childDateOfBirth">
-      </div>
+
+      <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+        <input type="text"
+
+        placeholder= "DD/MM/YYYY "
+
+               class="form-control"
+               bsDatepicker
+               [(ngModel)] ="child.childDateOfBirth"
+               bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+</div>
       <div class = "form-group">
         <label>FirstName</label>
         <input type = "text" class = "form-control" id ="name"

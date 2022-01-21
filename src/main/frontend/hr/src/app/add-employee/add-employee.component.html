@@ -1,3 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a routerLink="/"class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a routerLink="/search-employees"class="nav-link" href="#">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/departments" class="nav-link" href="#">Departments</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/children-list"class="nav-link" href="#">Employees children</a>
+        </li>
+  
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
   <div class="wrapper">
     <div class="main">
       <div class="employee_card">
@@ -7,8 +29,14 @@
     <div class = "form-group">
         <label>FirstName</label>
         <input type = "text" class = "form-control" id ="name"
-        [(ngModel)] ="employee.name" name = "name">
-    </div>
+        [(ngModel)] ="employee.name" name = "name" #name="ngModel">
+         </div>
+         <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert"></div>
+     
+       <div *ngIf="name.errors?.['required']">
+         Name is required.
+       </div> -->
     <div class = "form-group">
         <label>Last Name</label>
         <input type = "text" class = "form-control" id ="surname"
@@ -59,8 +87,17 @@
     </div>
     <div class = "form-group">
         <label>Document Expiry Date</label>
-        <input type = "text" class = "form-control" id ="idDocumentExpiryDate"
-        [(ngModel)] ="employee.idDocumentExpiryDate" name = "idDocumentExpiryDate">
+      
+        
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input type="text"
+  
+            placeholder= "DD/MM/YYYY "
+  
+                   class="form-control"
+                   bsDatepicker
+                   [(ngModel)] ="employee.idDocumentExpiryDate"
+                   bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
     </div>
     <div class = "form-group">
         <label>Phone Number</label>
@@ -89,6 +126,7 @@
                 <option *ngFor = "let department of departments" [ngValue] = "department">{{department.name}}</option>
            </select>
     </div>
+    
 
     <div class = "form-group">
         <label>Certificate</label>

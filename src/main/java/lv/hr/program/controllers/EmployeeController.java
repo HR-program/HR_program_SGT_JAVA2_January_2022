@@ -143,6 +143,8 @@ public class EmployeeController {
         }
     }
 
+
+
     @DeleteMapping("/employees/{id}")
     public void deleteEmployeeById(@PathVariable("id") Long Id) {
         employeeService.deleteEmployeeByID(Id);
@@ -162,6 +164,10 @@ public class EmployeeController {
     public Iterable<Employee> getEmployeesByDepartmentID(@PathVariable("id") Long id) {
         return employeeService.getEmployeesByDepartmentId(id);
     }
+
+
+
+
 
     @GetMapping("/employees/personal-code/{personal-code}")
     public Iterable<Employee> fetchEmployeeByPersonalCodeLike(@PathVariable("personal-code") String personalCode) {

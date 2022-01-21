@@ -5,6 +5,7 @@ import { Child } from '../child';
 import { ChildService } from '../child.service';
 import { Employee } from '../employee';
 import { Location } from '@angular/common';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employess-childern',
@@ -34,7 +35,8 @@ child: Child =new Child();
   constructor(private childService: ChildService,
     private route: ActivatedRoute,
     private router:Router,
-    private location:Location) { }
+    private location:Location,
+    private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
 
@@ -55,6 +57,11 @@ this.childService.getChildrenByEmployessID(this.id).subscribe(data=>{
     
   }
 
+
+
+
+
+
   goToAddChildrenPage(id:number){
     this.id = this.route.snapshot.params['id'];
     this.router.navigate (['add-child',this.id]);
@@ -67,15 +74,16 @@ this.childService.getChildrenByEmployessID(this.id).subscribe(data=>{
      
   }
 
-deleteChildFromDataBase(){
-  this.childService.deleteChild
-}
 
-  deleteChild(id: number):void{
+
+  deleteChild(id: number){
     this.childService.deleteChild(id).subscribe(data=>{
       console.log(data);
       console.log(id);
       this.getEmplyoeesChildren();
+    
+
+      
   }, error => {console.log(error);})
 
   }

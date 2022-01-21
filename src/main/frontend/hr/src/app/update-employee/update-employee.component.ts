@@ -5,6 +5,7 @@ import { EmployeeService } from '../employee.service';
 import { Location } from '@angular/common';
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-update-employee',
@@ -16,6 +17,17 @@ export class UpdateEmployeeComponent implements OnInit {
   departments: Department[]=[];
   employee: Employee = new Employee();
   employeeDepartment: number
+  colorTheme = 'theme-default'
+
+
+ bsConfig?: Partial<BsDatepickerConfig>;
+
+  applyTheme(){
+
+    this.bsConfig =  { containerClass: this.colorTheme,dateInputFormat: 'DD/MM/YYYY' }
+
+
+  }
 
   constructor(private employeeService: EmployeeService,
     private departmentService: DepartmentService,
@@ -26,6 +38,7 @@ export class UpdateEmployeeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.applyTheme();
     this.getEmployee();
     this.getDepartments();
 // this.getemployeeDepartment();

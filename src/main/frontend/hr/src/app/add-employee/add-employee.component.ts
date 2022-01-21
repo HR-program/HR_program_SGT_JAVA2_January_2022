@@ -70,7 +70,7 @@ error=> console.log(error));
 
   goToEmployeesList(){
 
-  this.router.navigate(['employees']);
+  this.router.navigate(['employees-active']);
   setTimeout(() => document.getElementById('goToLastPage').click(), 350)
 
 

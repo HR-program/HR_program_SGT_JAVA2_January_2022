@@ -1,5 +1,7 @@
 package lv.hr.program.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
@@ -15,7 +17,7 @@ public class ChildOfEmployee {
 
     @Column(name = "child_personal_code")
     private String childPersonalCode;
-
+    @DateTimeFormat(pattern="dd/MM/yyyy")
     @Column(name = "child_date_of_birth")
     private LocalDate childDateOfBirth;
 

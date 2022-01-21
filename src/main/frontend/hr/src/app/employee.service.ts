@@ -18,6 +18,7 @@ private findByNameURL='/api/v1/employees/name';
 private findByPersonalCodeURL='api/v1/employees/personal-code';
 private findAllActiveURL ='/api/v1/employees/active';
 private  employeesByDepartmentsIdURL = 'api/v1/employees/department';
+private employeeDontHaveChildURL= 'api/v1/employee/dont-have-child';
 
   private baseURL= '/api/v1/employees';
   constructor(private httpClient: HttpClient) { }
@@ -54,6 +55,8 @@ addDepartment(department: Department):Observable<any>{
 updateEmployee(id: number,employee: Employee): Observable<Object>{
   return this.httpClient.put(`${this.baseURL}/${id}`,employee);
 }
+
+
 deleteEmployee(id: number): Observable<Employee> {
   return this.httpClient.delete<Employee>(`${this.baseURL}/${id}`);
 }
