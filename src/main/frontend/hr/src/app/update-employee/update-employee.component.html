@@ -36,11 +36,14 @@
         <input type = "text" class = "form-control" id ="surname"
                [(ngModel)] ="employee.surname" name = "lastname">
       </div>
-      <div class = "form-group">
-        <label>Gender</label>
-        <input type = "text" class = "form-control" id ="gender"
-               [(ngModel)] ="employee.gender" name = "gender">
-      </div>
+      <div class = "form group row">
+        <label for = "gender" class = "col-form-label col sm-2">Gender</label>
+           <select [(ngModel)]="employee.gender" class = "form-control" name = "gender">
+                <option [ngValue]="undefined">-------Choose gender-----</option>
+                <option [value]= >FEMALE</option>
+                <option [value]= >MALE</option>
+                </select>
+    </div>
       <div class = "form-group">
         <label>Date Of Birth</label>
         <input type = "text" class = "form-control" id ="dateOfBirth"
@@ -92,22 +95,31 @@
         </select>
       </div>
 
-<div class = "form-group">
-  <label>Certificate</label>
-  <input type = "text" class = "form-control" id ="certificate"
-         [(ngModel)] ="employee.certificate" name = "certificate">
-</div>
-<div class = "form-group">
-  <label>Employment Date</label>
-  <input type = "text" class = "form-control" id ="certificate"
-         [(ngModel)] ="employee.workStartDate" name = "certificate">
-</div>
 
 
-      <div class = "form-group">
-        <label>Dismissal Date</label>
-        <input type = "text" class = "form-control" id ="certificate"
-               [(ngModel)] ="employee.workEndDate" name = "certificate">
+
+      
+
+               <div class = "form-group">
+                <label>Dismissal Date</label>
+        
+        
+        
+                <!-- placeholder="Datepicker" -->
+        
+              <div class="row">
+                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                  <input type="text"
+        
+                  placeholder= "DD/MM/YYYY "
+        
+                         class="form-control"
+                         bsDatepicker
+                         [(ngModel)] ="employee.workEndDate"
+                         bsDatepicker #dp="bsDatepicker" [bsConfig]="bsConfig">
+        
+        
+                </div>
 
 
 

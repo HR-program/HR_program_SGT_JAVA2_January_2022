@@ -18,10 +18,20 @@ private findByNameURL='/api/v1/employees/name';
 private findByPersonalCodeURL='api/v1/employees/personal-code';
 private findAllActiveURL ='/api/v1/employees/active';
 private  employeesByDepartmentsIdURL = 'api/v1/employees/department';
-private employeeDontHaveChildURL= 'api/v1/employee/dont-have-child';
+private getAllActiveSortByNameURL = 'api/v1/employees/active/sort-by-name';
+private getAllActiveSortBySurnameURL='api/v1/employees/active/sort-by-surname';
 
   private baseURL= '/api/v1/employees';
   constructor(private httpClient: HttpClient) { }
+
+  getAllActiveSortByName():Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(this.getAllActiveSortByNameURL);
+  }
+
+  getAllActiveSortBySurname():Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(this.getAllActiveSortBySurnameURL);
+  }
+
 
   getEmployee(id: number): Observable<Employee> {
     const url = `${this.baseURL}/${id}`;

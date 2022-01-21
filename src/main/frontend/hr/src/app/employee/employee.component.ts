@@ -10,7 +10,7 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeComponent implements OnInit {
   popoverTitle = 'Delete Employee';
-  popoverMessage = 'Are you sure';
+  popoverMessage = 'Are you sure? To delete employee, delete vacations and children first.';
   confirmClicked = false;
   cancelClicked = false;
   employee: Employee = new Employee;

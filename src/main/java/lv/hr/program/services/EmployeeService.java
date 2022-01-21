@@ -33,4 +33,8 @@ public interface EmployeeService {
     List<Employee> getAllActiveEmployees();
 
     Iterable<Employee> getEmployeesByDepartmentId(Long id);
+
+    Iterable<Employee> getAllActiveEmployeesAndSortByName();
+
+    Iterable<Employee> getAllActiveEmployeesAndSortBySurname();
 }

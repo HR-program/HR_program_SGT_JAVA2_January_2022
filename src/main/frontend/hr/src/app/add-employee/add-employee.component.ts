@@ -1,8 +1,7 @@
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Location } from '@angular/common';
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Child } from '../child';
 import { ChildService } from '../child.service';
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
@@ -16,7 +15,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-
+  // addEmployeeForm = new FormGroup({
+  //   name: new FormControl('', Validators.required),
+  // });
   employee: Employee = new Employee();
   departments: Department[]=[];
   id!: number;
@@ -51,6 +52,9 @@ export class AddEmployeeComponent implements OnInit {
     this.applyTheme();
 
   }
+
+  // get name (){return this.addEmployeeForm.get('name')}
+
 
   getDepatments(){
     this.departmentService.getDepartmentsList().subscribe(data=>{

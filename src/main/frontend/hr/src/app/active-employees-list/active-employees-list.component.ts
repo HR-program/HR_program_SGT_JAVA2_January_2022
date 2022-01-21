@@ -37,15 +37,19 @@ private location: Location,
       console.log (data)
              })
   }
-  sortByName():void{
-    this.employeeService.sortByName().subscribe
+
+getAllActiveSortByName():void{
+  this.employeeService.getAllActiveSortByName().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
-    })}
+    },)}
 
-  sortBySurname():void{
-    this.employeeService.sortBySurname().subscribe
+
+
+
+  getAllActiveSortBySurname():void{
+    this.employeeService.getAllActiveSortBySurname().subscribe
     (data =>{
       this.employees = data;
       console.log (data);
@@ -55,10 +59,10 @@ private location: Location,
 
     switch(this.selected) {
       case "1":
-         this.sortBySurname();
+         this.getAllActiveSortBySurname();
          break;
       case "2":
-         this.sortByName();
+         this.getAllActiveSortByName();
          break;
 
     }
