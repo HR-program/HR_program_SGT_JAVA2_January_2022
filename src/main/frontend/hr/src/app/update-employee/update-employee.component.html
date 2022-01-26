@@ -88,6 +88,13 @@
           <option *ngFor="let department of departments" [ngValue]="department.id">{{department.name}}</option>
         </select>
       </div>
+
+      
+  <div class = "form-group">
+    <label>Employment Date</label>
+    <input type="text" class="form-control" id="employmentDate"
+    [(ngModel)]="employee.workStartDate" name="employmentDate">
+</div>
       <div class="form-group">
         <label>Dismissal Date</label>
         <div class="row">
