@@ -41,7 +41,7 @@ id = this.route.snapshot.params['id'];
    console.log(this.child);
    this.addChild3();
    this.goBack();
-   setTimeout(() =>this.getChildren(),500 );
+   setTimeout(() =>this.getChildren(),700 );
    setTimeout(() => document.getElementById('goToLastPage').click(),400 )
     }
 
